@@ -47,6 +47,7 @@
 			{
 				if (board[r][c] == 1 || board[r][c] == 2)
 					count++;
+					//just check if there are any zeroes, you don't need to add up everything.
 			}
 		}
 		
@@ -82,7 +83,15 @@
             g.fillRect(5,100,395,5);
             g.fillRect(5,200,395,5);
             g.fillRect(5,300,395,5);
-         
+            //so basically after you save it
+            //and you want to test
+            //since this runs in the cloud idk how the ui will work
+            //so jsut click "bash" and then
+            //copy 'git add *.java'
+            //git commit -m "whatever mssgae here"
+            //git push 
+            //and then you can sync to your deksotp
+            System.out.println("Hello World");
          }
       }
    
