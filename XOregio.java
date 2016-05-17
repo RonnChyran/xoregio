@@ -27,9 +27,7 @@
          message.setHorizontalAlignment(SwingConstants.CENTER);
          frame.add(message, "South");
          frame.setVisible(true);
-			
-			System.out.println(fullBoard());		
-      }
+		}
    
             		
    // Marks chosen square (as indicated by parameters row and col), and any adjacent empty squares.
