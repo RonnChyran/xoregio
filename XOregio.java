@@ -44,9 +44,7 @@
 			for (int c = 0; c < 4; c++)
 			{
 				if (board[r][c] == 0)
-				{
 					return false; 
-				}
 			}
 		}
 		return true;
