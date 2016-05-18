@@ -39,24 +39,17 @@
    // Checks if the board is full.  If it is, return true; otherwise, return false.
    public boolean fullBoard()
    {
-		int count = 0;
-	
 		for (int r = 0; r < 4; r++)
 		{
 			for (int c = 0; c < 4; c++)
 			{
-				if (board[r][c] == 1 || board[r][c] == 2)
-					count++;
-					//just check if there are any zeroes, you don't need to add up everything.
+				if (board[r][c] == 0)
+				{
+					return false; //thats all you need.
+				}
 			}
 		}
-		
-		if (count == 16)
-		{
-			return true;
-		}
-		else
-			return false;
+		return true;
    } // fullBoard
   
   
@@ -91,7 +84,6 @@
             //git commit -m "whatever mssgae here"
             //git push 
             //and then you can sync to your deksotp
-            System.out.println("Hello World");
          }
       }
    
