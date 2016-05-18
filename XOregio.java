@@ -46,6 +46,7 @@
 				if (board[r][c] == 0)
 				{
 					return false; //thats all you need.
+					//say you add a comment.
 				}
 			}
 		}
