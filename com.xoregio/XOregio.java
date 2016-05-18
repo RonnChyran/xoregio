@@ -32,6 +32,8 @@ public class XOregio implements MouseListener {
 
     // Marks chosen square (as indicated by parameters row and col), and any adjacent empty squares.
     public void markBoard(int row, int col) {
+        board[row][col] = 2;
+
     } // markBoard
 
 
@@ -50,6 +52,8 @@ public class XOregio implements MouseListener {
     // Updates game board and checks for win after a player has chosen a square (as indicated by parameters row and col).
     // choseSquare should call methods markBoard and fullBoard.
     public void choseSquare(int row, int col) {
+        markBoard(row, col);
+        System.out.print("testing");
     } // choseSquare
 
 
@@ -67,14 +71,7 @@ public class XOregio implements MouseListener {
             g.fillRect(5, 100, 395, 5);
             g.fillRect(5, 200, 395, 5);
             g.fillRect(5, 300, 395, 5);
-            //so basically after you save it
-            //and you want to test
-            //since this runs in the cloud idk how the ui will work
-            //so jsut click "bash" and then
-            //copy 'git add *.java'
-            //git commit -m "whatever mssgae here"
-            //git push 
-            //and then you can sync to your deksotp
+
         }
     }
 
