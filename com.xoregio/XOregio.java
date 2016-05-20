@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
 
-public class XOregio implements MouseListener {
+public class XOregio implements MouseListener
+{
     Drawing draw = new Drawing();
     int[][] board = new int[4][4];    // 0 = empty; 1 = X; 2 = O
     boolean xTurn = true;
@@ -31,17 +32,20 @@ public class XOregio implements MouseListener {
 
 
     // Marks chosen square (as indicated by parameters row and col), and any adjacent empty squares.
-    public void markBoard(int row, int col) {
-        board[row][col] = 2;
+    public void markBoard(int row, int col)
+    {
 
     } // markBoard
 
 
     // Checks if the board is full.  If it is, return true; otherwise, return false.
-    public boolean fullBoard() {
-        for (int r = 0; r < 4; r++) {
-            for (int c = 0; c < 4; c++) {
-                if (board[r][c] == 0)
+    public boolean fullBoard()
+    {
+        for (int[] row : board)
+        {
+            for (int col : row)
+            {
+                if (col == 0)
                     return false;
             }
         }
@@ -51,14 +55,17 @@ public class XOregio implements MouseListener {
 
     // Updates game board and checks for win after a player has chosen a square (as indicated by parameters row and col).
     // choseSquare should call methods markBoard and fullBoard.
-    public void choseSquare(int row, int col) {
+    public void choseSquare(int row, int col)
+    {
         markBoard(row, col);
         System.out.print("testing");
     } // choseSquare
 
 
-    class Drawing extends JComponent {
-        public void paint(Graphics g) {
+    class Drawing extends JComponent
+    {
+        public void paint(Graphics g)
+        {
             // draw the content of the board
             for (int row = 0; row < 4; row++)
                 for (int col = 0; col < 4; col++)
@@ -76,11 +83,14 @@ public class XOregio implements MouseListener {
     }
 
     // --> starting implementing MouseListener - it has 5 methods
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent e)
+    {
     }
 
-    public void mouseReleased(MouseEvent e) {
-        if (!win) {
+    public void mouseReleased(MouseEvent e)
+    {
+        if (!win)
+        {
             // find coords of mouse click
             int row = e.getY() / 100;
             int col = e.getX() / 100;
@@ -91,17 +101,21 @@ public class XOregio implements MouseListener {
         }
     }
 
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e)
+    {
     }
 
-    public void mouseEntered(MouseEvent e) {
+    public void mouseEntered(MouseEvent e)
+    {
     }
 
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e)
+    {
     }
 
     // finishing implementing MouseListener  <---
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         new XOregio();
     }
 }
