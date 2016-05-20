@@ -34,7 +34,8 @@ public class XOregio implements MouseListener
     // Marks chosen square (as indicated by parameters row and col), and any adjacent empty squares.
     public void markBoard(int row, int col)
     {
-
+        board[row][col] = xTurn ? 1 : 2;
+        xTurn = !xTurn;
     } // markBoard
 
 
