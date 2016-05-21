@@ -1,4 +1,4 @@
-package com.xoregio;
+//package com.xoregio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +45,7 @@ public class XOregioGame implements MouseListener
             board[row][col - 1] = mark;
         if(col != board[0].length - 1)
             board[row][col + 1] = mark;
-        xTurn = !xTurn;
+        xTurn = !xTurn; 
     } // markBoard
 
 
