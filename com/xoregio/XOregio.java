@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 public class XOregio
 {
@@ -15,9 +17,11 @@ public class XOregio
         JButton spButton = new JButton("Single Player");
         frame.setSize(400, 480);
         board.setSize(400, 480);
+
         frame.add(board, BorderLayout.CENTER);
         frame.add(spButton, BorderLayout.PAGE_END);
         frame.setVisible(true);
+
         //   JButton spButton = new JButton("Single Player");
     //    JButton mpButton = new JButton("Multi Player");
 
