@@ -75,7 +75,7 @@ public class XOregioGame implements MouseListener
        
 		  if(board[row][col] == 0)
             markBoard(row, col);
- 	
+
         win = fullBoard();
     } // choseSquare
 
