@@ -13,6 +13,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
     {
 
     }
+
     @Override
     public boolean isRobot()
     {

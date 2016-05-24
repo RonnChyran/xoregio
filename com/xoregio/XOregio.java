@@ -11,10 +11,17 @@ public class XOregio
     public XOregio()
     {
         JFrame frame = new JFrame("XOregio");
+        XOregioBoard board = new XOregioBoard();
         JButton spButton = new JButton("Single Player");
-        JButton mpButton = new JButton("Multi Player");
+        frame.setSize(400, 480);
+        board.setSize(400, 480);
+        frame.add(board, BorderLayout.CENTER);
+        frame.add(spButton, BorderLayout.PAGE_END);
+        frame.setVisible(true);
+        //   JButton spButton = new JButton("Single Player");
+    //    JButton mpButton = new JButton("Multi Player");
 
-        frame.add(spButton, BorderLayout.LINE_START);
+     /*   frame.add(spButton, BorderLayout.LINE_START);
         frame.add(mpButton, BorderLayout.LINE_END);
         frame.setSize(400, 480);
         frame.setVisible(true);
@@ -33,7 +40,7 @@ public class XOregio
             {
                 new XOregioGame(); //defaults to 2 human players
             }
-        });
+        });*/
     }
     public static void main(String[] args)
     {

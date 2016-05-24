@@ -8,7 +8,7 @@ import java.lang.*;
 public class XOregioGame implements MouseListener
 {
     Drawing draw = new Drawing();
-    int[][] board = new int[4][4];    // 0 = empty; 1 = X; 2 = O
+    int[][] board = new int[6][6];    // 0 = empty; 1 = X; 2 = O
     boolean xTurn = true;
     boolean win = false;
     JLabel message = new JLabel("X's turn");
@@ -40,7 +40,7 @@ public class XOregioGame implements MouseListener
         frame.setVisible(true);
     }
 
-    private XOregioPlayer getPlayer()
+    private XOregioPlayer getCurrentPlayer()
     {
         return xTurn ? player1 : player2;
     }
@@ -87,7 +87,6 @@ public class XOregioGame implements MouseListener
             markBoard(row, col);
             xTurn = !xTurn;
             message.setText((xTurn ? "X" : "O") + "'s Turn");
-
         win = fullBoard();
     } // choseSquare
 
@@ -105,6 +104,7 @@ public class XOregioGame implements MouseListener
             g.fillRect(borderOffset + 200, borderOffset + 5, 5, 395);
             g.fillRect(borderOffset + 300, borderOffset + 5, 5, 395);
 
+
             g.fillRect(borderOffset + 5, borderOffset + 100, 395, 5);
             g.fillRect(borderOffset + 5, borderOffset + 200, 395, 5);
             g.fillRect(borderOffset + 5, borderOffset + 300, 395, 5);
@@ -121,11 +121,11 @@ public class XOregioGame implements MouseListener
     {
         if (!win)
         {
-            int[] markedSquare = getPlayer().getNextMove(board, new int[] { e.getY() - borderOffset, e.getX() - borderOffset});
+            int[] markedSquare = getCurrentPlayer().getNextMove(board, new int[] { e.getY() - borderOffset, e.getX() - borderOffset});
             choseSquare(markedSquare[0], markedSquare[1]);
-            if(getPlayer().isRobot() && !win)
+            if(getCurrentPlayer().isRobot() && !win)
             {
-                int[] cpuMarkedSquare = getPlayer().getNextMove(board, null);
+                int[] cpuMarkedSquare = getCurrentPlayer().getNextMove(board, null);
                 choseSquare(cpuMarkedSquare[0], cpuMarkedSquare[1]);
             }
             // get paint to be called to reflect your mouse click
