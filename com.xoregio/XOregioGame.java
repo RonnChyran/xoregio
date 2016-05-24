@@ -13,7 +13,7 @@ public class XOregioGame implements MouseListener
     boolean win = false;
     JLabel message = new JLabel("X's turn");
     ImageIcon[] boardPictures = new ImageIcon[3];
-
+    XOregioPlayer player = new XOregioCPUPlayer();
     public XOregioGame()      // constructor
     {
         for (int i = 0; i < boardPictures.length; i++)
@@ -75,7 +75,8 @@ public class XOregioGame implements MouseListener
        
 		  if(board[row][col] == 0)
             markBoard(row, col);
-
+ 	
+        win = fullBoard();
     } // choseSquare
 
 
@@ -108,11 +109,8 @@ public class XOregioGame implements MouseListener
     {
         if (!win)
         {
-            // find coords of mouse click
-            int row = e.getY() / 100;
-            int col = e.getX() / 100;
-            // handle the move that the player has made on the game board
-            choseSquare(row, col);
+            int[] markedSquare = player.getNextMove(board, e);
+            choseSquare(markedSquare[0], markedSquare[1]);
             // get paint to be called to reflect your mouse click
             draw.repaint();
         }
