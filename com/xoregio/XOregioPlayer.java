@@ -2,7 +2,7 @@ package com.xoregio;
 
 public interface XOregioPlayer
 {
-    int[] getNextMove(int[][] gameState, Object e);
+    int[] getNextMove(int[][] gameState, int[] inputCoordinates);
 
     boolean isRobot();
 }

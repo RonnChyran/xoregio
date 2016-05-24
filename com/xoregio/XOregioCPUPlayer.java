@@ -20,7 +20,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
     }
 
     @Override
-    public int[] getNextMove(int[][] gameState, Object o)
+    public int[] getNextMove(int[][] gameState, int[] inputCoordinates)
     {
         // find coords of mouse click
         int row = getRandomRowWithSpaces(gameState);

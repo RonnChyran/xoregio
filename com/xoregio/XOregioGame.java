@@ -15,6 +15,7 @@ public class XOregioGame implements MouseListener
     ImageIcon[] boardPictures = new ImageIcon[3];
     XOregioPlayer player1;
     XOregioPlayer player2;
+    private final int borderOffset = 70;
 
     public XOregioGame()
     {
@@ -30,7 +31,7 @@ public class XOregioGame implements MouseListener
         frame.add(draw);
         draw.addMouseListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420, 480);
+        frame.setSize(420 + 2 * borderOffset, 480 + 2 * borderOffset); //560 by 620
         message.setFont(new Font("Serif", Font.BOLD, 20));
         message.setForeground(Color.blue);
         message.setHorizontalAlignment(SwingConstants.CENTER);
@@ -59,8 +60,6 @@ public class XOregioGame implements MouseListener
 				
         if(col != board[0].length - 1 && board[row][col + 1] == 0)
             board[row][col + 1] = mark;
-        xTurn = !xTurn;
-
     } // markBoard
 
 
@@ -86,7 +85,9 @@ public class XOregioGame implements MouseListener
        
 		  if(board[row][col] == 0)
             markBoard(row, col);
- 	
+            xTurn = !xTurn;
+            message.setText((xTurn ? "X" : "O") + "'s Turn");
+
         win = fullBoard();
     } // choseSquare
 
@@ -98,15 +99,15 @@ public class XOregioGame implements MouseListener
             // draw the content of the board
             for (int row = 0; row < 4; row++)
                 for (int col = 0; col < 4; col++)
-                    g.drawImage(boardPictures[board[row][col]].getImage(), col * 100, row * 100, 100, 100, this);
+                    g.drawImage(boardPictures[board[row][col]].getImage(), col * 100 + borderOffset, row * 100 + borderOffset, 100, 100, this);
             // draw grid
-            g.fillRect(100, 5, 5, 395);
-            g.fillRect(200, 5, 5, 395);
-            g.fillRect(300, 5, 5, 395);
+            g.fillRect(borderOffset + 100, borderOffset + 5, 5, 395);
+            g.fillRect(borderOffset + 200, borderOffset + 5, 5, 395);
+            g.fillRect(borderOffset + 300, borderOffset + 5, 5, 395);
 
-            g.fillRect(5, 100, 395, 5);
-            g.fillRect(5, 200, 395, 5);
-            g.fillRect(5, 300, 395, 5);
+            g.fillRect(borderOffset + 5, borderOffset + 100, 395, 5);
+            g.fillRect(borderOffset + 5, borderOffset + 200, 395, 5);
+            g.fillRect(borderOffset + 5, borderOffset + 300, 395, 5);
 
         }
     }
@@ -120,7 +121,7 @@ public class XOregioGame implements MouseListener
     {
         if (!win)
         {
-            int[] markedSquare = getPlayer().getNextMove(board, e);
+            int[] markedSquare = getPlayer().getNextMove(board, new int[] { e.getY() - borderOffset, e.getX() - borderOffset});
             choseSquare(markedSquare[0], markedSquare[1]);
             if(getPlayer().isRobot() && !win)
             {
