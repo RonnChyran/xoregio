@@ -1,4 +1,4 @@
-package com.xoregio;
+//package com.xoregio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,15 +37,19 @@ public class XOregioGame implements MouseListener
     {
         int mark = xTurn ? 1 : 2;
         board[row][col] = mark;
-        if(row != 0)
+        if(row != 0 && board[row - 1][col] == 0)
             board[row - 1][col] = mark;
-        if(row != board.length - 1)
+				
+        if(row != board.length - 1 && board[row + 1][col] == 0)
             board[row + 1][col] = mark;
-        if(col != 0)
+				
+        if(col != 0 && board[row][col - 1] == 0)
             board[row][col - 1] = mark;
-        if(col != board[0].length - 1)
+				
+        if(col != board[0].length - 1 && board[row][col + 1] == 0)
             board[row][col + 1] = mark;
         xTurn = !xTurn;
+
     } // markBoard
 
 
@@ -68,8 +72,10 @@ public class XOregioGame implements MouseListener
     // choseSquare should call methods markBoard and fullBoard.
     public void choseSquare(int row, int col)
     {
-        if(board[row][col] == 0)
+       
+		  if(board[row][col] == 0)
             markBoard(row, col);
+
     } // choseSquare
 
 
