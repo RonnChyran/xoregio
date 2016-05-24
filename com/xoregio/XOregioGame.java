@@ -13,9 +13,17 @@ public class XOregioGame implements MouseListener
     boolean win = false;
     JLabel message = new JLabel("X's turn");
     ImageIcon[] boardPictures = new ImageIcon[3];
-    XOregioPlayer player = new XOregioCPUPlayer();
-    public XOregioGame()      // constructor
+    XOregioPlayer player1;
+    XOregioPlayer player2;
+
+    public XOregioGame()
     {
+        this(new XOregioHumanPlayer(), new XOregioHumanPlayer());
+    }
+    public XOregioGame(XOregioPlayer player1, XOregioPlayer player2)      // constructor
+    {
+        this.player1 = player1;
+        this.player2 = player2;
         for (int i = 0; i < boardPictures.length; i++)
             boardPictures[i] = new ImageIcon(i + ".jpg");
         JFrame frame = new JFrame("XOregioGame");
@@ -31,7 +39,10 @@ public class XOregioGame implements MouseListener
         frame.setVisible(true);
     }
 
-
+    private XOregioPlayer getPlayer()
+    {
+        return xTurn ? player1 : player2;
+    }
     // Marks chosen square (as indicated by parameters row and col), and any adjacent empty squares.
     public void markBoard(int row, int col)
     {
@@ -109,8 +120,13 @@ public class XOregioGame implements MouseListener
     {
         if (!win)
         {
-            int[] markedSquare = player.getNextMove(board, e);
+            int[] markedSquare = getPlayer().getNextMove(board, e);
             choseSquare(markedSquare[0], markedSquare[1]);
+            if(getPlayer().isRobot() && !win)
+            {
+                int[] cpuMarkedSquare = getPlayer().getNextMove(board, null);
+                choseSquare(cpuMarkedSquare[0], cpuMarkedSquare[1]);
+            }
             // get paint to be called to reflect your mouse click
             draw.repaint();
         }

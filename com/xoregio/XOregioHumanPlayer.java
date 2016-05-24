@@ -8,6 +8,12 @@ import java.awt.event.MouseEvent;
 public class XOregioHumanPlayer implements XOregioPlayer
 {
     @Override
+    public boolean isRobot()
+    {
+        return false;
+    }
+
+    @Override
     public int[] getNextMove(int[][] gameState, Object o)
     {
         // find coords of mouse click

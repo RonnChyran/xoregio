@@ -13,13 +13,18 @@ public class XOregioCPUPlayer implements XOregioPlayer
     {
 
     }
+    @Override
+    public boolean isRobot()
+    {
+      return true;
+    }
 
     @Override
     public int[] getNextMove(int[][] gameState, Object o)
     {
         // find coords of mouse click
         int row = getRandomRowWithSpaces(gameState);
-        int col = getFirstEmpty(gameState[row]);
+        int col = getRandomEmpty(gameState[row]);
         return new int[] {row, col};
     }
 
@@ -39,13 +44,14 @@ public class XOregioCPUPlayer implements XOregioPlayer
         }
         return emptyRows.get(new Random().nextInt(emptyRows.size()));
     }
-    private int getFirstEmpty(int[] array)
+    private int getRandomEmpty(int[] array)
     {
+        List<Integer> emptyCol = new ArrayList<>();
         for (int i = 0; i < array.length; i++)
         {
             if(array[i] == 0)
-                return i;
+                emptyCol.add(i);
         }
-        return -1;
+        return emptyCol.get(new Random().nextInt(emptyCol.size()));
     }
 }
