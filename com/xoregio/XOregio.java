@@ -8,6 +8,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
+/*
+todo: Single Player/Multi Player selection
+todo: Start as X and y (checkbox)
+todo: Amount of Rows and Columns
+todo: Turn message and turn number keeper
+ */
 public class XOregio
 {
     public XOregio()

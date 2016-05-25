@@ -1,4 +1,4 @@
-//package com.xoregio;
+package com.xoregio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,6 +6,11 @@ import java.awt.event.*;
 import java.lang.*;
 import java.io.*;
 
+/*
+!!!!!Don't work on this one, work on XOregioBoard, which is the rewrite.!!!!
+Not sure if I can merge stuff back into XOregioBoard.java from here.
+ */
+@Deprecated
 public class XOregioGame implements MouseListener
 {
     Drawing draw = new Drawing();
@@ -151,18 +156,18 @@ public class XOregioGame implements MouseListener
     {
         new XOregioGame();
         
-        try 
+        /*try
         {
-         GraphicsEnvironment ge = 
+         GraphicsEnvironment ge =
             GraphicsEnvironment.getLocalGraphicsEnvironment();
          File f = new File("roboto.ttf");
          Font roboto = Font.createFont(Font.TRUETYPE_FONT, f);
-         message.setFont;
+         message.setFont(roboto);
 
-        } 
+        }
         catch (IOException|FontFormatException e) {
-     
-         }
+
+         }*/
 
     }
 }
