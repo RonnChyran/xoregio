@@ -25,7 +25,7 @@ public class XOregioBoard extends JComponent
     }
     public XOregioBoard()
     {
-        this(5, 5);
+        this(4, 4);
     }
 
     private int getColSpacing()
@@ -139,4 +139,12 @@ public class XOregioBoard extends JComponent
 
         }
     }
+    public static void main(String[] args)
+    {
+        JFrame frame = new JFrame("XOregio");
+        frame.add(new XOregioBoard());
+        frame.setSize(480, 400);
+        frame.setVisible(true);
+    }
+
 }
