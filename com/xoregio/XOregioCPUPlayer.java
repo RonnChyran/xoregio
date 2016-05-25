@@ -32,12 +32,15 @@ public class XOregioCPUPlayer implements XOregioPlayer
     }
 
     @Override
-    public int[] getNextMove(int[][] gameState, int[] inputCoordinates)
+    public int[] getNextMove(XOregioBoard board, int[] inputCoordinates)
     {
+        System.out.println("Robot's Turn");
         // find coords of mouse click
-        int row = getRandomRowWithSpaces(gameState);
-        int col = getRandomEmpty(gameState[row]);
-        return new int[] {row, col};
+        int row = getRandomRowWithSpaces(board.board);
+        System.out.println("Got Row: " + (row + 1));
+        int col = getRandomEmpty(board.board[row]);
+        System.out.println("Got Col: " + (col +1));
+        return new int[] {col, row};
     }
 
     private int getRandomRowWithSpaces(int[][] array)

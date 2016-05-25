@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public interface XOregioPlayer
 {
-    int[] getNextMove(int[][] gameState, int[] inputCoordinates);
+    int[] getNextMove(XOregioBoard board, int[] inputCoordinates);
 
     boolean isRobot();
 

@@ -30,11 +30,8 @@ public class XOregioHumanPlayer implements XOregioPlayer
     }
 
     @Override
-    public int[] getNextMove(int[][] gameState, int[] inputCoordinates)
+    public int[] getNextMove(XOregioBoard board, int[] inputCoordinates)
     {
-        // find coords of mouse click
-        int row = inputCoordinates[0]/ 100;
-        int col = inputCoordinates[1]/ 100;
-        return new int[] {row, col};
+      return new int[] {inputCoordinates[0] / board.getColSpacing(), inputCoordinates[1] / board.getRowSpacing()};
     }
 }

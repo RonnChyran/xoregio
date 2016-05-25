@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 /**
  * Created by Ronny on 2016-05-24.
  * todo: End Game Restart
- * todo: Re-implement AI (XOregioPlayer abstraction)
  * todo: Music
  * todo: Roboto
  * todo: Win condition.
@@ -21,10 +20,14 @@ public class XOregioBoard extends JComponent
     private boolean xTurn = true;
     private boolean win = false;
     public int [][] board;
+    private XOregioPlayer player1;
+    private XOregioPlayer player2;
     private final ImageIcon[] icons =  new ImageIcon[] { new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg") };
 
-    public XOregioBoard(int rows, int columns)
+    public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
     {
+        this.player1 = player1;
+        this.player2 = player2;
         this.rows = rows;
         this.columns = columns;
         this.board = new int[rows][columns];
@@ -32,7 +35,7 @@ public class XOregioBoard extends JComponent
     }
     public XOregioBoard()
     {
-        this(4, 4);
+        this(6, 6, new XOregioHumanPlayer(), new XOregioCPUPlayer());
     }
 
     /**
@@ -40,7 +43,7 @@ public class XOregioBoard extends JComponent
      * number of columns.
      * @return The spacing between the columns
      */
-    private int getColSpacing()
+    public int getColSpacing()
     {
         return this.getBounds().width / this.columns;
     }
@@ -50,7 +53,7 @@ public class XOregioBoard extends JComponent
      * number of rows.
      * @return The spacing between the rows
      */
-    private int getRowSpacing()
+    public int getRowSpacing()
     {
         return this.getBounds().height / this.rows;
     }
@@ -145,6 +148,11 @@ public class XOregioBoard extends JComponent
         }
     }
 
+    public XOregioPlayer getCurrentPlayer()
+    {
+        return xTurn ? this.player1 : this.player2;
+    }
+
     /**
      * Implements a MouseListener that updates an XOregioBoard.
      */
@@ -170,9 +178,13 @@ public class XOregioBoard extends JComponent
         public void mouseReleased(MouseEvent e) {
             //Gets the valid indices by dividing the MouseEvent coordinates
             //by the spacing of the row or column.
-            int x = e.getX() / board.getColSpacing();
-            int y = e.getY() / board.getRowSpacing();
-            board.choseSquare(y, x);
+            int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[] {e.getX(), e.getY()});
+            board.choseSquare(coordinates[1], coordinates[0]);
+            if(board.getCurrentPlayer().isRobot() && !board.win)
+            {
+                int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
+                board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
+            }
             board.repaint();
         }
 
