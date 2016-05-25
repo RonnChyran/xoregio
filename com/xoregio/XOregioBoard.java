@@ -12,39 +12,78 @@ public class XOregioBoard extends JComponent
 {
     private int rows;
     private int columns;
-    private int [][] state;
-    private XOregioPlayer playerOne;
-    private XOregioPlayer playerTwo;
-    private final ImageIcon icon =  new ImageIcon("1.jpg");
-    public XOregioBoard(int rows, int columns, XOregioPlayer playerOne, XOregioPlayer playerTwo)
+    private boolean xTurn = false;
+    private boolean win = false;
+    public int [][] board;
+    private final ImageIcon[] icons =  new ImageIcon[] { new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg") };
+    public XOregioBoard(int rows, int columns)
     {
         this.rows = rows;
         this.columns = columns;
-        this.state  = new int[rows][columns];
-        this.playerOne = playerOne;
-        this.playerTwo = playerTwo;
+        this.board = new int[rows][columns];
         this.addMouseListener(new XOregioMouseListener(this));
     }
     public XOregioBoard()
     {
-        this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer());
+        this(5, 5);
     }
 
-    public int getColSpacing()
+    private int getColSpacing()
     {
         return this.getBounds().width / this.columns;
     }
-    public int getRowSpacing()
+
+    private int getRowSpacing()
     {
         return this.getBounds().height / this.rows;
     }
+
+    // Checks if the board is full.  If it is, return true; otherwise, return false.
+    public boolean fullBoard()
+    {
+        for (int[] row : board)
+        {
+            for (int col : row)
+            {
+                if (col == 0)
+                    return false;
+            }
+        }
+        return true;
+    } // fullBoard
+
+
+    public void markBoard(int row, int col)
+    {
+        int mark = xTurn ? 1 : 2;
+        board[row][col] = mark;
+        if(row != 0 && board[row - 1][col] == 0)
+            board[row - 1][col] = mark;
+
+        if(row != board.length - 1 && board[row + 1][col] == 0)
+            board[row + 1][col] = mark;
+
+        if(col != 0 && board[row][col - 1] == 0)
+            board[row][col - 1] = mark;
+
+        if(col != board[0].length - 1 && board[row][col + 1] == 0)
+            board[row][col + 1] = mark;
+    } // markBoard
+
+    public void choseSquare(int row, int col)
+    {
+        if(board[row][col] == 0)
+            markBoard(row, col);
+        this.xTurn = !xTurn;
+        win = fullBoard();
+    } // choseSquare
 
     public void paint(Graphics g)
     {
         Rectangle r = this.getBounds();
         g.setColor(Color.DARK_GRAY);
         g.fillRect(r.x, r.y, r.width, r.height);
-        g.setColor(Color.BLUE);
+        g.setColor(Color.DARK_GRAY);
         int colSpacing = this.getColSpacing();
         int rowSpacing = this.getRowSpacing();
         for(int i = 0; i < this.rows + 1; i++)
@@ -59,7 +98,7 @@ public class XOregioBoard extends JComponent
         {
             for (int col = 0; col < this.columns; col++)
             {
-                g.drawImage(icon.getImage(), col * colSpacing + 5, row * rowSpacing + 5, colSpacing - 10, rowSpacing - 10, this);
+                g.drawImage(icons[this.board[row][col]].getImage(), col * colSpacing + 5, row * rowSpacing + 5, colSpacing - 10, rowSpacing - 10, this);
             }
         }
     }
@@ -86,8 +125,8 @@ public class XOregioBoard extends JComponent
         public void mouseReleased(MouseEvent e) {
             int x = e.getX() / board.getColSpacing();
             int y = e.getY() / board.getRowSpacing();
-            board.state[y][x] = 3;
-            System.out.print(x + ", " + y);
+            board.choseSquare(y, x);
+            board.repaint();
         }
 
         @Override

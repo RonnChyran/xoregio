@@ -1,5 +1,6 @@
 package com.xoregio;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 /**
@@ -7,6 +8,7 @@ import java.awt.event.MouseEvent;
  */
 public class XOregioHumanPlayer implements XOregioPlayer
 {
+    private ImageIcon imageIcon;
     public XOregioHumanPlayer()
     {
 
@@ -15,6 +17,16 @@ public class XOregioHumanPlayer implements XOregioPlayer
     public boolean isRobot()
     {
         return false;
+    }
+
+    @Override
+    public ImageIcon getImageIcon() {
+        return this.imageIcon;
+    }
+
+    @Override
+    public void setImageIcon(ImageIcon imageIcon) {
+        this.imageIcon = imageIcon;
     }
 
     @Override

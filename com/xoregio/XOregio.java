@@ -15,11 +15,11 @@ public class XOregio
         JFrame frame = new JFrame("XOregio");
         XOregioBoard board = new XOregioBoard();
         JButton spButton = new JButton("Single Player");
+        spButton.setFont(Font.getFont("Courier New"));
         frame.setSize(400, 480);
         board.setSize(400, 480);
-
         frame.add(board, BorderLayout.CENTER);
-        frame.add(spButton, BorderLayout.PAGE_END);
+        frame.add(spButton, BorderLayout.SOUTH);
         frame.setVisible(true);
 
         //   JButton spButton = new JButton("Single Player");

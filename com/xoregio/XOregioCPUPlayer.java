@@ -1,5 +1,6 @@
 package com.xoregio;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 /**
@@ -18,6 +19,16 @@ public class XOregioCPUPlayer implements XOregioPlayer
     public boolean isRobot()
     {
       return true;
+    }
+
+    @Override
+    public ImageIcon getImageIcon() {
+        return null;
+    }
+
+    @Override
+    public void setImageIcon(ImageIcon imageIcon) {
+
     }
 
     @Override
