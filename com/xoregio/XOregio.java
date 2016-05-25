@@ -13,6 +13,7 @@ public class XOregio
     public XOregio()
     {
         JFrame frame = new JFrame("XOregio");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel menu = new JPanel();
         menu.setLayout(new GridLayout(1, 2));
         JLabel logo = new JLabel(new ImageIcon("logo.png"));
