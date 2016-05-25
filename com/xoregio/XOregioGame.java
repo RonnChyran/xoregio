@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
+import java.io.*;
 
 public class XOregioGame implements MouseListener
 {
@@ -32,7 +33,7 @@ public class XOregioGame implements MouseListener
         draw.addMouseListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420 + 2 * borderOffset, 480 + 2 * borderOffset); //560 by 620
-        message.setFont(new Font("Serif", Font.BOLD, 20));
+        message.setFont(new Font("roboto", Font.BOLD, 20));
         message.setForeground(Color.blue);
         message.setHorizontalAlignment(SwingConstants.CENTER);
         JButton jButton = new JButton("Test Button");
@@ -149,5 +150,19 @@ public class XOregioGame implements MouseListener
     public static void main(String[] args)
     {
         new XOregioGame();
+        
+        try 
+        {
+         GraphicsEnvironment ge = 
+            GraphicsEnvironment.getLocalGraphicsEnvironment();
+         File f = new File("roboto.ttf");
+         Font roboto = Font.createFont(Font.TRUETYPE_FONT, f);
+         message.setFont;
+
+        } 
+        catch (IOException|FontFormatException e) {
+     
+         }
+
     }
 }
