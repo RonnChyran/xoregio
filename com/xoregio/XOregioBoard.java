@@ -127,8 +127,10 @@ public class XOregioBoard extends JComponent
     public void choseSquare(int row, int col)
     {
         if (board[row][col] == 0)
+        {
             markBoard(row, col);
-        this.xTurn = !xTurn;
+            this.xTurn = !xTurn;
+        }
         win = fullBoard();
     }    //	choseSquare
 
