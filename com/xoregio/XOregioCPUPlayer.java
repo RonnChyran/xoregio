@@ -10,9 +10,16 @@ import java.util.*;
 
 public class XOregioCPUPlayer implements XOregioPlayer
 {
-    public XOregioCPUPlayer()
+    private String label;
+    public XOregioCPUPlayer(String label)
     {
+        this.label = label;
+    }
 
+    @Override
+    public String getLabel()
+    {
+        return this.label;
     }
 
     @Override

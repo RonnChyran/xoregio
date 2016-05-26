@@ -31,6 +31,7 @@ public class XOregioBoard extends JComponent
     public int[][] board;
     private XOregioPlayer player1;
     private XOregioPlayer player2;
+    private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
 
     public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
@@ -45,9 +46,13 @@ public class XOregioBoard extends JComponent
 
     public XOregioBoard()
     {
-        this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer());
+        this(5, 5, new XOregioHumanPlayer("X"), new XOregioHumanPlayer("O"));
     }
 
+    public void setBoardListener(XOregioBoardListener boardListener)
+    {
+        this.boardListener = boardListener;
+    }
     /**
      * Gets	the spacing	between columns by dividing the width of the	board	by	the
      * number of columns.
@@ -201,15 +206,24 @@ public class XOregioBoard extends JComponent
         public void mouseReleased(MouseEvent e)
         {
             //Gets the valid indices by dividing the MouseEvent coordinates
-            //by the	spacing of the	row or column.
+            //by the spacing of the	row or column.
+            XOregioPlayer previousPlayer;
             int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getX(), e.getY()});
+            previousPlayer = board.getCurrentPlayer();
             board.choseSquare(coordinates[1], coordinates[0]);
+            if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             if (board.getCurrentPlayer().isRobot() && !board.win)
             {
                 int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
+                previousPlayer = board.getCurrentPlayer();
                 board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
+                if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             }
             board.repaint();
+            if(board.win && board.boardListener != null)
+            {
+                boardListener.gameWin(previousPlayer);
+            }
         }
 
         @Override

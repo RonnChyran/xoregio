@@ -9,10 +9,17 @@ import java.awt.event.MouseEvent;
 public class XOregioHumanPlayer implements XOregioPlayer
 {
     private ImageIcon imageIcon;
-    public XOregioHumanPlayer()
+    private String label;
+    public XOregioHumanPlayer(String label)
     {
-
+        this.label = label;
     }
+    @Override
+    public String getLabel()
+    {
+        return this.label;
+    }
+
     @Override
     public boolean isRobot()
     {
