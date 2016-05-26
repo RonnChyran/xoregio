@@ -35,7 +35,7 @@ public class XOregioBoard extends JComponent
     }
     public XOregioBoard()
     {
-        this(6, 6, new XOregioHumanPlayer(), new XOregioCPUPlayer());
+        this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer());
     }
 
     /**
@@ -122,26 +122,30 @@ public class XOregioBoard extends JComponent
      */
     public void paint(Graphics g)
     {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         Rectangle r = this.getBounds(); //gets the bounds of the board
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(r.x, r.y, r.width, r.height); //draw a background
-        g.setColor(Color.DARK_GRAY);
+        g2.setColor(Color.DARK_GRAY);
+        g2.fillRect(r.x, r.y, r.width, r.height); //draw a background
+        g2.setColor(Color.DARK_GRAY);
         int colSpacing = this.getColSpacing();
         int rowSpacing = this.getRowSpacing();
         for(int i = 0; i < this.rows + 1; i++)
         {
-            g.fillRect(0, rowSpacing * i, r.width, 5); //draw horizontal lines for every row
+            g2.fillRect(0, rowSpacing * i, r.width, 5); //draw horizontal lines for every row
         }
         for(int i = 0; i < this.columns + 1; i++)
         {
-            g.fillRect(colSpacing * i, 0, 5, r.height); //draw vertical lines for every column
+            g2.fillRect(colSpacing * i, 0, 5, r.height); //draw vertical lines for every column
         }
         for (int row = 0; row < this.rows; row++)
         {
             for (int col = 0; col < this.columns; col++)
             {
                 //fill in the appropriate image
-                g.drawImage(icons[this.board[row][col]].getImage(),
+                g2.drawImage(icons[this.board[row][col]].getImage(),
                         col * colSpacing + 5, row * rowSpacing + 5,
                         colSpacing - 10, rowSpacing - 10, this);
             }
