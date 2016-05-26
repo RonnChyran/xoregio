@@ -14,9 +14,7 @@ import javax.sound.sampled.*;
 /**
  * Created by Ronny on 2016-05-24.
  * todo:	End Game	Restart
- * todo:	Re-implement AI (XOregioPlayer abstraction)
  * todo:	Roboto
- * todo:	Win condition.
  * todo:	Borders
  */
 public class XOregioBoard extends JComponent
@@ -30,6 +28,7 @@ public class XOregioBoard extends JComponent
     private XOregioPlayer player2;
     private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
+	 private int turnCount = 0;
 
     public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
     {
@@ -221,6 +220,9 @@ public class XOregioBoard extends JComponent
             {
                 boardListener.gameWin(previousPlayer);
             }
+				
+				turnCount++;
+				System.out.print(turnCount);
         }
 
         @Override

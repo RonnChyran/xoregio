@@ -32,8 +32,8 @@ public class XOregio
         menuButtons.setLayout(new GridLayout(1, 3));
         settingsContainer.setLayout(new GridLayout(0, 1));
 
-        JButton spButton = new JButton("Start Single Player");
-        JButton mpButton = new JButton("Start Multi Player");
+        JButton spButton = new JButton("Play Single Player");
+        JButton mpButton = new JButton("Play Multi Player");
         JCheckBox playMusic = new JCheckBox("Play Music");
 
         menuButtons.add(spButton);
@@ -49,6 +49,7 @@ public class XOregio
 
         frame.setSize(400, 480);
         frame.setVisible(true);
+		  frame.setResizable(false);
         spButton.addActionListener(new ActionListener()
         {
             @Override
