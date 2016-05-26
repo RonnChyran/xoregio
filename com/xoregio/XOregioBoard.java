@@ -6,10 +6,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.*;
 import java.io.*;
-import sun.audio.*;
+//import sun.audio.*;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
+
+
 
 /**
  *	Created by Ronny on 2016-05-24.
@@ -207,8 +210,8 @@ public class XOregioBoard extends JComponent
 	 public static void music() throws Throwable
 	 {
 	     Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream("H:\\xoregio\\xoregio\\Elevator_Music.wav")));
-        clip.open(inputStream);
+        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream("E:\\School Stuff\\Summative\\xoregio\\com\\xoregio\\Elevator_Music.wav")));
+        clip.open(inputStream);                                                                                    //have to change file path every time. Fix
         clip.start(); 
 
 	 }
