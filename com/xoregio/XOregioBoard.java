@@ -6,20 +6,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.*;
 import java.io.*;
-//import sun.audio.*;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 
-
 /**
  * Created by Ronny on 2016-05-24.
  * todo:	End Game	Restart
- * todo:	Re-implement AI (XOregioPlayer abstraction)
- * todo:	Music done? not really
  * todo:	Roboto
- * todo:	Win condition.
  * todo:	Borders
  */
 public class XOregioBoard extends JComponent
@@ -33,6 +28,7 @@ public class XOregioBoard extends JComponent
     private XOregioPlayer player2;
     private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
+	 private int turnCount = 0;
 
     public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
     {
@@ -224,6 +220,9 @@ public class XOregioBoard extends JComponent
             {
                 boardListener.gameWin(previousPlayer);
             }
+				
+				turnCount++;
+				System.out.print(turnCount);
         }
 
         @Override
@@ -256,11 +255,37 @@ public class XOregioBoard extends JComponent
 
     public static void music() throws Throwable
     {
+	 	  File f = new File("Elevator_Music.wav");
+	 
         Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream("E:\\School Stuff\\Summative\\xoregio\\com\\xoregio\\Elevator_Music.wav")));
-        clip.open(inputStream);                                                                                    //have to change file path every time. Fix
+        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
+        clip.open(inputStream);                                                                                    
         clip.start();
+    }
+	 
+	 private static final Font ROBOTO_FONT = new Font("roboto", Font.PLAIN, 24);
 
+    private static Font getFont(String name)
+	 {
+   	  Font font = null;
+    	  if (name == null)
+		  {
+        return ROBOTO_FONT;
+        }
+
+   	  try {
+            File fontFile = new File("roboto.ttf");
+            font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+            GraphicsEnvironment ge = GraphicsEnvironment
+                .getLocalGraphicsEnvironment();
+
+            ge.registerFont(font);
+
+   	 } catch (Exception ex) 
+		   {
+         font = ROBOTO_FONT;
+         }
+    return font;
     }
 
     public static void main(String[] args)
@@ -270,8 +295,10 @@ public class XOregioBoard extends JComponent
         frame.setSize(450, 500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		  frame.setResizable(false);
 
         JButton button = new JButton("Music");
+		  button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         frame.add(button, BorderLayout.SOUTH);
         button.addActionListener(new AL());
         frame.show(true);

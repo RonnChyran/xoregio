@@ -66,6 +66,7 @@ public class XOregio
 
         frame.setSize(400, 480);
         frame.setVisible(true);
+		  frame.setResizable(false);
         spButton.addActionListener(new ActionListener()
         {
             @Override
