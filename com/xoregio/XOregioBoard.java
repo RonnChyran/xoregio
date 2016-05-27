@@ -11,12 +11,6 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 
-/**
- * Created by Ronny on 2016-05-24.
- * todo:	End Game	Restart
- * todo:	Roboto
- * todo:	Borders
- */
 public class XOregioBoard extends JComponent
 {
     private int rows;
@@ -28,13 +22,13 @@ public class XOregioBoard extends JComponent
     private XOregioPlayer player2;
     private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
-	 private int turnCount = 0;
+    private int turnCount = 1;
 	 
-
-    public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
+    public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean oGoesFirst)
     {
-        this.player1 = player1;
-        this.player2 = player2;
+        this.xTurn = !oGoesFirst;
+        this.player1 = this.xTurn ? playerX : playerO; //swap the players if O goes first
+        this.player2 = this.xTurn ? playerO : playerX;
         this.rows = rows;
         this.columns = columns;
         this.board = new int[rows][columns];
@@ -43,9 +37,26 @@ public class XOregioBoard extends JComponent
 
     public XOregioBoard()
     {
-        this(5, 5, new XOregioHumanPlayer("X"), new XOregioHumanPlayer("O"));
+        this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer(), false);
     }
 
+
+    public void startMusic()
+    {
+        try
+        {
+            File f = new File("Elevator_Music.wav");
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
+            clip.open(inputStream);
+            clip.start();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Unable to play music");
+        }
+
+    }
     public void setBoardListener(XOregioBoardListener boardListener)
     {
         this.boardListener = boardListener;
@@ -70,6 +81,14 @@ public class XOregioBoard extends JComponent
     public int getRowSpacing()
     {
         return this.getBounds().height / this.rows;
+    }
+
+    /**
+     Gets the current turn count;
+     */
+    public int getTurnCount()
+    {
+        return this.turnCount;
     }
 
     /**
@@ -136,7 +155,7 @@ public class XOregioBoard extends JComponent
     }    //	choseSquare
 
     /**
-     * Paints the	board
+     * Paints the board
      *
      * @param g
      */
@@ -164,7 +183,7 @@ public class XOregioBoard extends JComponent
         {
             for (int col = 0; col < this.columns; col++)
             {
-                //fill in the	appropriate	image
+                //fill in the appropriate image
                 g2.drawImage(icons[this.board[row][col]].getImage(),
                         col * colSpacing + 5, row * rowSpacing + 5,
                         colSpacing - 10, rowSpacing - 10, this);
@@ -177,6 +196,10 @@ public class XOregioBoard extends JComponent
         return xTurn ? this.player1 : this.player2;
     }
 
+    public boolean isXTurn()
+    {
+        return xTurn;
+    }
     /**
      * Implements	a MouseListener that	updates an XOregioBoard.
      */
@@ -210,12 +233,14 @@ public class XOregioBoard extends JComponent
             int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getX(), e.getY()});
             previousPlayer = board.getCurrentPlayer();
             board.choseSquare(coordinates[1], coordinates[0]);
+            turnCount++;
             if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             if (board.getCurrentPlayer().isRobot() && !board.win)
             {
                 int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
                 previousPlayer = board.getCurrentPlayer();
                 board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
+                turnCount++;
                 if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             }
             board.repaint();
@@ -224,7 +249,6 @@ public class XOregioBoard extends JComponent
                 boardListener.gameWin(previousPlayer);
             }
 				
-				try
 				{
 					File click = new File("ClickSound.wav");
 					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
@@ -254,36 +278,7 @@ public class XOregioBoard extends JComponent
         }
     }
 
-    public static class AL implements ActionListener
-    {
-        public final void actionPerformed(ActionEvent e)
-        {
-            try
-            {
-
-                music();
-            } catch (Throwable y)
-            {
-                y.printStackTrace();
-            }
-        }
-    }
-
-    public static void music() throws Throwable
-    {
-	 	  File backgroundMusic = new File("Elevator_Music.wav");
-	 
-        Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(backgroundMusic)));
-        clip.open(inputStream); 
-		  FloatControl gainControl = 
-    	  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	     gainControl.setValue(-10.0f);
-                                                                                   
-        clip.start();
-    }
-	 
-	 private static final Font ROBOTO_FONT = new Font("roboto", Font.PLAIN, 24);
+    private static final Font ROBOTO_FONT = new Font("roboto", Font.PLAIN, 24);
 
     private static Font getFont(String name)
 	 {
@@ -317,11 +312,9 @@ public class XOregioBoard extends JComponent
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  frame.setResizable(false);
 		  
-		  
         JButton button = new JButton("Music");
 		  button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         frame.add(button, BorderLayout.SOUTH);
-        button.addActionListener(new AL());
         frame.show(true);
 
     }

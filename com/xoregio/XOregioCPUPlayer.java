@@ -10,32 +10,14 @@ import java.util.*;
 
 public class XOregioCPUPlayer implements XOregioPlayer
 {
-    private String label;
-    public XOregioCPUPlayer(String label)
+    public XOregioCPUPlayer()
     {
-        this.label = label;
-    }
-
-    @Override
-    public String getLabel()
-    {
-        return this.label;
     }
 
     @Override
     public boolean isRobot()
     {
       return true;
-    }
-
-    @Override
-    public ImageIcon getImageIcon() {
-        return null;
-    }
-
-    @Override
-    public void setImageIcon(ImageIcon imageIcon) {
-
     }
 
     @Override

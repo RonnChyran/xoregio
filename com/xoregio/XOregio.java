@@ -10,10 +10,11 @@ import java.io.File;
 import java.io.IOException;
 
 /*
-todo: Single Player/Multi Player selection
 todo: Start as X and y (checkbox)
-todo: Amount of Rows and Columns
 todo: Turn message and turn number keeper
+todo:	End Game Restart
+todo:	Roboto
+todo:	Borders
  */
 public class XOregio
 {
@@ -27,21 +28,26 @@ public class XOregio
         final JPanel settingsContainer = new JPanel();
         final JPanel comboBoxContainer = new JPanel();
         final JPanel menuButtons = new JPanel();
+        final JPanel winContainer = new JPanel();
 
         gameContainer.setLayout(new BorderLayout());
         frame.setLayout(new CardLayout());
         menuContainer.setLayout(new GridLayout(2,1));
         menuButtons.setLayout(new GridLayout(1, 3));
         settingsContainer.setLayout(new GridLayout(0, 1));
-        comboBoxContainer.setLayout(new GridLayout(2, 2));
+        comboBoxContainer.setLayout(new GridLayout(3, 2));
+
 
         JButton spButton = new JButton("<html>Start<br/>Single Player</html>");
         JButton mpButton = new JButton("<html>Start<br/>Multi Player</html>");
-        JCheckBox playMusic = new JCheckBox("Play Music");
+        final JCheckBox playMusic = new JCheckBox("Play Music");
+        playMusic.setSelected(true);
         JLabel rowLabel = new JLabel("Rows");
         JLabel columnLabel = new JLabel("Columns");
-        final JComboBox rows = new JComboBox(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-        final JComboBox cols = new JComboBox(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+        final JComboBox<Integer> rows = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+        final JComboBox<Integer> cols = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+        final JCheckBox startO = new JCheckBox("O goes First");
+
 
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
@@ -54,6 +60,7 @@ public class XOregio
         menuButtons.add(spButton);
         menuButtons.add(mpButton);
         settingsContainer.add(playMusic);
+        settingsContainer.add(startO);
         settingsContainer.add(comboBoxContainer);
         menuButtons.add(settingsContainer);
 
@@ -66,26 +73,30 @@ public class XOregio
 
         frame.setSize(400, 480);
         frame.setVisible(true);
-		  frame.setResizable(false);
+        frame.setResizable(false);
         spButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
                 CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
-                final XOregioBoard board = new XOregioBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(), new XOregioHumanPlayer("X"), new XOregioCPUPlayer("O"));
-                final JLabel message = new JLabel("X's Turn", SwingConstants.CENTER);
+                final XOregioBoard board = new XOregioBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
+                        new XOregioHumanPlayer(),
+                        new XOregioCPUPlayer(),
+                        startO.isSelected());
+                if(playMusic.isSelected()) board.startMusic();
+                final JLabel message = new JLabel((board.isXTurn() ? "X" : "O")  + "'s Turn | Turn " + board.getTurnCount(), SwingConstants.CENTER);
                 board.setBoardListener(new XOregioBoardListener()
                 {
                     @Override
                     public void turnChanged(XOregioPlayer player)
                     {
-                        message.setText(player.getLabel() + "'s Turn");
+                        message.setText((board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + board.getTurnCount());
                     }
                     @Override
                     public void gameWin(XOregioPlayer winningPlayer)
                     {
-                        message.setText(winningPlayer.getLabel() + " wins!");
+                        message.setText((board.isXTurn() ? "X" : "O") + " wins!");
                     }
                 });
                 gameContainer.add(board);
@@ -99,9 +110,7 @@ public class XOregio
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
-                gameContainer.add(new XOregioBoard(5, 5, new XOregioHumanPlayer("X"), new XOregioHumanPlayer("O")));
-                cl.show(frame.getContentPane(), "GAME");
+
             }
         });
     }
