@@ -29,6 +29,7 @@ public class XOregioBoard extends JComponent
     private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
 	 private int turnCount = 0;
+	 
 
     public XOregioBoard(int rows, int columns, XOregioPlayer player1, XOregioPlayer player2)
     {
@@ -223,8 +224,21 @@ public class XOregioBoard extends JComponent
                 boardListener.gameWin(previousPlayer);
             }
 				
-				turnCount++;
-				System.out.print(turnCount);
+				try
+				{
+					File click = new File("ClickSound.wav");
+					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
+					Clip clip = AudioSystem.getClip();
+					clip.open(inputStream);
+					FloatControl gainControl = 
+    			   (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					gainControl.setValue(-20.0f);
+					clip.start();
+				}catch (Exception g)
+				{
+				g.printStackTrace();
+				}
+
         }
 
         @Override
@@ -257,11 +271,15 @@ public class XOregioBoard extends JComponent
 
     public static void music() throws Throwable
     {
-	 	  File f = new File("Elevator_Music.wav");
+	 	  File backgroundMusic = new File("Elevator_Music.wav");
 	 
         Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
-        clip.open(inputStream);                                                                                    
+        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(backgroundMusic)));
+        clip.open(inputStream); 
+		  FloatControl gainControl = 
+    	  (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	     gainControl.setValue(-10.0f);
+                                                                                   
         clip.start();
     }
 	 
@@ -298,7 +316,8 @@ public class XOregioBoard extends JComponent
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  frame.setResizable(false);
-
+		  
+		  
         JButton button = new JButton("Music");
 		  button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         frame.add(button, BorderLayout.SOUTH);
