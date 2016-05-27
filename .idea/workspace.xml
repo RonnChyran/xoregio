@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c91cf8-d7f3-4fa6-88df-336149463066" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregio.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregio.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
     </list>
@@ -29,13 +28,13 @@
       <file leaf-file-name="XOregio.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.136">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.932">
+              <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding>
                 <element signature="e#2400#2701#0" expanded="true" />
                 <element signature="e#2700#2701#0" expanded="true" />
-                <element signature="e#3155#4599#0" expanded="true" />
-                <element signature="e#4598#4599#0" expanded="true" />
+                <element signature="e#3194#4638#0" expanded="true" />
+                <element signature="e#4637#4638#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +61,8 @@
       <file leaf-file-name="XOregioBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.896552">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+            <state vertical-scroll-proportion="-15.068966">
+              <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1409#1410#0" expanded="true" />
@@ -76,12 +75,12 @@
                 <element signature="e#2162#2163#0" expanded="true" />
                 <element signature="e#2251#2252#0" expanded="true" />
                 <element signature="e#2288#2289#0" expanded="true" />
-                <element signature="e#5729#5730#0" expanded="true" />
-                <element signature="e#5787#5788#0" expanded="true" />
-                <element signature="e#5823#5824#0" expanded="true" />
-                <element signature="e#5851#5852#0" expanded="true" />
-                <element signature="e#6090#6091#0" expanded="true" />
-                <element signature="e#6132#6133#0" expanded="true" />
+                <element signature="e#5730#5731#0" expanded="true" />
+                <element signature="e#5788#5789#0" expanded="true" />
+                <element signature="e#5824#5825#0" expanded="true" />
+                <element signature="e#5852#5853#0" expanded="true" />
+                <element signature="e#6091#6092#0" expanded="true" />
+                <element signature="e#6133#6134#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -746,8 +745,8 @@
           <folding>
             <element signature="e#2400#2701#0" expanded="true" />
             <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#3155#4599#0" expanded="true" />
-            <element signature="e#4598#4599#0" expanded="true" />
+            <element signature="e#3194#4638#0" expanded="true" />
+            <element signature="e#4637#4638#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,12 +767,12 @@
             <element signature="e#2162#2163#0" expanded="true" />
             <element signature="e#2251#2252#0" expanded="true" />
             <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5823#5824#0" expanded="true" />
-            <element signature="e#5851#5852#0" expanded="true" />
-            <element signature="e#6090#6091#0" expanded="true" />
-            <element signature="e#6132#6133#0" expanded="true" />
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#5852#5853#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6133#6134#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,8 +812,8 @@
           <folding>
             <element signature="e#2400#2701#0" expanded="true" />
             <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#3155#4599#0" expanded="true" />
-            <element signature="e#4598#4599#0" expanded="true" />
+            <element signature="e#3194#4638#0" expanded="true" />
+            <element signature="e#4637#4638#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,12 +834,12 @@
             <element signature="e#2162#2163#0" expanded="true" />
             <element signature="e#2251#2252#0" expanded="true" />
             <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5823#5824#0" expanded="true" />
-            <element signature="e#5851#5852#0" expanded="true" />
-            <element signature="e#6090#6091#0" expanded="true" />
-            <element signature="e#6132#6133#0" expanded="true" />
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#5852#5853#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6133#6134#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -880,8 +879,8 @@
           <folding>
             <element signature="e#2400#2701#0" expanded="true" />
             <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#3155#4599#0" expanded="true" />
-            <element signature="e#4598#4599#0" expanded="true" />
+            <element signature="e#3194#4638#0" expanded="true" />
+            <element signature="e#4637#4638#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -902,12 +901,12 @@
             <element signature="e#2162#2163#0" expanded="true" />
             <element signature="e#2251#2252#0" expanded="true" />
             <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5823#5824#0" expanded="true" />
-            <element signature="e#5851#5852#0" expanded="true" />
-            <element signature="e#6090#6091#0" expanded="true" />
-            <element signature="e#6132#6133#0" expanded="true" />
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#5852#5853#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6133#6134#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,8 +946,8 @@
           <folding>
             <element signature="e#2400#2701#0" expanded="true" />
             <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#3155#4599#0" expanded="true" />
-            <element signature="e#4598#4599#0" expanded="true" />
+            <element signature="e#3194#4638#0" expanded="true" />
+            <element signature="e#4637#4638#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1007,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.896552">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        <state vertical-scroll-proportion="-15.068966">
+          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1409#1410#0" expanded="true" />
@@ -1021,25 +1020,25 @@
             <element signature="e#2162#2163#0" expanded="true" />
             <element signature="e#2251#2252#0" expanded="true" />
             <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#5729#5730#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5823#5824#0" expanded="true" />
-            <element signature="e#5851#5852#0" expanded="true" />
-            <element signature="e#6090#6091#0" expanded="true" />
-            <element signature="e#6132#6133#0" expanded="true" />
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#5852#5853#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6133#6134#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.136">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.932">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding>
             <element signature="e#2400#2701#0" expanded="true" />
             <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#3155#4599#0" expanded="true" />
-            <element signature="e#4598#4599#0" expanded="true" />
+            <element signature="e#3194#4638#0" expanded="true" />
+            <element signature="e#4637#4638#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -110,6 +110,7 @@ public class XOregioBoard extends JComponent
     public void markBoard(int row, int col)
     {
         int mark = xTurn ? 1 : 2;
+
         board[row][col] = mark;
         if (row != 0 && board[row - 1][col] == 0)
             board[row - 1][col] = mark;

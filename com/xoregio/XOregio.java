@@ -73,7 +73,9 @@ public class XOregio
                 cl.show(frame.getContentPane(), "GAME");
             }
         });
+        winContainer.add(winMessage);
         winContainer.add(restartButton);
+
         JLabel logo = getScaledImage("logo.jpg", new Dimension(400, 240));
         menuContainer.add(logo);
         menuContainer.add(menuButtons);
