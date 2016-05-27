@@ -1,11 +1,9 @@
 package com.xoregio;
 
 import javax.swing.*;
-import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.*;
 import java.io.*;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -22,18 +20,23 @@ public class XOregioBoard extends JComponent
     private XOregioPlayer player1;
     private XOregioPlayer player2;
     private XOregioBoardListener boardListener = null;
-    private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
+    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
     private int turnCount = 1;
 
     public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean oGoesFirst)
     {
         this.xTurn = !oGoesFirst;
-        this.player1 = this.xTurn ? playerX : playerO; //swap the players if O goes first
-        this.player2 = this.xTurn ? playerO : playerX;
+        this.player1 = playerX; //swap the players if O goes first
+        this.player2 = playerO;
         this.rows = rows;
         this.columns = columns;
         this.board = new int[rows][columns];
         this.addMouseListener(new XOregioMouseListener(this));
+        if(playerO.isRobot() && oGoesFirst)
+        {
+            int[] move = playerO.getNextMove(this, null);
+            this.choseSquare(move[0], move[1]);
+        }
     }
 
     public XOregioBoard()
@@ -169,7 +172,7 @@ public class XOregioBoard extends JComponent
             for (int col = 0; col < this.columns; col++)
             {
                 //fill in the appropriate image
-                g2.drawImage(icons[this.board[row][col]].getImage(),
+                g2.drawImage(PLAY_IMAGES[this.board[row][col]].getImage(),
                         col * colSpacing + 5, row * rowSpacing + 5,
                         colSpacing - 10, rowSpacing - 10, this);
             }

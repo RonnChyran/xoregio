@@ -23,16 +23,17 @@ public class XOregio
 
         final JFrame frame = new JFrame("XOregio");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        final JPanel menuContainer =  new JPanel();
+        final JPanel menuContainer = new JPanel();
         final XOregioPanel gameContainer = new XOregioPanel();
         final JPanel settingsContainer = new JPanel();
         final JPanel comboBoxContainer = new JPanel();
         final JPanel menuButtons = new JPanel();
         final JPanel winContainer = new JPanel();
+        final JLabel winMessage = new JLabel();
 
         gameContainer.setLayout(new BorderLayout());
         frame.setLayout(new CardLayout());
-        menuContainer.setLayout(new GridLayout(2,1));
+        menuContainer.setLayout(new GridLayout(2, 1));
         menuButtons.setLayout(new GridLayout(1, 3));
         settingsContainer.setLayout(new GridLayout(0, 1));
         comboBoxContainer.setLayout(new GridLayout(3, 2));
@@ -68,7 +69,7 @@ public class XOregio
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                final CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
                 cl.show(frame.getContentPane(), "GAME");
             }
         });
@@ -90,28 +91,28 @@ public class XOregio
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                final CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
                 gameContainer.setBoardListener(new XOregioBoardListener()
                 {
                     @Override
                     public void turnChanged(XOregioPlayer player)
                     {
-                        System.out.println("Hello Workd");
                         gameContainer.setMessage((gameContainer.board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.getTurnCount());
                     }
+
                     @Override
                     public void gameWin(XOregioPlayer winningPlayer)
                     {
-                        gameContainer.setupBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
+                        gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
                         cl.show(frame.getContentPane(), "WIN");
                     }
                 });
-                gameContainer.setupBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
+                gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                         new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                         startO.isSelected()
-                      );
+                );
                 cl.show(frame.getContentPane(), "GAME");
             }
         });
@@ -124,15 +125,18 @@ public class XOregio
             }
         });
     }
+
     private JLabel getScaledImage(String image, Dimension dimension)
     {
         //http://stackoverflow.com/questions/16343098/resize-a-picture-to-fit-a-jlabel
         BufferedImage img = null;
         JLabel label = new JLabel();
         label.setSize(dimension);
-        try {
+        try
+        {
             img = ImageIO.read(new File(image));
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
         }
         Image dimg = img.getScaledInstance(label.getWidth(), label.getHeight(),
@@ -144,21 +148,22 @@ public class XOregio
     public static void main(String[] args)
     {
 
-        try {
+        try
+        {
             // Set cross-platform Java L&F (also called "Metal")
             UIManager.setLookAndFeel(
                     UIManager.getSystemLookAndFeelClassName());
-        }
-        catch (UnsupportedLookAndFeelException e) {
+        } catch (UnsupportedLookAndFeelException e)
+        {
             // handle exception
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e)
+        {
             // handle exception
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e)
+        {
             // handle exception
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e)
+        {
             // handle exception
         }
         new XOregio();
