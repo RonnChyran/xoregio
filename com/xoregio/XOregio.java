@@ -24,7 +24,7 @@ public class XOregio
         final JFrame frame = new JFrame("XOregio");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         final JPanel menuContainer =  new JPanel();
-        final JPanel gameContainer = new JPanel();
+        final XOregioPanel gameContainer = new XOregioPanel();
         final JPanel settingsContainer = new JPanel();
         final JPanel comboBoxContainer = new JPanel();
         final JPanel menuButtons = new JPanel();
@@ -37,7 +37,7 @@ public class XOregio
         settingsContainer.setLayout(new GridLayout(0, 1));
         comboBoxContainer.setLayout(new GridLayout(3, 2));
 
-
+        JButton restartButton = new JButton("Restart");
         JButton spButton = new JButton("<html>Start<br/>Single Player</html>");
         JButton mpButton = new JButton("<html>Start<br/>Multi Player</html>");
         final JCheckBox playMusic = new JCheckBox("Play Music");
@@ -47,7 +47,6 @@ public class XOregio
         final JComboBox<Integer> rows = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         final JComboBox<Integer> cols = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         final JCheckBox startO = new JCheckBox("O goes First");
-
 
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
@@ -64,44 +63,55 @@ public class XOregio
         settingsContainer.add(comboBoxContainer);
         menuButtons.add(settingsContainer);
 
+        restartButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                final CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
+                cl.show(frame.getContentPane(), "GAME");
+            }
+        });
+        winContainer.add(restartButton);
         JLabel logo = getScaledImage("logo.jpg", new Dimension(400, 240));
         menuContainer.add(logo);
         menuContainer.add(menuButtons);
 
         frame.add(menuContainer, "MENU");
         frame.add(gameContainer, "GAME");
+        frame.add(winContainer, "WIN");
 
         frame.setSize(400, 480);
         frame.setVisible(true);
         frame.setResizable(false);
+
         spButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
-                final XOregioBoard board = new XOregioBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
-                        new XOregioHumanPlayer(),
-                        new XOregioCPUPlayer(),
-                        startO.isSelected());
-                if(playMusic.isSelected()) board.startMusic();
-                final JLabel message = new JLabel((board.isXTurn() ? "X" : "O")  + "'s Turn | Turn " + board.getTurnCount(), SwingConstants.CENTER);
-                board.setBoardListener(new XOregioBoardListener()
+                final CardLayout cl = (CardLayout)(frame.getContentPane().getLayout());
+                gameContainer.setBoardListener(new XOregioBoardListener()
                 {
                     @Override
                     public void turnChanged(XOregioPlayer player)
                     {
-                        message.setText((board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + board.getTurnCount());
+                        System.out.println("Hello Workd");
+                        gameContainer.setMessage((gameContainer.board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.getTurnCount());
                     }
                     @Override
                     public void gameWin(XOregioPlayer winningPlayer)
                     {
-                        message.setText((board.isXTurn() ? "X" : "O") + " wins!");
+                        gameContainer.setupBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
+                                new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
+                                startO.isSelected());
+                        cl.show(frame.getContentPane(), "WIN");
                     }
                 });
-                gameContainer.add(board);
-                gameContainer.add(message, BorderLayout.PAGE_END);
-
+                gameContainer.setupBoard((int)rows.getSelectedItem(), (int)cols.getSelectedItem(),
+                        new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
+                        startO.isSelected()
+                      );
                 cl.show(frame.getContentPane(), "GAME");
             }
         });

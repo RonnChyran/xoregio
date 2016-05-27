@@ -1,6 +1,7 @@
 package com.xoregio;
 
 import javax.swing.*;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -40,23 +41,6 @@ public class XOregioBoard extends JComponent
         this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer(), false);
     }
 
-
-    public void startMusic()
-    {
-        try
-        {
-            File f = new File("Elevator_Music.wav");
-            Clip clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
-            clip.open(inputStream);
-            clip.start();
-        }
-        catch(Exception e)
-        {
-            System.out.println("Unable to play music");
-        }
-
-    }
     public void setBoardListener(XOregioBoardListener boardListener)
     {
         this.boardListener = boardListener;
@@ -249,7 +233,7 @@ public class XOregioBoard extends JComponent
                 boardListener.gameWin(previousPlayer);
             }
 				
-				{
+            System.out.println(turnCount);
 					File click = new File("ClickSound.wav");
 					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
 					Clip clip = AudioSystem.getClip();
