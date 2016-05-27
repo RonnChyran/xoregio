@@ -24,7 +24,7 @@ public class XOregioBoard extends JComponent
     private XOregioBoardListener boardListener = null;
     private final ImageIcon[] icons = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
     private int turnCount = 1;
-	 
+
     public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean oGoesFirst)
     {
         this.xTurn = !oGoesFirst;
@@ -45,6 +45,7 @@ public class XOregioBoard extends JComponent
     {
         this.boardListener = boardListener;
     }
+
     /**
      * Gets	the spacing	between columns by dividing the width of the	board	by	the
      * number of columns.
@@ -68,7 +69,7 @@ public class XOregioBoard extends JComponent
     }
 
     /**
-     Gets the current turn count;
+     * Gets the current turn count;
      */
     public int getTurnCount()
     {
@@ -184,6 +185,7 @@ public class XOregioBoard extends JComponent
     {
         return xTurn;
     }
+
     /**
      * Implements	a MouseListener that	updates an XOregioBoard.
      */
@@ -218,34 +220,36 @@ public class XOregioBoard extends JComponent
             previousPlayer = board.getCurrentPlayer();
             board.choseSquare(coordinates[1], coordinates[0]);
             turnCount++;
-            if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
+            if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             if (board.getCurrentPlayer().isRobot() && !board.win)
             {
                 int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
                 previousPlayer = board.getCurrentPlayer();
                 board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
                 turnCount++;
-                if(board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
+                if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             }
             board.repaint();
-            if(board.win && board.boardListener != null)
+            if (board.win && board.boardListener != null)
             {
                 boardListener.gameWin(previousPlayer);
             }
-				
+
             System.out.println(turnCount);
-					File click = new File("ClickSound.wav");
-					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
-					Clip clip = AudioSystem.getClip();
-					clip.open(inputStream);
-					FloatControl gainControl = 
-    			   (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					gainControl.setValue(-20.0f);
-					clip.start();
-				}catch (Exception g)
-				{
-				g.printStackTrace();
-				}
+            try
+            {
+                File click = new File("ClickSound.wav");
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
+                Clip clip = AudioSystem.getClip();
+                clip.open(inputStream);
+                FloatControl gainControl =
+                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                gainControl.setValue(-20.0f);
+                clip.start();
+            } catch (Exception g)
+            {
+                g.printStackTrace();
+            }
 
         }
 
@@ -265,26 +269,27 @@ public class XOregioBoard extends JComponent
     private static final Font ROBOTO_FONT = new Font("roboto", Font.PLAIN, 24);
 
     private static Font getFont(String name)
-	 {
-   	  Font font = null;
-    	  if (name == null)
-		  {
-        return ROBOTO_FONT;
+    {
+        Font font = null;
+        if (name == null)
+        {
+            return ROBOTO_FONT;
         }
 
-   	  try {
+        try
+        {
             File fontFile = new File("roboto.ttf");
             font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
             GraphicsEnvironment ge = GraphicsEnvironment
-                .getLocalGraphicsEnvironment();
+                    .getLocalGraphicsEnvironment();
 
             ge.registerFont(font);
 
-   	 } catch (Exception ex) 
-		   {
-         font = ROBOTO_FONT;
-         }
-    return font;
+        } catch (Exception ex)
+        {
+            font = ROBOTO_FONT;
+        }
+        return font;
     }
 
     public static void main(String[] args)
@@ -294,10 +299,10 @@ public class XOregioBoard extends JComponent
         frame.setSize(450, 500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  frame.setResizable(false);
-		  
+        frame.setResizable(false);
+
         JButton button = new JButton("Music");
-		  button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         frame.add(button, BorderLayout.SOUTH);
         frame.show(true);
 
