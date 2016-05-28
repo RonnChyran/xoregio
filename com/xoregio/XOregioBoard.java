@@ -196,12 +196,29 @@ public class XOregioBoard extends JComponent
     class XOregioMouseListener implements MouseListener
     {
         private XOregioBoard board;
-
+        Clip goodDing = this.loadSound("goodDing.wav");
+        Clip badDing = this.loadSound("badDing.wav");
         XOregioMouseListener(XOregioBoard board)
         {
             this.board = board;
         }
 
+        private Clip loadSound(String fileName)
+        {
+            try {
+                File click = new File(fileName);
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
+                Clip clip = AudioSystem.getClip();
+                clip.open(inputStream);
+                FloatControl gainControl =
+                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                gainControl.setValue(-10.0f); // turn down the volume
+                return clip;
+            } catch (Exception g) {
+                g.printStackTrace();
+                return null;
+            }
+        }
         @Override
         public void mouseClicked(MouseEvent e)
         {
@@ -219,16 +236,23 @@ public class XOregioBoard extends JComponent
         {
             //Gets the valid indices by dividing the MouseEvent coordinates
             //by the spacing of the	row or column.
-            XOregioPlayer previousPlayer;
             int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getX(), e.getY()});
-            previousPlayer = board.getCurrentPlayer();
+            if(board.board[coordinates[1]][coordinates[0]] == 0)
+            {
+                turnCount++;
+                goodDing.setFramePosition(0);
+                goodDing.start();
+            }
+            else
+            {
+                badDing.setFramePosition(0);
+                badDing.start();
+            }
             board.choseSquare(coordinates[1], coordinates[0]);
-            turnCount++;
             if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             if (board.getCurrentPlayer().isRobot() && !board.win)
             {
                 int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
-                previousPlayer = board.getCurrentPlayer();
                 board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
                 turnCount++;
                 if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
@@ -236,24 +260,11 @@ public class XOregioBoard extends JComponent
             board.repaint();
             if (board.win && board.boardListener != null)
             {
-                boardListener.gameWin(previousPlayer);
+                boardListener.gameWin(!xTurn);
             }
 
             System.out.println(turnCount);
-            try
-            {
-                File click = new File("ClickSound.wav");
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
-                Clip clip = AudioSystem.getClip();
-                clip.open(inputStream);
-                FloatControl gainControl =
-                        (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                gainControl.setValue(-20.0f);
-                clip.start();
-            } catch (Exception g)
-            {
-                g.printStackTrace();
-            }
+
 
         }
 

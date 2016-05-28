@@ -6,5 +6,5 @@ package com.xoregio;
 public interface XOregioBoardListener
 {
     void turnChanged(XOregioPlayer player);
-    void gameWin(XOregioPlayer winningPlayer);
+    void gameWin(boolean xWon);
 }

@@ -3,6 +3,7 @@ package com.xoregio;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -30,6 +31,8 @@ public class XOregio
         final JPanel menuButtons = new JPanel();
         final JPanel winContainer = new JPanel();
         final JLabel winMessage = new JLabel();
+        final JPanel endButtonContainer = new JPanel();
+        final JLabel winTile = new JLabel();
 
         gameContainer.setLayout(new BorderLayout());
         frame.setLayout(new CardLayout());
@@ -37,10 +40,18 @@ public class XOregio
         menuButtons.setLayout(new GridLayout(1, 3));
         settingsContainer.setLayout(new GridLayout(0, 1));
         comboBoxContainer.setLayout(new GridLayout(3, 2));
+        endButtonContainer.setLayout(new GridLayout(1, 2));
+        winContainer.setLayout(new GridLayout(0, 1));
 
-        JButton restartButton = new JButton("Restart");
+        JButton restartButton = new JButton("Restart Game");
+        JButton returnButton = new JButton("Return to Main Menu");
         JButton spButton = new JButton("<html>Start<br/>Single Player</html>");
         JButton mpButton = new JButton("<html>Start<br/>Multi Player</html>");
+        spButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        mpButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        restartButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        returnButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        winMessage.setFont(RobotoFont.ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
         final JCheckBox playMusic = new JCheckBox("Play Music");
         playMusic.setSelected(true);
         JLabel rowLabel = new JLabel("Rows");
@@ -73,10 +84,24 @@ public class XOregio
                 cl.show(frame.getContentPane(), "GAME");
             }
         });
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+                gameContainer.stopMusic();
+                cl.show(frame.getContentPane(), "MENU");
+            }
+        });
+        endButtonContainer.add(restartButton);
+        endButtonContainer.add(returnButton);
+        winContainer.add(endButtonContainer);
+        winContainer.add(winTile, Component.CENTER_ALIGNMENT);
+        winTile.setHorizontalAlignment(JLabel.CENTER);
+        winMessage.setHorizontalAlignment(JLabel.CENTER);
         winContainer.add(winMessage);
-        winContainer.add(restartButton);
 
-        JLabel logo = getScaledImage("logo.jpg", new Dimension(400, 240));
+
+        JLabel logo = new JLabel(getScaledImage("logo.jpg", new Dimension(400, 240)));
         menuContainer.add(logo);
         menuContainer.add(menuButtons);
 
@@ -103,8 +128,10 @@ public class XOregio
                     }
 
                     @Override
-                    public void gameWin(XOregioPlayer winningPlayer)
+                    public void gameWin(boolean winningPlayer)
                     {
+                        winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
+                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(100, 100)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -128,12 +155,10 @@ public class XOregio
         });
     }
 
-    private JLabel getScaledImage(String image, Dimension dimension)
+    private static ImageIcon getScaledImage(String image, Dimension dimension)
     {
         //http://stackoverflow.com/questions/16343098/resize-a-picture-to-fit-a-jlabel
         BufferedImage img = null;
-        JLabel label = new JLabel();
-        label.setSize(dimension);
         try
         {
             img = ImageIO.read(new File(image));
@@ -141,10 +166,9 @@ public class XOregio
         {
             e.printStackTrace();
         }
-        Image dimg = img.getScaledInstance(label.getWidth(), label.getHeight(),
+        Image dimg = img.getScaledInstance(dimension.width, dimension.height,
                 Image.SCALE_SMOOTH);
-        label.setIcon(new ImageIcon(dimg));
-        return label;
+        return new ImageIcon(dimg);
     }
 
     public static void main(String[] args)
@@ -170,4 +194,5 @@ public class XOregio
         }
         new XOregio();
     }
+
 }

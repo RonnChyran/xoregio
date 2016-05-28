@@ -17,7 +17,13 @@ public class XOregioPanel extends JPanel
     public XOregioBoard board = null;
     public XOregioBoardListener listener = null;
     private JLabel message;
-    Clip backgroundMusic = null;
+    private Clip backgroundMusic;
+    public XOregioPanel()
+    {
+        this.message = new JLabel("", SwingConstants.CENTER);
+        this.message.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+    }
+
     public void startMusic()
     {
         try
@@ -26,6 +32,7 @@ public class XOregioPanel extends JPanel
             this.backgroundMusic = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
             backgroundMusic.open(inputStream);
+            backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY); //loop forever
             backgroundMusic.start();
         }
         catch(Exception e)
@@ -36,12 +43,8 @@ public class XOregioPanel extends JPanel
 
     public void stopMusic()
     {
-        if(this.backgroundMusic != null)
+        if(this.backgroundMusic != null && this.backgroundMusic.isRunning())
             backgroundMusic.stop();
-    }
-    public XOregioPanel()
-    {
-        this.message = new JLabel("", SwingConstants.CENTER);
     }
 
     public void setMessage(String text)
@@ -59,7 +62,7 @@ public class XOregioPanel extends JPanel
             this.remove(board);
             this.remove(message);
         }
-        if(this.backgroundMusic == null && playMusic)
+        if((this.backgroundMusic == null || !this.backgroundMusic.isRunning()) && playMusic)
         {
             this.startMusic();
         }
