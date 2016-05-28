@@ -12,6 +12,7 @@ import java.io.IOException;
 
 /*
 todo:	Borders
+todo: instructions!! (do this last minute)
  */
 public class XOregio
 {
@@ -29,6 +30,7 @@ public class XOregio
         final JLabel winMessage = new JLabel();
         final JPanel endButtonContainer = new JPanel();
         final JLabel winTile = new JLabel();
+        final JPanel instructionsContainer = new JPanel();
 
         gameContainer.setLayout(new BorderLayout());
         frame.setLayout(new CardLayout());
@@ -41,9 +43,9 @@ public class XOregio
 
         JButton restartButton = new JButton("Restart Game");
         JButton returnButton = new JButton("Return to Main Menu");
-        JButton spButton = new JButton("<html>Start<br/>Single Player</html>");
-        JButton mpButton = new JButton("<html>Start<br/>Multi Player</html>");
-
+        JButton spButton = new JButton("Single Player");
+        JButton mpButton = new JButton("Multi-Player");
+        JButton instructions = new JButton("Instructions");
 
         final JCheckBox playMusic = new JCheckBox("Play Music");
         playMusic.setSelected(true);
@@ -64,7 +66,7 @@ public class XOregio
         rows.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         cols.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         startO.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-
+        instructions.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
 
@@ -75,10 +77,21 @@ public class XOregio
 
         menuButtons.add(spButton);
         menuButtons.add(mpButton);
+       // settingsContainer.add(instructions);
         settingsContainer.add(playMusic);
         settingsContainer.add(startO);
         settingsContainer.add(comboBoxContainer);
         menuButtons.add(settingsContainer);
+
+        instructions.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+                cl.show(frame.getContentPane(), "INST");
+            }
+        });
+        instructionsContainer.add(new JLabel("something something instructions"));
+
 
         restartButton.addActionListener(new ActionListener()
         {
@@ -106,15 +119,17 @@ public class XOregio
         winContainer.add(winMessage);
 
 
-        JLabel logo = new JLabel(getScaledImage("logo.jpg", new Dimension(400, 240)));
+        JLabel logo = new JLabel(getScaledImage("logo.jpg", new Dimension(500, 350)));
         menuContainer.add(logo);
         menuContainer.add(menuButtons);
 
         frame.add(menuContainer, "MENU");
         frame.add(gameContainer, "GAME");
         frame.add(winContainer, "WIN");
+        frame.add(instructionsContainer, "INST");
 
-        frame.setSize(400, 480);
+        frame.setSize(500, 580);
+        frame.setLocationRelativeTo(null); //this centers the screen
         frame.setVisible(true);
         frame.setResizable(false);
 
@@ -136,7 +151,7 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(100, 100)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(200, 200)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -168,7 +183,7 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(100, 100)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(200, 200)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioHumanPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -184,7 +199,7 @@ public class XOregio
         });
     }
 
-    private static ImageIcon getScaledImage(String image, Dimension dimension)
+    public static ImageIcon getScaledImage(String image, Dimension dimension)
     {
         //http://stackoverflow.com/questions/16343098/resize-a-picture-to-fit-a-jlabel
         BufferedImage img = null;

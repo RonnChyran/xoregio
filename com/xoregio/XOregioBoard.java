@@ -20,7 +20,7 @@ public class XOregioBoard extends JComponent
     private XOregioPlayer player1;
     private XOregioPlayer player2;
     private XOregioBoardListener boardListener = null;
-    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.jpg"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
+    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.png"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
     private int turnCount = 1;
 
     public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean oGoesFirst)
@@ -150,32 +150,28 @@ public class XOregioBoard extends JComponent
      */
     public void paint(Graphics g)
     {
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        Rectangle r = this.getBounds(); //gets the	bounds of the board
-        g2.setColor(Color.DARK_GRAY);
-        g2.fillRect(r.x, r.y, r.width, r.height); //draw a background
-        g2.setColor(Color.DARK_GRAY);
+        Rectangle r = this.getBounds();
+        g.setColor(Color.DARK_GRAY);
         int colSpacing = this.getColSpacing();
         int rowSpacing = this.getRowSpacing();
-        for (int i = 0; i < this.rows + 1; i++)
+        g.drawImage(XOregio.getScaledImage("background.png", new Dimension(r.width, r.height)).getImage(), 0, 0, this);
+
+        for (int i = 1; i < this.rows; i++)
         {
-            g2.fillRect(0, rowSpacing * i, r.width, 5); //draw horizontal lines for every row
+            g.fillRect(0, rowSpacing * i, r.width, 7); //draw horizontal lines for every row
         }
-        for (int i = 0; i < this.columns + 1; i++)
+        for (int i = 1; i < this.columns; i++)
         {
-            g2.fillRect(colSpacing * i, 0, 5, r.height); //draw vertical lines for every column
+            g.fillRect(colSpacing * i, 0, 7, r.height); //draw vertical lines for every column
         }
         for (int row = 0; row < this.rows; row++)
         {
             for (int col = 0; col < this.columns; col++)
             {
                 //fill in the appropriate image
-                g2.drawImage(PLAY_IMAGES[this.board[row][col]].getImage(),
+                g.drawImage(PLAY_IMAGES[this.board[row][col]].getImage(),
                         col * colSpacing + 5, row * rowSpacing + 5,
-                        colSpacing - 10, rowSpacing - 10, this);
+                        colSpacing - 5, rowSpacing - 5, this);
             }
         }
     }
@@ -279,32 +275,6 @@ public class XOregioBoard extends JComponent
         {
 
         }
-    }
-
-    private static final Font ROBOTO_FONT = new Font("roboto", Font.PLAIN, 24);
-
-    private static Font getFont(String name)
-    {
-        Font font = null;
-        if (name == null)
-        {
-            return ROBOTO_FONT;
-        }
-
-        try
-        {
-            File fontFile = new File("roboto.ttf");
-            font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-            GraphicsEnvironment ge = GraphicsEnvironment
-                    .getLocalGraphicsEnvironment();
-
-            ge.registerFont(font);
-
-        } catch (Exception ex)
-        {
-            font = ROBOTO_FONT;
-        }
-        return font;
     }
 
     public static void main(String[] args)

@@ -47,6 +47,12 @@ public class XOregioPanel extends JPanel
             backgroundMusic.stop();
     }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);// Draw the background image.
+        Rectangle r = this.getBounds();
+    }
+
     public void setMessage(String text)
     {
         this.message.setText(text);
