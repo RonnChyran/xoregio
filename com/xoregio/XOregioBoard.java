@@ -35,7 +35,7 @@ public class XOregioBoard extends JComponent
         if(playerO.isRobot() && oGoesFirst)
         {
             int[] move = playerO.getNextMove(this, null);
-            this.choseSquare(move[0], move[1]);
+            this.choseSquare(move[1], move[0]);
         }
     }
 

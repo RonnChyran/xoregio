@@ -11,10 +11,6 @@ import java.io.File;
 import java.io.IOException;
 
 /*
-todo: Start as X and y (checkbox)
-todo: Turn message and turn number keeper
-todo:	End Game Restart
-todo:	Roboto
 todo:	Borders
  */
 public class XOregio
@@ -47,11 +43,8 @@ public class XOregio
         JButton returnButton = new JButton("Return to Main Menu");
         JButton spButton = new JButton("<html>Start<br/>Single Player</html>");
         JButton mpButton = new JButton("<html>Start<br/>Multi Player</html>");
-        spButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        mpButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        restartButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        returnButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        winMessage.setFont(RobotoFont.ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
+
+
         final JCheckBox playMusic = new JCheckBox("Play Music");
         playMusic.setSelected(true);
         JLabel rowLabel = new JLabel("Rows");
@@ -59,6 +52,18 @@ public class XOregio
         final JComboBox<Integer> rows = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         final JComboBox<Integer> cols = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         final JCheckBox startO = new JCheckBox("O goes First");
+
+        spButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        mpButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        restartButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        returnButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        winMessage.setFont(RobotoFont.ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
+        rowLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        columnLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        playMusic.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        rows.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        cols.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        startO.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
 
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
@@ -150,7 +155,31 @@ public class XOregio
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+                gameContainer.setBoardListener(new XOregioBoardListener()
+                {
+                    @Override
+                    public void turnChanged(XOregioPlayer player)
+                    {
+                        gameContainer.setMessage((gameContainer.board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.getTurnCount());
+                    }
 
+                    @Override
+                    public void gameWin(boolean winningPlayer)
+                    {
+                        winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
+                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(100, 100)));
+                        gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
+                                new XOregioHumanPlayer(), new XOregioHumanPlayer(), playMusic.isSelected(),
+                                startO.isSelected());
+                        cl.show(frame.getContentPane(), "WIN");
+                    }
+                });
+                gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
+                        new XOregioHumanPlayer(), new XOregioHumanPlayer(), playMusic.isSelected(),
+                        startO.isSelected()
+                );
+                cl.show(frame.getContentPane(), "GAME");
             }
         });
     }
@@ -176,9 +205,7 @@ public class XOregio
 
         try
         {
-            // Set cross-platform Java L&F (also called "Metal")
-            UIManager.setLookAndFeel(
-                    UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e)
         {
             // handle exception

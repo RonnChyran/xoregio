@@ -6,6 +6,7 @@ import java.io.File;
 /**
  * Created by Ronny on 2016-05-27.
  */
+//todo put this in main
 public class RobotoFont {
     public static Font ROBOTO_FONT;
 
