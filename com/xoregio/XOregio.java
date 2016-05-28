@@ -144,7 +144,7 @@ public class XOregio
                     @Override
                     public void turnChanged(XOregioPlayer player)
                     {
-                        gameContainer.setMessage((gameContainer.board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.getTurnCount());
+                        gameContainer.setMessage((gameContainer.board.xTurn ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.turnCount);
                     }
 
                     @Override
@@ -176,7 +176,7 @@ public class XOregio
                     @Override
                     public void turnChanged(XOregioPlayer player)
                     {
-                        gameContainer.setMessage((gameContainer.board.isXTurn() ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.getTurnCount());
+                        gameContainer.setMessage((gameContainer.board.xTurn ? "X" : "O") + "'s Turn | Turn " + gameContainer.board.turnCount);
                     }
 
                     @Override

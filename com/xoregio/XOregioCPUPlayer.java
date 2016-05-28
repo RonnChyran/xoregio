@@ -1,54 +1,78 @@
 package com.xoregio;
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
 
-/**
- * Created by Ronny on 2016-05-20.
- */
 import java.util.*;
 
+/**
+ * Represents a computer controlled player that randomly selects the next move from a set of valid
+ * moves on the XOregioBoard.
+ */
 public class XOregioCPUPlayer implements XOregioPlayer
 {
     public XOregioCPUPlayer()
     {
     }
 
+    /**
+     * This player is computer controlled
+     * @return true, the CPU player is computer controlled.
+     */
     @Override
-    public boolean isRobot()
+    public boolean isCpuPlayer()
     {
       return true;
     }
 
+    /**
+     * Gets the next move selected randomly from a set of valid moves determined from the current state of the board.
+     * @param board The XOregioBoard on which play is taking place
+     * @param inputCoordinates Can be null, the computer does not click on the XOregioBoard and does not need coordinates
+     *                         to determine the next move.
+     * @return An integer array where index 0 is the row, and index 1 is the column chosen randomly by the CPU.
+     */
     @Override
     public int[] getNextMove(XOregioBoard board, int[] inputCoordinates)
     {
         System.out.println("Robot's Turn");
-        // find coords of mouse click
-        int row = getRandomRowWithSpaces(board.board);
+        int row = getRandomRowContainingZero(board.board); //gets a random row with free space
         System.out.println("Got Row: " + (row + 1));
-        int col = getRandomEmpty(board.board[row]);
+        int col = getRandomZeroIndex(board.board[row]); //get a random empty space within the row.
         System.out.println("Got Col: " + (col +1));
-        return new int[] {col, row};
+        return new int[] {row, col};
     }
 
-    private int getRandomRowWithSpaces(int[][] array)
+    /**
+     * Gets the index of a random row from a 2-dimensional integer array where
+     * one of the rows contain the value '0' (representing a free space on the board)
+     * @param array The array to search for
+     * @return The index of the random row containing zero
+     */
+    private int getRandomRowContainingZero(int[][] array)
     {
         List<Integer> emptyRows = new ArrayList<>();
+        //we can't use an array for an unknown length, so we'll use a generic list instead
         for (int i = 0; i < array.length; i++)
         {
             for(int j : array[i])
             {
                 if (j == 0)
                 {
-                    emptyRows.add(i);
-                    break;
+                    emptyRows.add(i); //add the index of the row if it contains a 0
+                    break; /* if a row contains one zero, we don't care if it contains more,
+                              so we break out of the inner loop */
                 }
             }
         }
-        return emptyRows.get(new Random().nextInt(emptyRows.size()));
+        return emptyRows.get(new Random().nextInt(emptyRows.size())); //return a random index
     }
-    private int getRandomEmpty(int[] array)
+
+    /**
+     * Gets a random index from an array that contains the value of '0'.
+     * If there is only one space that contains zero, it will always return the one
+     * @param array The array to look for
+     * @return The random index containing zero
+     */
+    private int getRandomZeroIndex(int[] array)
     {
         List<Integer> emptyCol = new ArrayList<>();
         for (int i = 0; i < array.length; i++)

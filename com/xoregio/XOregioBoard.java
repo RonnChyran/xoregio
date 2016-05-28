@@ -10,50 +10,106 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 
+/**
+ * Represents an XOregioBoard implementation as a JComponent,
+ * that supports player switching, multiple rows and columns,
+ * and embedding within a LayoutManager.
+ */
 public class XOregioBoard extends JComponent
 {
+    /**
+     * The number of rows in the board
+     */
     private int rows;
-    private int columns;
-    private boolean xTurn = true;
-    private boolean win = false;
-    public int[][] board;
-    private XOregioPlayer player1;
-    private XOregioPlayer player2;
-    private XOregioBoardListener boardListener = null;
-    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.png"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
-    private int turnCount = 1;
 
-    public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean oGoesFirst)
+    /**
+     * The number of columns in the board
+     */
+    private int columns;
+
+    /**
+     * Keeps track of whether or not it is X's turn
+     */
+    public boolean xTurn = true;
+
+    /**
+     * Keeps track of the win state
+     */
+    private boolean win = false;
+
+    /**
+     * Keeps the state of the board in the form of a 2D integer array
+     * A value of '0' represents empty
+     * A value of '1' represents that it is marked by 'X'
+     * A value of '2' represents that it is marked by 'O'
+     */
+    public int[][] board;
+
+    /**
+     * The player instance representing 'X'
+     */
+    private XOregioPlayer playerX;
+
+    /**
+     * The player instance representing 'O'
+     */
+    private XOregioPlayer playerO;
+
+    /**
+     * A Listener that listens for events on the board
+     * @see XOregioBoardListener
+     */
+    private XOregioBoardListener boardListener = null;
+
+    /**
+     * A constant of images for respective cell state
+     * Empty, X, or O.
+     */
+    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.png"), new ImageIcon("1.jpg"), new ImageIcon("2.jpg")};
+
+    /**
+     * A counter that keeps track of the current turn
+     */
+    public int turnCount = 1;
+
+    /**
+     * The default constructor for an XOregio Board
+     * @param rows The number of rows in the play area
+     * @param columns The number of columns in the play area
+     * @param playerX The player instance representing 'X'
+     * @param playerO The player instance representing 'O'
+     * @param startAsO Whether or not O goes first.
+     */
+    public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean startAsO)
     {
-        this.xTurn = !oGoesFirst;
-        this.player1 = playerX; //swap the players if O goes first
-        this.player2 = playerO;
-        this.rows = rows;
-        this.columns = columns;
-        this.board = new int[rows][columns];
-        this.addMouseListener(new XOregioMouseListener(this));
-        if(playerO.isRobot() && oGoesFirst)
+        this.xTurn = !startAsO; //swap the turn counter if 'O' goes first
+        this.playerX = playerX; //assign X to instance
+        this.playerO = playerO; //assign O to instance
+        this.rows = rows; //assign rows to instance
+        this.columns = columns; //assign columns to instance
+        this.board = new int[rows][columns]; //initialize board
+        this.addMouseListener(new XOregioMouseListener(this)); //add default mouse listener
+        if(playerO.isCpuPlayer() && startAsO) //if O is a robot, and should go first, we ask it to make a move
         {
             int[] move = playerO.getNextMove(this, null);
             this.choseSquare(move[1], move[0]);
         }
     }
 
-    public XOregioBoard()
-    {
-        this(5, 5, new XOregioHumanPlayer(), new XOregioHumanPlayer(), false);
-    }
-
+    /**
+     * Sets the write-only board listener for this instance
+     * @param boardListener The board listener to set
+     */
     public void setBoardListener(XOregioBoardListener boardListener)
     {
         this.boardListener = boardListener;
     }
 
     /**
-     * Gets	the spacing	between columns by dividing the width of the	board	by	the
+     * Gets the spacing between columns by dividing the width of the board by the
      * number of columns.
      *
-     * @return The spacing	between the	columns
+     * @return The spacing between the columns
      */
     public int getColSpacing()
     {
@@ -61,10 +117,10 @@ public class XOregioBoard extends JComponent
     }
 
     /**
-     * Gets	the spacing	between rows by dividing the height	of	the board by the
+     * Gets the spacing between rows by dividing the height of the board by the
      * number of rows.
      *
-     * @return The spacing	between the	rows
+     * @return The spacing between the rows
      */
     public int getRowSpacing()
     {
@@ -72,18 +128,10 @@ public class XOregioBoard extends JComponent
     }
 
     /**
-     * Gets the current turn count;
-     */
-    public int getTurnCount()
-    {
-        return this.turnCount;
-    }
-
-    /**
-     * Checks if the	board	is	full by checking each cell	in	the board.
-     * If no cells have	'0' (unmarked), then	it	will return	true.
+     * Checks if the board is full by checking each cell in the board.
+     * If no cells have '0' (unmarked), then it will return true.
      *
-     * @return true if the	board	is	full,	false	otherwise
+     * @return true if the board is full, false otherwise
      */
     public boolean fullBoard()
     {
@@ -96,16 +144,16 @@ public class XOregioBoard extends JComponent
             }
         }
         return true;
-    }    //	fullBoard
+    }    // fullBoard
 
 
     /**
-     * Marks the board and	adjacent	squares.	It	checks for valid adjacent cells vertically and horizontally
-     * and also excludes already-marked cells, then sets	the valid cells to either 1 or 2, depending on
-     * whose turn	it	is	currently.
+     * Marks the board and adjacent squares. It checks for valid adjacent cells vertically and horizontally
+     * and also excludes already-marked cells, then sets the valid cells to either 1 or 2, depending on
+     * whose turn it is currently.
      *
-     * @param row The row of the	cell to mark
-     * @param col The column of the	cell to mark.
+     * @param row The row of the cell to mark
+     * @param col The column of the cell to mark.
      */
     public void markBoard(int row, int col)
     {
@@ -123,15 +171,15 @@ public class XOregioBoard extends JComponent
 
         if (col != board[0].length - 1 && board[row][col + 1] == 0)
             board[row][col + 1] = mark;
-    }    //	markBoard
+    }    // markBoard
 
     /**
-     * Determines	if	the chosen square	is	unmarked, then	chooses
-     * the square	and adjacent cells to be marked by markBoard.
-     * Also	switches	the turn	counter to the	next player, and determines if the game has been won.
+     * Determines if the chosen square is unmarked, then chooses
+     * the square and adjacent cells to be marked by markBoard.
+     * Also switches the turn counter to the next player, and determines if the game has been won.
      *
-     * @param row
-     * @param col
+     * @param row The row of the cell to choose
+     * @param col The col of the cell to mark
      */
     public void choseSquare(int row, int col)
     {
@@ -141,12 +189,12 @@ public class XOregioBoard extends JComponent
             this.xTurn = !xTurn;
         }
         win = fullBoard();
-    }    //	choseSquare
+    }    // choseSquare
 
     /**
      * Paints the board
      *
-     * @param g
+     * @param g The Graphics object passed to this component
      */
     public void paint(Graphics g)
     {
@@ -176,29 +224,44 @@ public class XOregioBoard extends JComponent
         }
     }
 
+    /**
+     * Gets the current player instance according to xTurn
+     * @return The current player instance
+     */
     public XOregioPlayer getCurrentPlayer()
     {
-        return xTurn ? this.player1 : this.player2;
-    }
-
-    public boolean isXTurn()
-    {
-        return xTurn;
+        return xTurn ? this.playerX : this.playerO;
     }
 
     /**
-     * Implements	a MouseListener that	updates an XOregioBoard.
+     * Implements a MouseListener that updates an XOregioBoard.
      */
     class XOregioMouseListener implements MouseListener
     {
+        /**
+         * A reference to the XOregioBoard instance of this mouse listener
+         */
         private XOregioBoard board;
+        /**
+         * The ding that plays on a valid move
+         */
         Clip goodDing = this.loadSound("goodDing.wav");
+        /**
+         * The ding that plays on an invalid move
+         */
         Clip badDing = this.loadSound("badDing.wav");
+
         XOregioMouseListener(XOregioBoard board)
         {
             this.board = board;
         }
 
+        /**
+         * Loads a sound from a filename and returns the Clip instance
+         * Also reduces the volume for safer listening.
+         * @param fileName The filename of the audio clip
+         * @return The loaded Clip instance. Null if an exception occurs
+         */
         private Clip loadSound(String fileName)
         {
             try {
@@ -231,9 +294,9 @@ public class XOregioBoard extends JComponent
         public void mouseReleased(MouseEvent e)
         {
             //Gets the valid indices by dividing the MouseEvent coordinates
-            //by the spacing of the	row or column.
-            int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getX(), e.getY()});
-            if(board.board[coordinates[1]][coordinates[0]] == 0)
+            //by the spacing of the row or column.
+            int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getY(), e.getX()});
+            if(board.board[coordinates[0]][coordinates[1]] == 0)
             {
                 turnCount++;
                 goodDing.setFramePosition(0);
@@ -244,12 +307,12 @@ public class XOregioBoard extends JComponent
                 badDing.setFramePosition(0);
                 badDing.start();
             }
-            board.choseSquare(coordinates[1], coordinates[0]);
+            board.choseSquare(coordinates[0], coordinates[1]);
             if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
-            if (board.getCurrentPlayer().isRobot() && !board.win)
+            if (board.getCurrentPlayer().isCpuPlayer() && !board.win)
             {
                 int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
-                board.choseSquare(robotCoordinates[1], robotCoordinates[0]);
+                board.choseSquare(robotCoordinates[0], robotCoordinates[1]);
                 turnCount++;
                 if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
             }
@@ -258,10 +321,6 @@ public class XOregioBoard extends JComponent
             {
                 boardListener.gameWin(!xTurn);
             }
-
-            System.out.println(turnCount);
-
-
         }
 
         @Override
@@ -276,21 +335,4 @@ public class XOregioBoard extends JComponent
 
         }
     }
-
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame("XOregio");
-        frame.add(new XOregioBoard());
-        frame.setSize(450, 500);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-
-        JButton button = new JButton("Music");
-        button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-        frame.add(button, BorderLayout.SOUTH);
-        frame.show(true);
-
-    }
-
 }
