@@ -8,6 +8,9 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /*
 todo:	Borders
@@ -20,6 +23,7 @@ public class XOregio
 
         final JFrame frame = new JFrame("XOregio");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setIconImage(XOregioBoard.PLAY_IMAGES[2].getImage());
         final JPanel menuContainer = new JPanel();
         final XOregioPanel gameContainer = new XOregioPanel();
         final JPanel settingsContainer = new JPanel();
@@ -42,9 +46,10 @@ public class XOregio
 
         JButton restartButton = new JButton("Restart Game");
         JButton returnButton = new JButton("Return to Main Menu");
+        JButton returnFromInstructionsButton = new JButton("Return to Main Menu");
         JButton spButton = new JButton("Single Player");
         JButton mpButton = new JButton("Multi-Player");
-        JButton instructions = new JButton("Instructions");
+        JButton instructionsButton = new JButton("Instructions");
 
         final JCheckBox playMusic = new JCheckBox("Play Music");
         playMusic.setSelected(true);
@@ -58,6 +63,7 @@ public class XOregio
         mpButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         restartButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         returnButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        returnFromInstructionsButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         winMessage.setFont(RobotoFont.ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
         rowLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         columnLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
@@ -65,7 +71,7 @@ public class XOregio
         rows.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         cols.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         startO.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        instructions.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        instructionsButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
 
@@ -76,22 +82,30 @@ public class XOregio
 
         menuButtons.add(spButton);
         menuButtons.add(mpButton);
-       // settingsContainer.add(instructions);
+        settingsContainer.add(instructionsButton);
         settingsContainer.add(playMusic);
         settingsContainer.add(startO);
         settingsContainer.add(comboBoxContainer);
         menuButtons.add(settingsContainer);
 
-        instructions.addActionListener(new ActionListener() {
+        instructionsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
                 cl.show(frame.getContentPane(), "INST");
             }
         });
-        instructionsContainer.add(new JLabel("something something instructions"));
+        JLabel instructionsContent = new JLabel("<html>" +
+                "        <div style=\"width:200px;\">In <b>XOregio</b>, the aim of the game is to have the last laugh!" +
+                "            Either X or O goes first, and marks a square." +
+                "            Any squares adjacent to it that aren't already marked are also marked." +
+                "            The winner is the player that makes the last move." +
+                "        </div>" +
+                "</html>");
+        instructionsContent.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
 
-
+        instructionsContainer.add(instructionsContent);
+        instructionsContainer.add(returnFromInstructionsButton);
         restartButton.addActionListener(new ActionListener()
         {
             @Override
@@ -110,6 +124,14 @@ public class XOregio
             }
         });
 
+        returnFromInstructionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+                gameContainer.stopMusic();
+                cl.show(frame.getContentPane(), "MENU");
+            }
+        });
         endButtonContainer.add(restartButton);
         endButtonContainer.add(returnButton);
         winContainer.add(endButtonContainer);
@@ -152,7 +174,9 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "resource/1.png" : "resource/2.png", new Dimension(150, 150)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? XOregioBoard.PLAY_IMAGES[1].getImage()
+                                        : XOregioBoard.PLAY_IMAGES[2].getImage(),
+                                new Dimension(150, 150)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -184,7 +208,9 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "resource/1.png" : "resource/2.png", new Dimension(150, 150)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? XOregioBoard.PLAY_IMAGES[1].getImage()
+                                                        : XOregioBoard.PLAY_IMAGES[2].getImage(),
+                                                        new Dimension(150, 150)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioHumanPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -207,11 +233,18 @@ public class XOregio
         try
         {
             img = ImageIO.read(new File(image));
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
-        Image dimg = img.getScaledInstance(dimension.width, dimension.height,
+        return XOregio.getScaledImage(img, dimension);
+    }
+
+    public static ImageIcon getScaledImage(Image image, Dimension dimension)
+    {
+        //http://stackoverflow.com/questions/16343098/resize-a-picture-to-fit-a-jlabel
+        Image dimg = image.getScaledInstance(dimension.width, dimension.height,
                 Image.SCALE_SMOOTH);
         return new ImageIcon(dimg);
     }

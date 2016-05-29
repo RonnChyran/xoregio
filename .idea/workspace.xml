@@ -1,37 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="xoregio:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="69c91cf8-d7f3-4fa6-88df-336149463066" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Elevator_Music.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/badDing.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/Elevator_Music.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/goodDing.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/ClickSound.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/roboto.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/roboto.ttf" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/xoregio_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resource/instructions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/RobotoFont.java" afterPath="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregio.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/0.png" afterPath="$PROJECT_DIR$/resource/0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/badDing.wav" afterPath="$PROJECT_DIR$/resource/badDing.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/1.png" afterPath="$PROJECT_DIR$/resource/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/2.png" afterPath="$PROJECT_DIR$/resource/2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/Elevator_Music.wav" afterPath="$PROJECT_DIR$/resource/Elevator_Music.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/background.jpg" afterPath="$PROJECT_DIR$/resource/background.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/goodDing.wav" afterPath="$PROJECT_DIR$/resource/goodDing.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/logo.jpg" afterPath="$PROJECT_DIR$/resource/logo.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/roboto.ttf" afterPath="$PROJECT_DIR$/resource/roboto.ttf" />
     </list>
     <ignored path="xoregio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,24 +34,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="XOregio.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XOregio.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.689655">
-              <caret line="151" column="62" selection-start-line="151" selection-start-column="62" selection-end-line="151" selection-end-column="62" />
-              <folding />
+            <state vertical-scroll-proportion="0.3245033">
+              <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+              <folding>
+                <element signature="e#5635#5949#0" expanded="true" />
+                <element signature="e#5948#5949#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RobotoFont.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="instructions.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource/instructions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="7" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RobotoFont.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/xoregio/RobotoFont.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42969984">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +75,21 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="89" column="55" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="55" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1464558280709" expanded="true" signature="29:269" placeholder="..." />
+                <marker date="1464558280709" expanded="true" signature="271:473" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="true" signature="696:835" placeholder="{...}" />
+                <marker date="1464558280709" expanded="true" signature="841:888" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="true" signature="922:1466" placeholder="{...}" />
+                <marker date="1464558280709" expanded="true" signature="1472:1518" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="true" signature="1551:1671" placeholder="{...}" />
+                <marker date="1464558280709" expanded="true" signature="1677:1784" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="false" signature="1824:1839" placeholder=" { " />
+                <marker date="1464558280709" expanded="false" signature="1866:1872" placeholder=" }" />
+                <marker date="1464558280709" expanded="true" signature="1878:2068" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="false" signature="2137:2152" placeholder=" { " />
+                <marker date="1464558280709" expanded="false" signature="2182:2188" placeholder=" }" />
+                <marker date="1464558280709" expanded="true" signature="2194:2596" placeholder="/**...*/" />
+                <marker date="1464558280709" expanded="true" signature="2785:3767" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -93,7 +101,16 @@
             <state vertical-scroll-proportion="-4.586207">
               <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3223#3224#0" expanded="false" />
+                <element signature="e#3273#3274#0" expanded="false" />
+                <element signature="e#3489#3490#0" expanded="false" />
+                <element signature="e#3549#3550#0" expanded="false" />
+                <element signature="e#3757#3758#0" expanded="false" />
+                <element signature="e#3815#3816#0" expanded="false" />
+                <element signature="e#7114#7115#0" expanded="false" />
+                <element signature="e#7172#7173#0" expanded="false" />
+                <element signature="e#7795#7796#0" expanded="false" />
+                <element signature="e#7837#7838#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,10 +131,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="28" column="30" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,10 +141,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="e#450#451#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,6 +191,7 @@
         <option value="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
+        <option value="$PROJECT_DIR$/resource/instructions.html" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregio.java" />
       </list>
     </option>
@@ -248,6 +260,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xoregio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xoregio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xoregio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xoregio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artifacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -258,6 +306,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -463,6 +514,12 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="xoregio" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="xoregio.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/xoregio_jar/xoregio.jar" />
       <envs />
       <method />
     </configuration>
@@ -722,16 +779,18 @@
       <listeners />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.XOregio" />
       <item index="1" class="java.lang.String" itemvalue="Application.XOregioGame" />
       <item index="2" class="java.lang.String" itemvalue="Application.XOregioBoard" />
+      <item index="3" class="java.lang.String" itemvalue="JAR Application.xoregio.jar" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Application.XOregio" />
-        <item index="1" class="java.lang.String" itemvalue="Application.XOregioBoard" />
-        <item index="2" class="java.lang.String" itemvalue="Application.XOregioGame" />
+        <item index="1" class="java.lang.String" itemvalue="JAR Application.xoregio.jar" />
+        <item index="2" class="java.lang.String" itemvalue="Application.XOregioBoard" />
+        <item index="3" class="java.lang.String" itemvalue="Application.XOregioGame" />
       </list>
     </recent_temporary>
   </component>
@@ -847,7 +906,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="41" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -855,9 +917,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +926,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="93" selection-start-line="103" selection-start-column="93" selection-end-line="103" selection-end-column="93" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1464558280709" expanded="true" signature="29:269" placeholder="..." />
+            <marker date="1464558280709" expanded="true" signature="271:473" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="696:835" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="841:888" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="922:1466" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1472:1518" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="1551:1671" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1677:1784" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="1824:1839" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="1866:1872" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="1878:2068" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="2137:2152" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="2182:2188" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="2194:2596" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="2785:3767" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -876,7 +950,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="110" selection-start-line="82" selection-start-column="110" selection-end-line="82" selection-end-column="110" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -893,10 +976,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="30" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -904,10 +984,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +1000,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -932,7 +1012,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1464558280709" expanded="true" signature="29:269" placeholder="..." />
+            <marker date="1464558280709" expanded="true" signature="271:473" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="696:835" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="841:888" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="922:1466" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1472:1518" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="1551:1671" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1677:1784" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="1824:1839" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="1866:1872" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="1878:2068" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="2137:2152" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="2182:2188" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="2194:2596" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="2785:3767" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -942,7 +1036,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -959,10 +1062,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -970,10 +1070,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -989,7 +1086,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="47" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -998,7 +1098,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1007,10 +1116,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,10 +1124,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +1140,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,7 +1152,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1055,10 +1170,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1066,10 +1178,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,7 +1194,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1094,7 +1206,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,10 +1224,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,10 +1232,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,7 +1248,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,10 +1271,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="30" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,10 +1279,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,20 +1291,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.689655">
-          <caret line="151" column="62" selection-start-line="151" selection-start-column="62" selection-end-line="151" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="55" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="55" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1464558280709" expanded="true" signature="29:269" placeholder="..." />
+            <marker date="1464558280709" expanded="true" signature="271:473" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="696:835" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="841:888" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="922:1466" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1472:1518" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="1551:1671" placeholder="{...}" />
+            <marker date="1464558280709" expanded="true" signature="1677:1784" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="1824:1839" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="1866:1872" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="1878:2068" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="false" signature="2137:2152" placeholder=" { " />
+            <marker date="1464558280709" expanded="false" signature="2182:2188" placeholder=" }" />
+            <marker date="1464558280709" expanded="true" signature="2194:2596" placeholder="/**...*/" />
+            <marker date="1464558280709" expanded="true" signature="2785:3767" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1210,20 +1328,137 @@
         <state vertical-scroll-proportion="-4.586207">
           <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3223#3224#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3489#3490#0" expanded="false" />
+            <element signature="e#3549#3550#0" expanded="false" />
+            <element signature="e#3757#3758#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
+            <element signature="e#7114#7115#0" expanded="false" />
+            <element signature="e#7172#7173#0" expanded="false" />
+            <element signature="e#7795#7796#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/RobotoFont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42969984">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3245033">
+          <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+          <folding>
+            <element signature="e#5635#5949#0" expanded="true" />
+            <element signature="e#5948#5949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>xoregio:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>xoregio</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
