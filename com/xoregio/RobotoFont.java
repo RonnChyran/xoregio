@@ -13,7 +13,7 @@ public class RobotoFont {
     static {
         try {
 
-            RobotoFont.ROBOTO_FONT = Font.createFont(Font.TRUETYPE_FONT, new File("roboto.ttf"));
+            RobotoFont.ROBOTO_FONT = Font.createFont(Font.TRUETYPE_FONT, new File("resource/roboto.ttf"));
             GraphicsEnvironment ge =
                     GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(RobotoFont.ROBOTO_FONT);

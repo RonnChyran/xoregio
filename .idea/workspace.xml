@@ -2,14 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c91cf8-d7f3-4fa6-88df-336149463066" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Elevator_Music.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/badDing.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/Elevator_Music.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/goodDing.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/ClickSound.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/resources/roboto.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/roboto.ttf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/RobotoFont.java" afterPath="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregio.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregio.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioHumanPlayer.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioHumanPlayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/0.png" afterPath="$PROJECT_DIR$/resource/0.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/badDing.wav" afterPath="$PROJECT_DIR$/resource/badDing.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/1.png" afterPath="$PROJECT_DIR$/resource/1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/2.png" afterPath="$PROJECT_DIR$/resource/2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/Elevator_Music.wav" afterPath="$PROJECT_DIR$/resource/Elevator_Music.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/resources/background.jpg" afterPath="$PROJECT_DIR$/resource/background.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/goodDing.wav" afterPath="$PROJECT_DIR$/resource/goodDing.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/logo.jpg" afterPath="$PROJECT_DIR$/resource/logo.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/roboto.ttf" afterPath="$PROJECT_DIR$/resource/roboto.ttf" />
     </list>
     <ignored path="xoregio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +56,8 @@
       <file leaf-file-name="XOregio.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-68.27586">
-              <caret line="125" column="41" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
+            <state vertical-scroll-proportion="-8.689655">
+              <caret line="151" column="62" selection-start-line="151" selection-start-column="62" selection-end-line="151" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -44,8 +66,8 @@
       <file leaf-file-name="RobotoFont.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/com/xoregio/RobotoFont.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33170733">
-              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.42969984">
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,14 +78,10 @@
       <file leaf-file-name="XOregioPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.931034">
-              <caret line="103" column="93" selection-start-line="103" selection-start-column="93" selection-end-line="103" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="55" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1820#1821#0" expanded="true" />
-                <element signature="e#1862#1863#0" expanded="true" />
-                <element signature="e#2133#2134#0" expanded="true" />
-                <element signature="e#2178#2179#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,20 +90,10 @@
       <file leaf-file-name="XOregioBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6896553">
-              <caret line="82" column="110" selection-start-line="82" selection-start-column="110" selection-end-line="82" selection-end-column="110" />
+            <state vertical-scroll-proportion="-4.586207">
+              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3196#3197#0" expanded="true" />
-                <element signature="e#3246#3247#0" expanded="true" />
-                <element signature="e#3462#3463#0" expanded="true" />
-                <element signature="e#3522#3523#0" expanded="true" />
-                <element signature="e#3730#3731#0" expanded="true" />
-                <element signature="e#3788#3789#0" expanded="true" />
-                <element signature="e#7078#7079#0" expanded="true" />
-                <element signature="e#7136#7137#0" expanded="true" />
-                <element signature="e#7729#7730#0" expanded="true" />
-                <element signature="e#7771#7772#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,6 +155,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -164,14 +173,14 @@
         <option value="$PROJECT_DIR$/com.xoregio/XOregioCPUPlayer.java" />
         <option value="$PROJECT_DIR$/com.xoregio/XOregioGame.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioGame.java" />
-        <option value="$PROJECT_DIR$/com/xoregio/XOregio.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioHumanPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
-        <option value="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/XOregio.java" />
       </list>
     </option>
   </component>
@@ -235,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xoregio" />
+              <option name="myItemId" value="resource" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -251,20 +260,150 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Coding\xoregio" />
-      <recent name="C:\Coding\xoregio" />
-      <recent name="C:\Coding\xoregio\com\xoregio" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xoregio" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Coding\xoregio\resource" />
       <recent name="G:\Coding\xoregio" />
       <recent name="G:\Coding\xoregio\com\xoregio" />
       <recent name="G:\Coding\xoregio\com.xoregio\resources" />
       <recent name="G:\Coding\xoregio\XORegio" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xoregio" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Coding\xoregio" />
+      <recent name="C:\Coding\xoregio" />
+      <recent name="C:\Coding\xoregio\com\xoregio" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/XOregioBoard.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/background.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/background.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/resources/1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/resources/2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/resources/background.jpg</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/background.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/border.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/logo.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/resources/1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/com/xoregio/resources/2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/logo.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.XOregio">
     <configuration default="false" name="XOregio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -647,7 +786,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -655,11 +794,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.320296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3012685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -707,6 +846,82 @@
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="41" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/RobotoFont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="93" selection-start-line="103" selection-start-column="93" selection-end-line="103" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="110" selection-start-line="82" selection-start-column="110" selection-end-line="82" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioHumanPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -718,10 +933,6 @@
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,16 +943,6 @@
           <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7136#7137#0" expanded="true" />
-            <element signature="e#7729#7730#0" expanded="true" />
-            <element signature="e#7771#7772#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -798,16 +999,6 @@
           <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7136#7137#0" expanded="true" />
-            <element signature="e#7729#7730#0" expanded="true" />
-            <element signature="e#7771#7772#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -856,16 +1047,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7136#7137#0" expanded="true" />
-            <element signature="e#7729#7730#0" expanded="true" />
-            <element signature="e#7771#7772#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -914,16 +1095,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7136#7137#0" expanded="true" />
-            <element signature="e#7729#7730#0" expanded="true" />
-            <element signature="e#7771#7772#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -970,11 +1141,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14455782">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/0.png">
+    <entry file="file://$PROJECT_DIR$/resource/0.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1001,14 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1017,52 +1179,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6896553">
-          <caret line="82" column="110" selection-start-line="82" selection-start-column="110" selection-end-line="82" selection-end-column="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#7078#7079#0" expanded="true" />
-            <element signature="e#7136#7137#0" expanded="true" />
-            <element signature="e#7729#7730#0" expanded="true" />
-            <element signature="e#7771#7772#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-8.689655">
+          <caret line="151" column="62" selection-start-line="151" selection-start-column="62" selection-end-line="151" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.931034">
-          <caret line="103" column="93" selection-start-line="103" selection-start-column="93" selection-end-line="103" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="55" selection-start-line="89" selection-start-column="55" selection-end-line="89" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2178#2179#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-68.27586">
-          <caret line="125" column="41" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.586207">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/RobotoFont.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33170733">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.42969984">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

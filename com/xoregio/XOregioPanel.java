@@ -33,7 +33,7 @@ public class XOregioPanel extends JPanel
     {
         try
         {
-            File f = new File("Elevator_Music.wav");
+            File f = new File("resource/Elevator_Music.wav");
             this.backgroundMusic = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
             backgroundMusic.open(inputStream);

@@ -3,7 +3,6 @@ package com.xoregio;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -110,6 +109,7 @@ public class XOregio
                 cl.show(frame.getContentPane(), "MENU");
             }
         });
+
         endButtonContainer.add(restartButton);
         endButtonContainer.add(returnButton);
         winContainer.add(endButtonContainer);
@@ -119,7 +119,7 @@ public class XOregio
         winContainer.add(winMessage);
 
 
-        JLabel logo = new JLabel(getScaledImage("logo.jpg", new Dimension(500, 350)));
+        JLabel logo = new JLabel(getScaledImage("resource/logo.jpg", new Dimension(500, 350)));
         menuContainer.add(logo);
         menuContainer.add(menuButtons);
 
@@ -132,6 +132,7 @@ public class XOregio
         frame.setLocationRelativeTo(null); //this centers the screen
         frame.setVisible(true);
         frame.setResizable(false);
+
 
         spButton.addActionListener(new ActionListener()
         {
@@ -151,7 +152,7 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(200, 200)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? "resource/1.png" : "resource/2.png", new Dimension(150, 150)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioCPUPlayer(), playMusic.isSelected(),
                                 startO.isSelected());
@@ -183,7 +184,7 @@ public class XOregio
                     public void gameWin(boolean winningPlayer)
                     {
                         winMessage.setText((winningPlayer ? "X" : "O") + " Wins!");
-                        winTile.setIcon(getScaledImage(winningPlayer ? "1.jpg" : "2.jpg", new Dimension(200, 200)));
+                        winTile.setIcon(getScaledImage(winningPlayer ? "resource/1.png" : "resource/2.png", new Dimension(150, 150)));
                         gameContainer.setupBoard((int) rows.getSelectedItem(), (int) cols.getSelectedItem(),
                                 new XOregioHumanPlayer(), new XOregioHumanPlayer(), playMusic.isSelected(),
                                 startO.isSelected());

@@ -65,7 +65,7 @@ public class XOregioBoard extends JComponent
      * A constant of images for respective cell state
      * Empty, X, or O.
      */
-    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("0.png"), new ImageIcon("1.png"), new ImageIcon("2.png")};
+    public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("resource/0.png"), new ImageIcon("resource/1.png"), new ImageIcon("resource/2.png")};
 
     /**
      * A counter that keeps track of the current turn
@@ -202,7 +202,7 @@ public class XOregioBoard extends JComponent
         g.setColor(Color.DARK_GRAY);
         int colSpacing = this.getColSpacing();
         int rowSpacing = this.getRowSpacing();
-        g.drawImage(XOregio.getScaledImage("background.jpg", new Dimension(r.width, r.height)).getImage(), 0, 0, this);
+        g.drawImage(XOregio.getScaledImage("resource/background.jpg", new Dimension(r.width, r.height)).getImage(), 0, 0, this);
 
         for (int i = 1; i < this.rows; i++)
         {
@@ -245,11 +245,11 @@ public class XOregioBoard extends JComponent
         /**
          * The ding that plays on a valid move
          */
-        Clip goodDing = this.loadSound("goodDing.wav");
+        final Clip goodDing = this.loadSound("resource/goodDing.wav");
         /**
          * The ding that plays on an invalid move
          */
-        Clip badDing = this.loadSound("badDing.wav");
+        final Clip badDing = this.loadSound("resource/badDing.wav");
 
         XOregioMouseListener(XOregioBoard board)
         {
