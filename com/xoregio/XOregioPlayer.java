@@ -2,6 +2,9 @@ package com.xoregio;
 
 /**
  * Represents a player playing a game of XOregio.
+ * An XOregioPlayer should be immutable and never represent any
+ * information about the game state. A single instance of XOregioPlayer
+ * should be re-usable across instances of games.
  */
 public interface XOregioPlayer
 {

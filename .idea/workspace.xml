@@ -7,10 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69c91cf8-d7f3-4fa6-88df-336149463066" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/com/xoregio/RobotoFont.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/com/xoregio/XOregioSettingsPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregio.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregio.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" afterPath="$PROJECT_DIR$/com/xoregio/XOregioGamePanel.java" />
     </list>
     <ignored path="xoregio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,20 +36,45 @@
       <file leaf-file-name="XOregio.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2604166">
-              <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+            <state vertical-scroll-proportion="4.221854">
+              <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="8" />
               <folding>
-                <element signature="e#3728#3999#0" expanded="true" />
-                <element signature="e#3998#3999#0" expanded="true" />
-                <element signature="e#5454#5768#0" expanded="true" />
-                <element signature="e#5767#5768#0" expanded="true" />
+                <element signature="e#508#779#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
+                <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+                <element signature="e#4038#4331#0" expanded="true" />
+                <element signature="e#4330#4331#0" expanded="true" />
+                <element signature="e#4797#5068#0" expanded="true" />
+                <element signature="e#5067#5068#0" expanded="true" />
+                <element signature="e#6368#6536#0" expanded="true" />
+                <element signature="e#6535#6536#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XOregioPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
+      <file leaf-file-name="XOregioSettingsPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioSettingsPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="1" selection-start-line="8" selection-start-column="0" selection-end-line="67" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1700#1701#0" expanded="true" />
+                <element signature="e#1750#1751#0" expanded="true" />
+                <element signature="e#1787#1788#0" expanded="true" />
+                <element signature="e#1834#1835#0" expanded="true" />
+                <element signature="e#1866#1867#0" expanded="true" />
+                <element signature="e#1921#1922#0" expanded="true" />
+                <element signature="e#1956#1957#0" expanded="true" />
+                <element signature="e#2011#2012#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOregioGamePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioGamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.9310346">
               <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
@@ -93,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -103,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -137,15 +163,17 @@
         <option value="$PROJECT_DIR$/com.xoregio/XOregioCPUPlayer.java" />
         <option value="$PROJECT_DIR$/com.xoregio/XOregioGame.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioGame.java" />
-        <option value="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioHumanPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java" />
         <option value="$PROJECT_DIR$/com/xoregio/RobotoFont.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioBoard.java" />
         <option value="$PROJECT_DIR$/resource/instructions.html" />
-        <option value="$PROJECT_DIR$/com/xoregio/XOregio.java" />
         <option value="$PROJECT_DIR$/com/xoregio/XOregioPanel.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/XOregioPlayer.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/XOregioWinPanel.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/XOregioSettingsPanel.java" />
+        <option value="$PROJECT_DIR$/com/xoregio/XOregio.java" />
       </list>
     </option>
   </component>
@@ -789,7 +817,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -799,7 +828,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987013" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -838,15 +866,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="41" selection-start-line="125" selection-start-column="41" selection-end-line="125" selection-end-column="41" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioGamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="93" selection-start-line="103" selection-start-column="93" selection-end-line="103" selection-end-column="93" />
@@ -901,15 +934,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioGamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
@@ -964,10 +1002,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="47" selection-end-column="47" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1011,10 +1054,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1058,10 +1106,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1105,10 +1158,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1133,22 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioBoardListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1167,7 +1209,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPanel.java">
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioCPUPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioGamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.9310346">
           <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
@@ -1175,15 +1225,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/xoregio/XOregioSettingsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="1" selection-start-line="8" selection-start-column="0" selection-end-line="67" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#1750#1751#0" expanded="true" />
+            <element signature="e#1787#1788#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#1866#1867#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1956#1957#0" expanded="true" />
+            <element signature="e#2011#2012#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/com/xoregio/XOregio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2604166">
-          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+        <state vertical-scroll-proportion="4.221854">
+          <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="8" />
           <folding>
-            <element signature="e#3728#3999#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#5454#5768#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#508#779#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="method#createInstructionsPanel#0;class#XOregio#0" expanded="false" />
+            <element signature="e#4038#4331#0" expanded="true" />
+            <element signature="e#4330#4331#0" expanded="true" />
+            <element signature="e#4797#5068#0" expanded="true" />
+            <element signature="e#5067#5068#0" expanded="true" />
+            <element signature="e#6368#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
           </folding>
         </state>
       </provider>

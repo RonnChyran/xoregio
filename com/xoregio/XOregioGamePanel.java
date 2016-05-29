@@ -14,13 +14,13 @@ import java.io.FileInputStream;
  * Allows reinitialization of the board (reset) by
  * recreating the instance of XOregioBoard (which is difficult to reset to default state).
  */
-public class XOregioPanel extends JPanel
+public class XOregioGamePanel extends JPanel
 {
     public XOregioBoard board = null;
     public XOregioBoardListener listener = null;
     private JLabel message;
     private Clip backgroundMusic;
-    public XOregioPanel()
+    public XOregioGamePanel()
     {
         this.message = new JLabel("", SwingConstants.CENTER);
         this.message.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
@@ -66,7 +66,7 @@ public class XOregioPanel extends JPanel
 
     /**
      * Sets the instance of the listener that will be re-attached to
-     * all instances of XOregioBoard initialized by this instance of XOregioPanel
+     * all instances of XOregioBoard initialized by this instance of XOregioGamePanel
      * @param boardListener
      */
     public void setBoardListener(XOregioBoardListener boardListener)
