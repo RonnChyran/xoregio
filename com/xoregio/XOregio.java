@@ -12,12 +12,10 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/*
-todo:	Borders
-todo: instructions!! (do this last minute)
- */
 public class XOregio
 {
+    public static Font ROBOTO_FONT;
+
     public XOregio()
     {
 
@@ -59,19 +57,19 @@ public class XOregio
         final JComboBox<Integer> cols = new JComboBox<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         final JCheckBox startO = new JCheckBox("O goes First");
 
-        spButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        mpButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        restartButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        returnButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        returnFromInstructionsButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        winMessage.setFont(RobotoFont.ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
-        rowLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        columnLabel.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        playMusic.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        rows.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        cols.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        startO.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
-        instructionsButton.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        spButton.setFont(ROBOTO_FONT.deriveFont(14f));
+        mpButton.setFont(ROBOTO_FONT.deriveFont(14f));
+        restartButton.setFont(ROBOTO_FONT.deriveFont(14f));
+        returnButton.setFont(ROBOTO_FONT.deriveFont(14f));
+        returnFromInstructionsButton.setFont(ROBOTO_FONT.deriveFont(14f));
+        winMessage.setFont(ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
+        rowLabel.setFont(ROBOTO_FONT.deriveFont(14f));
+        columnLabel.setFont(ROBOTO_FONT.deriveFont(14f));
+        playMusic.setFont(ROBOTO_FONT.deriveFont(14f));
+        rows.setFont(ROBOTO_FONT.deriveFont(14f));
+        cols.setFont(ROBOTO_FONT.deriveFont(14f));
+        startO.setFont(ROBOTO_FONT.deriveFont(14f));
+        instructionsButton.setFont(ROBOTO_FONT.deriveFont(14f));
         cols.setSelectedIndex(3);
         rows.setSelectedIndex(3);
 
@@ -102,7 +100,7 @@ public class XOregio
                 "            The winner is the player that makes the last move." +
                 "        </div>" +
                 "</html>");
-        instructionsContent.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        instructionsContent.setFont(ROBOTO_FONT.deriveFont(14f));
 
         instructionsContainer.add(instructionsContent);
         instructionsContainer.add(returnFromInstructionsButton);
@@ -252,22 +250,17 @@ public class XOregio
     public static void main(String[] args)
     {
 
-        try
-        {
+        try {
+
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (UnsupportedLookAndFeelException e)
-        {
-            // handle exception
-        } catch (ClassNotFoundException e)
-        {
-            // handle exception
-        } catch (InstantiationException e)
-        {
-            // handle exception
-        } catch (IllegalAccessException e)
-        {
-            // handle exception
+            ROBOTO_FONT = Font.createFont(Font.TRUETYPE_FONT, new File("resource/roboto.ttf"));
+            GraphicsEnvironment ge =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(ROBOTO_FONT);
+        } catch (Exception e) {
+            System.out.println("Error occcured when setting up Look and Feel.");
         }
+
         new XOregio();
     }
 

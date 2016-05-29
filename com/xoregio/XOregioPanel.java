@@ -23,7 +23,7 @@ public class XOregioPanel extends JPanel
     public XOregioPanel()
     {
         this.message = new JLabel("", SwingConstants.CENTER);
-        this.message.setFont(RobotoFont.ROBOTO_FONT.deriveFont(14f));
+        this.message.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
     }
 
     /**
