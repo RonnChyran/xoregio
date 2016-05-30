@@ -63,6 +63,7 @@ public class XOregioBoard extends JComponent
 
     /**
      * A Listener that listens for events on the board
+     *
      * @see XOregioBoardListener
      */
     private XOregioBoardListener boardListener = null;
@@ -74,16 +75,18 @@ public class XOregioBoard extends JComponent
     public static final ImageIcon[] PLAY_IMAGES = new ImageIcon[]{new ImageIcon("resource/0.png"), new ImageIcon("resource/1.png"), new ImageIcon("resource/2.png")};
 
     /**
-     * A counter that keeps track of the current turn
+     * A counter that keeps track of the current turn.
+     * Because turns start at 1 and not 0, we start this value at one.
      */
     public int turnCount = 1;
 
     /**
      * The default constructor for an XOregio Board
-     * @param rows The number of rows in the play area
-     * @param columns The number of columns in the play area
-     * @param playerX The player instance representing 'X'
-     * @param playerO The player instance representing 'O'
+     *
+     * @param rows     The number of rows in the play area
+     * @param columns  The number of columns in the play area
+     * @param playerX  The player instance representing 'X'
+     * @param playerO  The player instance representing 'O'
      * @param startAsO Whether or not O goes first.
      */
     public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean startAsO)
@@ -95,7 +98,7 @@ public class XOregioBoard extends JComponent
         this.columns = columns; //assign columns to instance
         this.board = new int[rows][columns]; //initialize board
         this.addMouseListener(new XOregioMouseListener(this)); //add default mouse listener
-        if(playerO.isCpuPlayer() && startAsO) //if O is a robot, and should go first, we ask it to make a move
+        if (playerO.isCpuPlayer() && startAsO) //if O is a robot, and should go first, we ask it to make a move
         {
             int[] move = playerO.getNextMove(this, null);
             this.choseSquare(move[1], move[0]);
@@ -104,6 +107,7 @@ public class XOregioBoard extends JComponent
 
     /**
      * Sets the write-only board listener for this instance
+     *
      * @param boardListener The board listener to set
      */
     public void setBoardListener(XOregioBoardListener boardListener)
@@ -182,7 +186,8 @@ public class XOregioBoard extends JComponent
     /**
      * Determines if the chosen square is unmarked, then chooses
      * the square and adjacent cells to be marked by markBoard.
-     * Also switches the turn counter to the next player, and determines if the game has been won.
+     * Also switches the turn counter to the next player,
+     * and determines if the game has been won by calling fullBoard
      *
      * @param row The row of the cell to choose
      * @param col The col of the cell to mark
@@ -208,7 +213,9 @@ public class XOregioBoard extends JComponent
         g.setColor(Color.DARK_GRAY);
         int colSpacing = this.getColSpacing();
         int rowSpacing = this.getRowSpacing();
-        g.drawImage(XOregio.getScaledImage("resource/background.jpg", new Dimension(r.width, r.height)).getImage(), 0, 0, this);
+        g.drawImage(XOregio.getScaledImage("resource/background.jpg",
+                new Dimension(r.width, r.height)).getImage(), 0, 0, this); /* draw the background image
+                                                                              scaled to the size of the window */
 
         for (int i = 1; i < this.rows; i++)
         {
@@ -232,6 +239,7 @@ public class XOregioBoard extends JComponent
 
     /**
      * Gets the current player instance according to xTurn
+     *
      * @return The current player instance
      */
     public XOregioPlayer getCurrentPlayer()
@@ -265,25 +273,32 @@ public class XOregioBoard extends JComponent
         /**
          * Loads a sound from a filename and returns the Clip instance
          * Also reduces the volume for safer listening.
+         *
          * @param fileName The filename of the audio clip
          * @return The loaded Clip instance. Null if an exception occurs
          */
         private Clip loadSound(String fileName)
         {
-            try {
-                File click = new File(fileName);
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(click)));
-                Clip clip = AudioSystem.getClip();
-                clip.open(inputStream);
-                FloatControl gainControl =
+            try
+            {
+                File soundFile = new File(fileName); //load the sound file
+                AudioInputStream inputStream = //attempt to get a sound stream from the file
+                        AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(soundFile)));
+                Clip clip = AudioSystem.getClip(); //open a new sound clip from the OS
+                clip.open(inputStream); //load the sound input into the sound clip
+                FloatControl gainControl = //get the gain as an object
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                gainControl.setValue(-10.0f); // turn down the volume
+                gainControl.setValue(-10.0f); // turn down the volume (gain)
                 return clip;
-            } catch (Exception g) {
+            } catch (Exception g)
+            {
                 g.printStackTrace();
-                return null;
+                System.out.println("Unable to load sound file " + fileName);
+                return null; //return nothing if unable to load
             }
         }
+
+        //Implementing MouseEventListener
         @Override
         public void mouseClicked(MouseEvent e)
         {
@@ -302,31 +317,44 @@ public class XOregioBoard extends JComponent
             //Gets the valid indices by dividing the MouseEvent coordinates
             //by the spacing of the row or column.
             int[] coordinates = board.getCurrentPlayer().getNextMove(board, new int[]{e.getY(), e.getX()});
-            if(board.board[coordinates[0]][coordinates[1]] == 0)
+
+            /* We need to play a sound if the selected square is empty
+               and increase the turn count.
+               Rather than put another function inside choseSquare,
+               we determine this information in this mouse listener */
+            if (board.board[coordinates[0]][coordinates[1]] == 0)
             {
-                turnCount++;
-                goodDing.setFramePosition(0);
-                goodDing.start();
+                turnCount++; //increase the turn count
+                goodDing.setFramePosition(0); //rewind the good 'ding' sound
+                goodDing.start(); //play the good 'ding' sound
             }
             else
             {
-                badDing.setFramePosition(0);
-                badDing.start();
+                badDing.setFramePosition(0); //rewind the bad 'error' sound
+                badDing.start(); //play the bad 'error' sound
             }
-            board.choseSquare(coordinates[0], coordinates[1]);
-            if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
+            board.choseSquare(coordinates[0], coordinates[1]); //choose the square
+            if (board.boardListener != null)
+                board.boardListener.turnChanged(board.getCurrentPlayer()); /* if the board listener is not null,
+                                                                              signal the registered listener that
+                                                                              the turn has changed */
+
+            /* if the game has not been won yet, and the second player instance is a CPU, automatically
+               get the next move from the CPU player */
             if (board.getCurrentPlayer().isCpuPlayer() && !board.win)
             {
-                int[] robotCoordinates = board.getCurrentPlayer().getNextMove(board, null);
-                board.choseSquare(robotCoordinates[0], robotCoordinates[1]);
-                turnCount++;
-                if (board.boardListener != null) board.boardListener.turnChanged(board.getCurrentPlayer());
+                int[] cpuCoordinates = board.getCurrentPlayer().getNextMove(board, null); //the coordinates the cpu chose
+                board.choseSquare(cpuCoordinates[0], cpuCoordinates[1]); //choose the cpu square
+                turnCount++; //because we can be certain that the cpu move is valid, we do not need to check
+                if (board.boardListener != null)
+                    board.boardListener.turnChanged(board.getCurrentPlayer()); /* if the board listener is not null,
+                                                                              signal the registered listener that
+                                                                              the turn has changed*/
             }
-            board.repaint();
+            board.repaint(); //repaint the board to reflect changes
             if (board.win && board.boardListener != null)
-            {
-                boardListener.gameWin(!xTurn);
-            }
+                boardListener.gameWin(!xTurn); /* if the board listener is not null, and the game is won,
+                                                  signal the registered listener so.*/
         }
 
         @Override

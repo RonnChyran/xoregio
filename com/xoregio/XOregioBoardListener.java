@@ -7,8 +7,9 @@
 package com.xoregio;
 
 /**
- * Represents a listener that reacts on the state of the
- * XOregioBoard changing
+ * Represents a listener that reacts on the state of the XOregioBoard changing.
+ * Because we separated the board from the UI, this 'listener' is notified on the board state changing
+ * rather than checking the state on a mouse-click of the board from the main Swing UI.
  * @see XOregioBoard
  */
 public interface XOregioBoardListener
@@ -23,7 +24,7 @@ public interface XOregioBoardListener
 
     /**
      * Called when the game is won.
-     * @param xWon Whether or not 'X' was the player who won.
+     * @param isXWin Whether or not 'X' was the player who won.
      */
-    void gameWin(boolean xWon);
+    void gameWin(boolean isXWin);
 }

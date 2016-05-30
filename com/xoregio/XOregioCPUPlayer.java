@@ -57,7 +57,8 @@ public class XOregioCPUPlayer implements XOregioPlayer
     private int getRandomRowContainingZero(int[][] array)
     {
         List<Integer> emptyRows = new ArrayList<>();
-        //we can't use an array for an unknown length, so we'll use a generic list instead
+        /* We can't use an array for an unknown length, so we'll use a generic list instead.
+           Because Java generics do not support primitive types, we have to use the Boxed int type Integer*/
         for (int i = 0; i < array.length; i++)
         {
             for(int j : array[i])

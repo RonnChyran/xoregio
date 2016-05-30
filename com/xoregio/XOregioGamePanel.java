@@ -22,10 +22,26 @@ import java.io.FileInputStream;
  */
 public class XOregioGamePanel extends JPanel
 {
+    /**
+     * The XOregioBoard instance that represents the board
+     */
     public XOregioBoard board = null;
+
+    /**
+     * The board listener that will persist across multiple instances of XOregioBoard
+     */
     public XOregioBoardListener listener = null;
+
+    /**
+     * The message displayed in the bottom of the game screen
+     */
     private JLabel message;
+
+    /**
+     * The background music played
+     */
     private Clip backgroundMusic;
+
     public XOregioGamePanel()
     {
         this.message = new JLabel("", SwingConstants.CENTER);
@@ -34,17 +50,19 @@ public class XOregioGamePanel extends JPanel
 
     /**
      * Starts the background music.
+     *
      */
     public void startMusic()
     {
         try
         {
-            File f = new File("resource/Elevator_Music.wav");
-            this.backgroundMusic = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(f)));
-            backgroundMusic.open(inputStream);
+            File soundFile = new File("resource/Elevator_Music.wav"); //load the music from file
+            this.backgroundMusic = AudioSystem.getClip(); //get an audio clip from the OS
+            AudioInputStream inputStream = AudioSystem //load the file as an audio stream
+                    .getAudioInputStream(new BufferedInputStream(new FileInputStream(soundFile)));
+            backgroundMusic.open(inputStream); //load the audio steam into the clip
             backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY); //loop forever
-            backgroundMusic.start();
+            backgroundMusic.start(); //start te clip
         }
         catch(Exception e)
         {
@@ -53,10 +71,12 @@ public class XOregioGamePanel extends JPanel
     }
 
     /**
-     * Stops the background music.
+     * Stops any currently playing background music.
      */
     public void stopMusic()
     {
+        /* if the background music was previously loaded, and is currently running, only then will we
+        attempt to stop it */
         if(this.backgroundMusic != null && this.backgroundMusic.isRunning())
             backgroundMusic.stop();
     }
@@ -65,9 +85,10 @@ public class XOregioGamePanel extends JPanel
      * Sets the status message at the bottom of the board
      * @param text The message to set
      */
-    public void setMessage(String text)
+    public void setStatusText(String text)
     {
-        this.message.setText(text);
+        this.message.setText(text); /* instead of exposing the entire JLabel, we will just expose this one method
+                                       that changes the status text */
     }
 
     /**
@@ -90,20 +111,26 @@ public class XOregioGamePanel extends JPanel
      * @param playMusic Whether or not to play background music
      */
     public void setupBoard(int rows, int cols, XOregioPlayer playerX, XOregioPlayer playerO,
-                           boolean playMusic,
-                           boolean startAsO)
+                           boolean playMusic, boolean startAsO)
     {
-        if(this.board != null) //remove the instance currently attached to the panel
+        if (this.board != null) //if the board was previously initialized
         {
-            this.remove(board);
-            this.remove(message);
+            this.remove(board); //remove the previous board instance from the panel
+            this.remove(message); //remove the previous status message instance from the pannel.
         }
-        if((this.backgroundMusic == null || !this.backgroundMusic.isRunning()) && playMusic)
+
+        if ((this.backgroundMusic == null || !this.backgroundMusic.isRunning()) && playMusic)
         {
-            this.startMusic(); //start the music if playMusic is specified, and only if the music is not already running
+            this.startMusic(); /* Start the audio if it was previously loaded,
+                                  only if the music is not already running (preventing duplicate audio) and only if
+                                  the user chose to play music. */
         }
         this.board = new XOregioBoard(rows, cols, playerX, playerO, startAsO); //initialize a new board
-        if(this.listener != null) this.board.setBoardListener(this.listener); //re-attach the board listener
+
+        if (this.listener != null)
+            this.board.setBoardListener(this.listener); /* re-attach the board listener to the new instance of the
+                                                           XOregioBoard */
+
         message.setText((board.xTurn ? "X" : "O")  + "'s Turn | Turn " + board.turnCount); //set the default message
         this.add(board); //add the board to the panel
         this.add(message, BorderLayout.PAGE_END); //add the message to the end of the panel
