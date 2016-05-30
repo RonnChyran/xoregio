@@ -427,9 +427,10 @@ class XOregioSettingsPanel extends JPanel
         JLabel rowLabel = new JLabel("Rows: "); //label for rows dropdown
         JLabel columnLabel = new JLabel("Columns: "); //label for columns dropdown
 
-        //initialize the rows and columns dropdowns using grid sizes
-        this.rows = new JComboBox(GRID_SIZES);
-        this.cols = new JComboBox(GRID_SIZES);
+        /* initialize the rows and columns dropdowns using grid sizes using
+           as generic Integer combo boxes */
+        this.rows = new JComboBox<>(GRID_SIZES);
+        this.cols = new JComboBox<>(GRID_SIZES);
 
         this.startO = new JCheckBox("O goes First"); //the checkbox that determines if O goes first
 

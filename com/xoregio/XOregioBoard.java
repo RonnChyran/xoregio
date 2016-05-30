@@ -3,7 +3,7 @@
 	Class:       ICS3U1-01 (B)
 	Date:        May 29, 2016
 	Description: Contains code relating to the actual board and its rendering,
-	             the three methods, chooseBoard, fullBoard, and markBoard that
+	             the three methods, choseSquare, fullBoard, and markBoard that
 	             are central to changing the state of the game, which is kept track
 	             by a 2-dimensional integer array.
 */
