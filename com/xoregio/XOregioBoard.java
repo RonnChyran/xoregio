@@ -1,3 +1,9 @@
+//	File Name:   XOregioBoard.java
+//	Name:        Gerald Ma and Ronny Chan
+//	Class:       ICS3U1-01 (B)
+//	Date:        May 29, 2016
+//	Description: 
+
 package com.xoregio;
 
 import javax.swing.*;

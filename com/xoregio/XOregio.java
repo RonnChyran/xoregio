@@ -1,5 +1,10 @@
-package com.xoregio;
+//	File Name:   XOregio.java
+//	Name:        Ronny Chan and Gerald Ma
+//	Class:       ICS3U1-01 (B)
+//	Date:        May 29, 2016
+//	Description: 
 
+package com.xoregio;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
