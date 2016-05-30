@@ -2,16 +2,13 @@
 //	Name:        Ronny Chan and Gerald Ma
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
+//	Description: Represents a player playing a game of XOregio.
+//              An XOregioPlayer should be immutable and never represent any
+//              information about the game state. A single instance of XOregioPlayer
+//              should be re-usable across instances of games.
 
 package com.xoregio;
 
-/**
- * Represents a player playing a game of XOregio.
- * An XOregioPlayer should be immutable and never represent any
- * information about the game state. A single instance of XOregioPlayer
- * should be re-usable across instances of games.
- */
 public interface XOregioPlayer
 {
     /**

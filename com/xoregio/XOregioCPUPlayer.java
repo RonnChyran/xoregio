@@ -2,18 +2,13 @@
 //	Name:        Ronny Chan and Gerald Ma
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
-
+//	Description: Represents a computer controlled player that randomly selects the next move from a set of valid
+//              moves on the XOregioBoard.
 
 package com.xoregio;
 
-
 import java.util.*;
 
-/**
- * Represents a computer controlled player that randomly selects the next move from a set of valid
- * moves on the XOregioBoard.
- */
 public class XOregioCPUPlayer implements XOregioPlayer
 {
     public XOregioCPUPlayer()

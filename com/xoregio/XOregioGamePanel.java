@@ -2,7 +2,9 @@
 //	Name:        Ronny Chan and Gerald Ma
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
+//	Description: Represents a JPanel that contains a XOregioBoard.
+//              Allows reinitialization of the board (reset) by
+//              recreating the instance of XOregioBoard (which is difficult to reset to default state).
 
 package com.xoregio;
 
@@ -15,11 +17,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
-/**
- * Represents a JPanel that contains a XOregioBoard.
- * Allows reinitialization of the board (reset) by
- * recreating the instance of XOregioBoard (which is difficult to reset to default state).
- */
 public class XOregioGamePanel extends JPanel
 {
     /**
