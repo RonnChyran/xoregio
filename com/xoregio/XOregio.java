@@ -2,8 +2,9 @@
 	Name:        Ronny Chan and Gerald Ma
 	Class:       ICS3U1-01 (B)
 	Date:        May 29, 2016
-	Description: Contains the main user interface window for the XOregio game.
-	             This file starts the game off and gives it a window.
+	Description: Contains all code relating to the user interface for the XOregio game.
+	             Code for all the menus, user settings, and other UI excluding the board itself
+	             is contained here, including the main entry method.
 */
 
 package com.xoregio;
