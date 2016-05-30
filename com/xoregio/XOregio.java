@@ -249,7 +249,7 @@ public class XOregio
 
         /* JLabel is very difficult to set the width of properly for multi-line text
            However, it supports rendering basic HTML. Because of that, we can use that ability
-           to wrap the text with a fixed with using CSS styling.*/
+           to wrap the text with a fixed width using CSS styling.*/
         JLabel instructionsContent = new JLabel("<html>" +
                 "        <div style=\"width:200px;\">In <b>XOregio</b>, the aim of the game is to have the last laugh!" +
                 "            Either X or O goes first, and marks a square." +
