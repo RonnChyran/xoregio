@@ -1,10 +1,12 @@
-//	File Name:   XOregioBoard.java
-//	Name:        Gerald Ma and Ronny Chan
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: Represents an XOregioBoard implementation as a JComponent,
-//              that supports player switching, multiple rows and columns,
-//              and embedding within a LayoutManager.
+/*	File Name:   XOregioBoard.java
+	Name:        Gerald Ma and Ronny Chan
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: Contains code relating to the actual board and its rendering,
+	             the three methods, chooseBoard, fullBoard, and markBoard that
+	             are central to changing the state of the game, which is kept track
+	             by a 2-dimensional integer array.
+*/
 
 package com.xoregio;
 
@@ -18,6 +20,11 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 
+/**
+ * Represents an XOregioBoard implementation as a JComponent,
+ * that supports player switching, multiple rows and columns,
+ * and embedding within a LayoutManager.
+ */
 public class XOregioBoard extends JComponent
 {
     /**
@@ -100,7 +107,7 @@ public class XOregioBoard extends JComponent
             int[] move = playerO.getNextMove(this, null);
             this.choseSquare(move[1], move[0]);
         }
-    }
+    } //XOregioBoard constructor
 
     /**
      * Sets the write-only board listener for this instance
@@ -110,7 +117,7 @@ public class XOregioBoard extends JComponent
     public void setBoardListener(XOregioBoardListener boardListener)
     {
         this.boardListener = boardListener;
-    }
+    } // setBoardListener
 
     /**
      * Gets the spacing between columns by dividing the width of the board by the
@@ -121,7 +128,7 @@ public class XOregioBoard extends JComponent
     public int getColSpacing()
     {
         return this.getBounds().width / this.columns;
-    }
+    } //getColSpacing
 
     /**
      * Gets the spacing between rows by dividing the height of the board by the
@@ -132,7 +139,7 @@ public class XOregioBoard extends JComponent
     public int getRowSpacing()
     {
         return this.getBounds().height / this.rows;
-    }
+    } // getRowSpacing
 
     /**
      * Checks if the board is full by checking each cell in the board.
@@ -151,7 +158,7 @@ public class XOregioBoard extends JComponent
             }
         }
         return true;
-    }    // fullBoard
+    } // fullBoard
 
 
     /**
@@ -187,7 +194,7 @@ public class XOregioBoard extends JComponent
            mark the square directly to the right of the center square */
         if (col != board[0].length - 1 && board[row][col + 1] == 0)
             board[row][col + 1] = mark;
-    }    // markBoard
+    } // markBoard
 
     /**
      * Determines if the chosen square is unmarked, then chooses
@@ -241,7 +248,7 @@ public class XOregioBoard extends JComponent
                         colSpacing - 5, rowSpacing - 5, this);
             }
         }
-    } 
+    } // paint
 
     /**
      * Gets the current player instance according to xTurn
@@ -251,7 +258,7 @@ public class XOregioBoard extends JComponent
     public XOregioPlayer getCurrentPlayer()
     {
         return xTurn ? this.playerX : this.playerO;
-    }
+    } // getCurrentPlayer
 
     /**
      * Implements a MouseListener that updates an XOregioBoard.
@@ -302,7 +309,7 @@ public class XOregioBoard extends JComponent
                 System.out.println("Unable to load sound file " + fileName);
                 return null; //return nothing if unable to load
             }
-        }
+        } //loadSound
 
         //Implementing MouseEventListener
         @Override
@@ -361,7 +368,7 @@ public class XOregioBoard extends JComponent
             if (board.win && board.boardListener != null)
                 boardListener.gameWin(!xTurn); /* if the board listener is not null, and the game is won,
                                                   signal the registered listener so.*/
-        }
+        } //mouseReleased
 
         @Override
         public void mouseEntered(MouseEvent e)
@@ -374,5 +381,5 @@ public class XOregioBoard extends JComponent
         {
 
         }
-    }
-}
+    } //XOregioMouseListener class
+} // XOregioBoard class

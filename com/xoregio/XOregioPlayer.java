@@ -1,14 +1,17 @@
-//	File Name:   XOregioPlayer.java
-//	Name:        Ronny Chan and Gerald Ma
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: Represents a player playing a game of XOregio.
-//              An XOregioPlayer should be immutable and never represent any
-//              information about the game state. A single instance of XOregioPlayer
-//              should be re-usable across instances of games.
+/*	File Name:   XOregioPlayer.java
+	Name:        Ronny Chan and Gerald Ma
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: Represents any player playing a game of XOregio, human or computer.
+*/
 
 package com.xoregio;
 
+/**
+ * An XOregioPlayer should be immutable and never represent any
+ * information about the state of the XOregio game.
+ * A single instance of XOregioPlayer should be re-usable across instances of games.
+ */
 public interface XOregioPlayer
 {
     /**
@@ -26,5 +29,4 @@ public interface XOregioPlayer
      * @return Whether or not the player is computer controlled
      */
     boolean isCpuPlayer();
-
-}
+} // XOregioPlayer interface

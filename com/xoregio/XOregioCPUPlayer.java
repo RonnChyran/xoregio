@@ -1,20 +1,21 @@
-//	File Name:   XOregioCPUPlayer.java
-//	Name:        Ronny Chan and Gerald Ma
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: Represents a computer controlled player that randomly selects the next move from a set of valid
-//              moves on the XOregioBoard.
+/*	File Name:   XOregioCPUPlayer.java
+	Name:        Ronny Chan and Gerald Ma
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: Implements the computer playing XOregio, picking the next move randomly from
+	             a set of valid moves on the board.
+*/
 
 package com.xoregio;
 
 import java.util.*;
 
+/**
+ *  Represents a computer controlled player that randomly selects the next move from a set of valid
+ *  moves on the XOregioBoard.
+ */
 public class XOregioCPUPlayer implements XOregioPlayer
 {
-    public XOregioCPUPlayer()
-    {
-    }
-
     /**
      * This player is computer controlled
      * @return true, the CPU player is computer controlled.
@@ -23,7 +24,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
     public boolean isCpuPlayer()
     {
       return true;
-    }
+    } // isCpuPlayer
 
     /**
      * Gets the next move selected randomly from a set of valid moves determined from the current state of the board.
@@ -41,7 +42,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
         int col = getRandomZeroIndex(board.board[row]); //get a random empty space within the row.
         System.out.println("Got Col: " + (col +1));
         return new int[] {row, col};
-    }
+    } // getNextMove
 
     /**
      * Gets the index of a random row from a 2-dimensional integer array where
@@ -67,7 +68,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
             }
         }
         return emptyRows.get(new Random().nextInt(emptyRows.size())); //return a random index
-    }
+    } // getRandomRowContainingZero
 
     /**
      * Gets a random index from an array that contains the value of '0'.
@@ -84,5 +85,5 @@ public class XOregioCPUPlayer implements XOregioPlayer
                 emptyCol.add(i);
         }
         return emptyCol.get(new Random().nextInt(emptyCol.size()));
-    }
-}
+    } // getRandomZeroIndex
+} // XOregioCPUPlayer class

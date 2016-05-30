@@ -1,19 +1,19 @@
-//	File Name:   XOregioHumanPlayer.java
-//	Name:        Ronny Chan and Gerald Ma
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: Represents a Human XOregioPlayer with an actual person behind the screen
-//              clicking on the XOregioBoard, sending coordinates to the player.
+/*	File Name:   XOregioHumanPlayer.java
+	Name:        Ronny Chan and Gerald Ma
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: Implements an actual person playing XOregio, and gets the next moves
+	             using input coordinates from the mouse.
+*/
 
 package com.xoregio;
 
+/**
+ *  Represents a Human XOregioPlayer with an actual person behind the screen
+ *  clicking on the XOregioBoard, sending coordinates to the player.
+ */
 public class XOregioHumanPlayer implements XOregioPlayer
 {
-    public XOregioHumanPlayer()
-    {
-
-    }
-
     /**
      * Humans are not CPU players.
      * @return false - Humans are not computer-controlled
@@ -22,7 +22,7 @@ public class XOregioHumanPlayer implements XOregioPlayer
     public boolean isCpuPlayer()
     {
         return false;
-    }
+    } //isCpuPlayer
 
     /**
      * Gets the next move by divinding the input coordinates by the spacing of the respective row or column,
@@ -35,5 +35,5 @@ public class XOregioHumanPlayer implements XOregioPlayer
     public int[] getNextMove(XOregioBoard board, int[] inputCoordinates)
     {
       return new int[] {inputCoordinates[0] / board.getRowSpacing(), inputCoordinates[1] / board.getColSpacing()};
-    }
-}
+    } //getNextMove
+} // XOregioHumanPlayer class

@@ -1,17 +1,24 @@
-//	File Name:   XOregio.java
-//	Name:        Ronny Chan and Gerald Ma
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: 
+/*	File Name:   XOregio.java
+	Name:        Ronny Chan and Gerald Ma
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: Contains the main user interface window for the XOregio game.
+	             This file starts the game off and gives it a window.
+*/
 
 package com.xoregio;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -54,7 +61,7 @@ public class XOregio
         }
 
         new XOregio(); //initialize the XOregio instance
-    }
+    } // main
 
     public XOregio()
     {
@@ -104,7 +111,7 @@ public class XOregio
         frame.setVisible(true); //set it visible
         frame.setResizable(false); //prevent resizing
 
-    }
+    } // XOregio constructor
 
     /**
      * Creates a button that returns to the main menu panel 'MENU'
@@ -123,7 +130,7 @@ public class XOregio
             }
         });
         return returnButton; //return the assembled button.
-    }
+    } //createReturnToMenuButton
 
     /**
      * Creates a button that sets up the instance of XOregioGamePanel
@@ -190,7 +197,7 @@ public class XOregio
             }
         });
         return startButton; //return the constructed start button
-    }
+    } //createStartButton
 
     /**
      * Creates a panel that shows instructions on how to play the game
@@ -214,7 +221,7 @@ public class XOregio
         instructionsContainer.add(instructionsContent); //add the instructions to the panel
         instructionsContainer.add(createReturnToMenuButton()); //add a button to return to the main menu
         return instructionsContainer; //return the constructed panel
-    }
+    } //createInstructionsPanel
 
     /**
      * Creates a button that switches to the 'GAME' panel in the frame CardLayout.
@@ -234,7 +241,7 @@ public class XOregio
             }
         });
         return switchButton; //return the constructed button
-    }
+    } // createSwitchToGameButton
 
     /**
      * Creates a panel that contains the main menu buttons, including the 2 start buttons and
@@ -279,7 +286,7 @@ public class XOregio
         menuContainer.add(settingsContainer); //add the settings to the menu
 
         return menuContainer; //return the constructed menu
-    }
+    } // createMenuButtonsPanel
 
     /**
      * Create the panel that is shown when the game is won.
@@ -323,7 +330,7 @@ public class XOregio
         winMessage.setFont(ROBOTO_FONT.deriveFont(Font.BOLD, 20f)); //make the win message font bigger and bold
 
         return winContainer; //return the constructed win screen
-    }
+    } // createWinPanel
 
     /**
      * Creates a button with text in 14pt Roboto font
@@ -335,7 +342,7 @@ public class XOregio
         JButton button = new JButton(label); //create a new button with the specified lable
         button.setFont(ROBOTO_FONT.deriveFont(14f)); //set the font to 14pt Roboto
         return button; //return the button
-    }
+    } // createRobotoStyledButton
 
     /**
      * Smoothy scales an image with high quality to the specified dimension
@@ -357,7 +364,7 @@ public class XOregio
             System.out.println("Unable to load image");
         }
         return XOregio.getScaledImage(img, dimension); //scale the image object
-    }
+    } // getScaledImage
 
     /**
      * Smoothy scales an image with high quality to the specified dimension
@@ -370,7 +377,238 @@ public class XOregio
         Image scaledImage = image.getScaledInstance(dimension.width, dimension.height,
                 Image.SCALE_SMOOTH); //scale the image with smooth scaling mode
         return new ImageIcon(scaledImage); //return the image in the form of an ImageIcon
+    } // getScaledImage
+
+} //XOregio class
+
+/**
+ * Represents the menu panel with settings options
+ */
+class XOregioSettingsPanel extends JPanel
+{
+
+    /**
+     * A check box that determines whether music is to be played
+     */
+    private JCheckBox playMusic;
+
+    /**
+     * A check box that determines whether O starts the game or not
+     */
+    private JCheckBox startO;
+
+    /**
+     * A dropdown box that determines the number of rows in the board
+     */
+    private JComboBox<Integer> rows;
+
+    /**
+     * A dropdown box that determines the number of columns in the board
+     */
+    private JComboBox<Integer> cols;
+
+    /**
+     * A finite list of grid sizes to display in the rows and columns drop down.
+     * We use the boxed int type Integer instead of primitive ints because JComboBox does not
+     * support primitive arrays.
+     */
+    private final Integer[] GRID_SIZES = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    public XOregioSettingsPanel()
+    {
+        JPanel comboBoxContainer = new JPanel(); //the container that contains the rows and columns dropdown together
+        comboBoxContainer.setLayout(new GridLayout(0, 2)); /* give it a grid layout with 2 columns, one for the label
+                                                              and one for the actual dropdown */
+
+        this.setLayout(new GridLayout(0, 1)); // give the settings panel a single-column layout.
+
+        //component initialization
+        this.playMusic = new JCheckBox("Play Music"); //the checkbox that determines if music is played
+        JLabel rowLabel = new JLabel("Rows: "); //label for rows dropdown
+        JLabel columnLabel = new JLabel("Columns: "); //label for columns dropdown
+
+        //initialize the rows and columns dropdowns using grid sizes
+        this.rows = new JComboBox(GRID_SIZES);
+        this.cols = new JComboBox(GRID_SIZES);
+
+        this.startO = new JCheckBox("O goes First"); //the checkbox that determines if O goes first
+
+        //Setting the fonts of all components to 14pt Roboto
+        rowLabel.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+        columnLabel.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+        this.playMusic.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+        this.rows.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+        this.cols.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+        this.startO.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+
+        //Sets the default options for columns and rows
+        this.cols.setSelectedIndex(3); //index 3 is 4 columns
+        this.rows.setSelectedIndex(3); //index 3 is 4 rows
+        this.playMusic.setSelected(true); //enable music by default
+
+        comboBoxContainer.add(rowLabel); //add the row label to the dropdown container
+        comboBoxContainer.add(rows); //add the row dropdown to the dropdown container
+        comboBoxContainer.add(columnLabel); //add the column label to the dropdown container
+        comboBoxContainer.add(cols); //add the column dropdown to the dropdown container
+
+        this.add(playMusic); //add the play music checkbox to the settings panel
+        this.add(startO); //add the 'O' starts first checkbox to the settings panel
+        this.add(comboBoxContainer); //add the dropdown container to the settings panel
+    } // XOregioSettingsPanel constructor
+
+    /**
+     * Gets whether or not music is enabled by getting the state of the playMusic check box.
+     * @return Whether or not music is enabled
+     */
+    public boolean isMusicEnabled()
+    {
+        return this.playMusic.isSelected();
+    } //isMusicEnabled
+
+    /**
+     * Gets whether or not O starts first by getting the state of the startO check box
+     * @return Whether or not O starts first
+     */
+    public boolean isOStartsFirst()
+    {
+        return this.startO.isSelected();
+    } //isOStartsFirst
+
+    /**
+     * Gets the amount of rows the user selected
+     * @return The amount of rows the user selected
+     */
+    public int getRows()
+    {
+        return (int)this.rows.getSelectedItem(); //unbox the object into a primitive int
+    } //getRows
+
+    /**
+     * Gets the amount of columns the user selected
+     * @return The amount of columns the user selected
+     */
+    public int getColumns()
+    {
+        return (int)this.cols.getSelectedItem(); //unbox the object into a primitive int
+    } //getColumns
+} //XOregioSettingsPanel class
+
+/**
+ * Represents a game panel with options
+ */
+class XOregioGamePanel extends JPanel
+{
+    /**
+     * The XOregioBoard instance that represents the board
+     */
+    public XOregioBoard board = null;
+
+    /**
+     * The board listener that will persist across multiple instances of XOregioBoard
+     */
+    public XOregioBoardListener listener = null;
+
+    /**
+     * The message displayed in the bottom of the game screen
+     */
+    private JLabel message;
+
+    /**
+     * The background music played
+     */
+    private Clip backgroundMusic;
+
+    public XOregioGamePanel()
+    {
+        this.message = new JLabel("", SwingConstants.CENTER);
+        this.message.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
+    } // XOregioGamePanel constructor
+
+    /**
+     * Starts the background music.
+     */
+    public void startMusic()
+    {
+        try
+        {
+            File soundFile = new File("resource/Elevator_Music.wav"); //load the music from file
+            this.backgroundMusic = AudioSystem.getClip(); //get an audio clip from the OS
+            AudioInputStream inputStream = AudioSystem //load the file as an audio stream
+                    .getAudioInputStream(new BufferedInputStream(new FileInputStream(soundFile)));
+            backgroundMusic.open(inputStream); //load the audio steam into the clip
+            backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY); //loop forever
+            backgroundMusic.start(); //start te clip
+        }
+        catch(Exception e)
+        {
+            System.out.println("Unable to play music");
+        }
+    } // startMusic
+
+    /**
+     * Stops any currently playing background music.
+     */
+    public void stopMusic()
+    {
+        /* if the background music was previously loaded, and is currently running, only then will we
+        attempt to stop it */
+        if(this.backgroundMusic != null && this.backgroundMusic.isRunning())
+            backgroundMusic.stop();
+    } // stopMusic
+
+    /**
+     * Sets the status message at the bottom of the board
+     * @param text The message to set
+     */
+    public void setStatusText(String text)
+    {
+        this.message.setText(text); /* instead of exposing the entire JLabel, we will just expose this one method
+                                       that changes the status text */
     }
 
+    /**
+     * Sets the instance of the listener that will be re-attached to
+     * all instances of XOregioBoard initialized by this instance of XOregioGamePanel
+     * @param boardListener
+     */
+    public void setBoardListener(XOregioBoardListener boardListener)
+    {
+        this.listener = boardListener;
+    }
 
-}
+    /**
+     * Sets up and displays an XOregioBoard
+     * @param rows The number of rows in the play area
+     * @param cols The number of columns in the play area
+     * @param playerX The player instance representing 'X'
+     * @param playerO The player instance representing 'O'
+     * @param startAsO Whether or not O goes first.
+     * @param playMusic Whether or not to play background music
+     */
+    public void setupBoard(int rows, int cols, XOregioPlayer playerX, XOregioPlayer playerO,
+                           boolean playMusic, boolean startAsO)
+    {
+        if (this.board != null) //if the board was previously initialized
+        {
+            this.remove(board); //remove the previous board instance from the panel
+            this.remove(message); //remove the previous status message instance from the pannel.
+        }
+
+        if ((this.backgroundMusic == null || !this.backgroundMusic.isRunning()) && playMusic)
+        {
+            this.startMusic(); /* Start the audio if it was previously loaded,
+                                  only if the music is not already running (preventing duplicate audio) and only if
+                                  the user chose to play music. */
+        }
+        this.board = new XOregioBoard(rows, cols, playerX, playerO, startAsO); //initialize a new board
+
+        if (this.listener != null)
+            this.board.setBoardListener(this.listener); /* re-attach the board listener to the new instance of the
+                                                           XOregioBoard */
+
+        message.setText((board.xTurn ? "X" : "O")  + "'s Turn | Turn " + board.turnCount); //set the default message
+        this.add(board); //add the board to the panel
+        this.add(message, BorderLayout.PAGE_END); //add the message to the end of the panel
+        this.revalidate(); //revalidate must be called if the panel has been shown previously
+    }
+} //XOregioGamePanel class

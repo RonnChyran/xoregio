@@ -1,16 +1,20 @@
-//	File Name:   XOregioBoardListener.java
-//	Name:        Ronny Chan and Gerald Ma
-//	Class:       ICS3U1-01 (B)
-//	Date:        May 29, 2016
-//	Description: Represents a listener that reacts on the state of the XOregioBoard changing.
-//              Because we separated the board from the UI, this 'listener' is notified on the board state changing
-//              rather than checking the state on a mouse-click of the board from the main Swing UI.
-//              @see XOregioBoard
+/*	File Name:   XOregioBoardListener.java
+	Name:        Ronny Chan and Gerald Ma
+	Class:       ICS3U1-01 (B)
+	Date:        May 29, 2016
+	Description: This 'listener' is signaled whenever the state of the board it's registered to
+	             is changed.
+*/
 
 package com.xoregio;
 
-
-  public interface XOregioBoardListener
+/**
+ * Represents a listener that reacts on the state of the XOregioBoard changing.
+ * Because we separated the board from the UI, this 'listener' is notified on the board state changing
+ * rather than checking the state on a mouse-click of the board from the main Swing UI.
+ * @see XOregioBoard
+ */
+public interface XOregioBoardListener
 {
     /**
      * Called when the active player is changed from 'X' to 'O' and vice-versa
@@ -25,4 +29,4 @@ package com.xoregio;
      * @param isXWin Whether or not 'X' was the player who won.
      */
     void gameWin(boolean isXWin);
-}
+} // XOregioBoardListener interface
