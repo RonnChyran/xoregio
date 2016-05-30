@@ -24,6 +24,8 @@ From the root directory,
 1. Compile com\xoregio\XOregio.java: `javac -g com\xoregio\XOregio.java`
 2. Run the class file: `java com.xoregio.XOregio`
 
+**MAKE SURE THAT THE `com` FOLDER and the `resource` FOLDER ARE IN THE SAME DIRECTORY**
+
 XOregioBoard
 ------------
 XOregioBoard contains the logic pertaining to the actual game board.
