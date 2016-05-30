@@ -2,7 +2,9 @@
 //	Name:        Gerald Ma and Ronny Chan
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
+//	Description: Represents an XOregioBoard implementation as a JComponent,
+//              that supports player switching, multiple rows and columns,
+//              and embedding within a LayoutManager.
 
 package com.xoregio;
 
@@ -16,11 +18,6 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
 
-/**
- * Represents an XOregioBoard implementation as a JComponent,
- * that supports player switching, multiple rows and columns,
- * and embedding within a LayoutManager.
- */
 public class XOregioBoard extends JComponent
 {
     /**

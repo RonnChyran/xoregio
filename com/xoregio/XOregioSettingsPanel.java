@@ -2,17 +2,14 @@
 //	Name:        Ronny Chan and Gerald Ma
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
+//	Description: Represents a JPanel with various components that determine the parameters used
+//              when setting the game up.
 
 package com.xoregio;
 
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Represents a JPanel with various components that determine the parameters used
- * when setting the game up.
- */
 public class XOregioSettingsPanel extends JPanel
 {
 

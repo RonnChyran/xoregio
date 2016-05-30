@@ -2,14 +2,11 @@
 //	Name:        Ronny Chan and Gerald Ma
 //	Class:       ICS3U1-01 (B)
 //	Date:        May 29, 2016
-//	Description: 
+//	Description: Represents a Human XOregioPlayer with an actual person behind the screen
+//              clicking on the XOregioBoard, sending coordinates to the player.
 
 package com.xoregio;
 
-/**
- * Represents a Human XOregioPlayer with an actual person behind the screen
- * clicking on the XOregioBoard, sending coordinates to the player.
- */
 public class XOregioHumanPlayer implements XOregioPlayer
 {
     public XOregioHumanPlayer()
