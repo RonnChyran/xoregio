@@ -142,12 +142,12 @@ public class XOregioBoard extends JComponent
      */
     public boolean fullBoard()
     {
-        for (int[] row : board)
+        for (int[] row : board) //go through all the rows
         {
-            for (int col : row)
+            for (int col : row) //go through all the columns
             {
                 if (col == 0)
-                    return false;
+                    return false; //if the column is a zero, return false
             }
         }
         return true;
@@ -164,18 +164,27 @@ public class XOregioBoard extends JComponent
      */
     public void markBoard(int row, int col)
     {
-        int mark = xTurn ? 1 : 2;
+        int mark = xTurn ? 1 : 2; //decide which mark depending on whether or not it is x's turn
 
-        board[row][col] = mark;
+        board[row][col] = mark; //mark the center first
+
+        /* if the row is not the top-most row, and the square in the row directly above is not already marked,
+           mark the square directly above the center square. */
         if (row != 0 && board[row - 1][col] == 0)
             board[row - 1][col] = mark;
 
+        /* if the row is not the bottom-most, and the square in the row directly below is not already marked,
+           mark the square directly below the center square. */
         if (row != board.length - 1 && board[row + 1][col] == 0)
             board[row + 1][col] = mark;
 
+        /* if the column is not the leftmost, and the square to the left of the center is not already marked,
+           mark the square directly to the left of the center square */
         if (col != 0 && board[row][col - 1] == 0)
             board[row][col - 1] = mark;
 
+        /* if the column is not the rightmost, and the square to the right of the center is not already marked,
+           mark the square directly to the right of the center square */
         if (col != board[0].length - 1 && board[row][col + 1] == 0)
             board[row][col + 1] = mark;
     }    // markBoard
@@ -191,13 +200,13 @@ public class XOregioBoard extends JComponent
      */
     public void choseSquare(int row, int col)
     {
-        if (board[row][col] == 0)
+        if (board[row][col] == 0) //if the board is not marked already
         {
-            markBoard(row, col);
-            this.xTurn = !xTurn;
+            markBoard(row, col); //mark the board
+            this.xTurn = !xTurn; //switch the current turn
         }
-        win = fullBoard();
-    }    // choseSquare
+        win = fullBoard(); //determine if the game has been won.
+    } // choseSquare
 
     /**
      * Paints the board
@@ -232,7 +241,7 @@ public class XOregioBoard extends JComponent
                         colSpacing - 5, rowSpacing - 5, this);
             }
         }
-    }
+    } 
 
     /**
      * Gets the current player instance according to xTurn
