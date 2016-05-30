@@ -39,7 +39,7 @@ public class XOregioCPUPlayer implements XOregioPlayer
         System.out.println("Robot's Turn");
         int row = getRandomRowContainingZero(board.board); //gets a random row with free space
         System.out.println("Got Row: " + (row + 1));
-        int col = getRandomZeroIndex(board.board[row]); //get a random empty space within the row.
+        int col = getRandomZeroIndex(board.board[row]);    //get a random empty space within the row.
         System.out.println("Got Col: " + (col +1));
         return new int[] {row, col};
     } // getNextMove
@@ -62,8 +62,8 @@ public class XOregioCPUPlayer implements XOregioPlayer
                 if (j == 0)
                 {
                     emptyRows.add(i); //add the index of the row if it contains a 0
-                    break; /* if a row contains one zero, we don't care if it contains more,
-                              so we break out of the inner loop */
+                    break;            //if a row contains one zero, we don't care if it contains more,
+                                      // so we break out of the inner loop
                 }
             }
         }

@@ -95,13 +95,15 @@ public class XOregioBoard extends JComponent
      */
     public XOregioBoard(int rows, int columns, XOregioPlayer playerX, XOregioPlayer playerO, boolean startAsO)
     {
-        this.xTurn = !startAsO; //swap the turn counter if 'O' goes first
-        this.playerX = playerX; //assign X to instance
-        this.playerO = playerO; //assign O to instance
-        this.rows = rows; //assign rows to instance
-        this.columns = columns; //assign columns to instance
-        this.board = new int[rows][columns]; //initialize board
-        this.addMouseListener(new XOregioMouseListener(this)); //add default mouse listener
+        this.xTurn = !startAsO;                                         //swap the turn counter if 'O' goes first
+        this.playerX = playerX;                                         //assign X to instance
+        this.playerO = playerO;                                         //assign O to instance
+        this.rows = rows;                                               //assign rows to instance
+        this.columns = columns;                                         //assign columns to instance
+        this.board = new int[rows][columns];                            //initialize board
+        this.addMouseListener(new XOregioMouseListener(this));          //add default mouse listener
+
+
         if (playerO.isCpuPlayer() && startAsO) //if O is a robot, and should go first, we ask it to make a move
         {
             int[] move = playerO.getNextMove(this, null);
@@ -222,14 +224,14 @@ public class XOregioBoard extends JComponent
      */
     public void paint(Graphics g)
     {
-        Rectangle r = this.getBounds();
-        g.setColor(Color.DARK_GRAY);
-        int colSpacing = this.getColSpacing();
-        int rowSpacing = this.getRowSpacing();
-        g.drawImage(XOregio.getScaledImage("resource/background.jpg",
-                new Dimension(r.width, r.height)).getImage(), 0, 0, this); /* draw the background image
-                                                                              scaled to the size of the window */
+        Rectangle r = this.getBounds();           //get the bounds of the window
+        g.setColor(Color.DARK_GRAY);              //draw dark grey lines
+        int colSpacing = this.getColSpacing();    //get the column spacing
+        int rowSpacing = this.getRowSpacing();    //get the row spacing
 
+        // draw the background image scaled to the size of the window
+        g.drawImage(XOregio.getScaledImage("resource/background.jpg",
+                new Dimension(r.width, r.height)).getImage(), 0, 0, this);
         for (int i = 1; i < this.rows; i++)
         {
             g.fillRect(0, rowSpacing * i, r.width, 7); //draw horizontal lines for every row
@@ -347,10 +349,10 @@ public class XOregioBoard extends JComponent
                 badDing.start(); //play the bad 'error' sound
             }
             board.choseSquare(coordinates[0], coordinates[1]); //choose the square
+
+             // if the board listener is not null, signal the registered listener that the turn has changed
             if (board.boardListener != null)
-                board.boardListener.turnChanged(board.getCurrentPlayer()); /* if the board listener is not null,
-                                                                              signal the registered listener that
-                                                                              the turn has changed */
+                board.boardListener.turnChanged(board.getCurrentPlayer());
 
             /* if the game has not been won yet, and the second player instance is a CPU, automatically
                get the next move from the CPU player */
@@ -359,15 +361,16 @@ public class XOregioBoard extends JComponent
                 int[] cpuCoordinates = board.getCurrentPlayer().getNextMove(board, null); //the coordinates the cpu chose
                 board.choseSquare(cpuCoordinates[0], cpuCoordinates[1]); //choose the cpu square
                 turnCount++; //because we can be certain that the cpu move is valid, we do not need to check
+
+                // if the board listener is not null, signal the registered listener that the turn has changed
                 if (board.boardListener != null)
-                    board.boardListener.turnChanged(board.getCurrentPlayer()); /* if the board listener is not null,
-                                                                              signal the registered listener that
-                                                                              the turn has changed*/
+                    board.boardListener.turnChanged(board.getCurrentPlayer());
             }
             board.repaint(); //repaint the board to reflect changes
+
+            // if the board listener is not null, and the game is won, signal the registered listener so.
             if (board.win && board.boardListener != null)
-                boardListener.gameWin(!xTurn); /* if the board listener is not null, and the game is won,
-                                                  signal the registered listener so.*/
+                boardListener.gameWin(!xTurn);
         } //mouseReleased
 
         @Override

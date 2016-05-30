@@ -47,17 +47,23 @@ public class XOregio
         //Attempt to set up look and feel of the UI
         try
         {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the windows-style UI
+            //use the windows-style UI
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-            ROBOTO_FONT = Font.createFont(Font.TRUETYPE_FONT, new File("resource/roboto.ttf")); //load Roboto font
+            //load Roboto font
+            ROBOTO_FONT = Font.createFont(Font.TRUETYPE_FONT, new File("resource/roboto.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(ROBOTO_FONT); //register the roboto font for use.
+
+            //register the roboto font for use.
+            ge.registerFont(ROBOTO_FONT);
 
         }
         catch (Exception e)
         {
             System.out.println("Error occcured when setting up Look and Feel.");
-            ROBOTO_FONT = Font.decode(Font.SANS_SERIF); //fallback to the default sans-serif font if font loading fails
+
+            //fallback to the default sans-serif font if font loading fails
+            ROBOTO_FONT = Font.decode(Font.SANS_SERIF);
         }
 
         new XOregio(); //initialize the XOregio instance
@@ -66,50 +72,77 @@ public class XOregio
     public XOregio()
     {
         //component initialization
+
         this.frame = new JFrame("XOregio"); //initialize the window frame
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //make the process exit on closing the window
-        this.gameContainer = new XOregioGamePanel(); /* initialize the game panel that contains the game.
-                                                        This does not yet set up the board, it is lazy and only
-                                                        sets up the board when the user starts the game */
 
-        final JLabel winMessage = new JLabel(); /* The message displayed when someone wins.
-                                                   We need a reference to it to be able to set it later */
+        //make the process exit on closing the window
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        final JLabel winImage = new JLabel(); /* The picture of the winner (either X or O).
-                                                 We need a reference to it to be able to set it later */
+        /* Initialize the game panel that contains the game.
+          This does not yet set up the board, it is lazy and only
+          sets up the board when the user starts the game */
+        this.gameContainer = new XOregioGamePanel();
 
-        JPanel mainMenuContainer = new JPanel(); //the main panel containing all the main menu components
+        /* The message displayed when someone wins.
+           We need a reference to it to be able to set it later */
+        final JLabel winMessage = new JLabel();
+
+        /* The picture of the winner (either X or O).
+           We need a reference to it to be able to set it later */
+        final JLabel winImage = new JLabel();
+
+        //the main panel containing all the main menu components
+        JPanel mainMenuContainer = new JPanel();
 
         //component setup
-        mainMenuContainer.setLayout(new GridLayout(2, 1)); //This grid layout gives it a layout of 2 rows and 1 column
-        gameContainer.setLayout(new BorderLayout()); //Gives the game container the default layout
-        frame.setLayout(new CardLayout()); /* A card layout allows the window to display different child panels
-                                              in the same parent (the window). We have 4 different child panels,
-                                              'MENU' for the main menu,
-                                              'GAME' for the actual game,
-                                              'WIN', for the win screen, and
-                                              'INST' for the instruction screen*/
 
-        /* set the logo of the game, scaled to the full width of the window (500), and half the height of
-           the window (290)*/
+        //This grid layout gives it a layout of 2 rows and 1 column
+        mainMenuContainer.setLayout(new GridLayout(2, 1));
+
+        //Gives the game container the default layout
+        gameContainer.setLayout(new BorderLayout());
+
+         /* A card layout allows the window to display different child panels
+            in the same parent (the window). We have 4 different child panels,
+            'MENU' for the main menu,
+            'GAME' for the actual game,
+            'WIN', for the win screen, and
+            'INST' for the instruction screen*/
+        frame.setLayout(new CardLayout());
+
+        // set the logo of the game, scaled to the full width of the window (500), and half the height of the window (290)
         JLabel logo = new JLabel(getScaledImage("resource/logo.jpg", new Dimension(500, 290)));
-        mainMenuContainer.add(logo); //add the logo to the main container
-        mainMenuContainer.add(createMenuButtonsPanel(winMessage, winImage)); /* create the main menu buttons
-                                                                                and add it to the container */
+        //add the logo to the main container
+        mainMenuContainer.add(logo);
+        //create the main menu buttons and add it to the container
+        mainMenuContainer.add(createMenuButtonsPanel(winMessage, winImage));
 
         //adding components to the main window
-        frame.add(mainMenuContainer, "MENU"); //add the main menu container as 'MENU'
-        frame.add(gameContainer, "GAME"); //add the game container as 'GAME'
-        frame.add(createWinPanel(winMessage, winImage), "WIN"); //create and add the win screen as 'WIN'
-        frame.add(createInstructionsPanel(), "INST"); //create and add the instruction screen as 'INST'
+
+        //add the main menu container as 'MENU'
+        frame.add(mainMenuContainer, "MENU");
+
+        //add the game container as 'GAME'
+        frame.add(gameContainer, "GAME");
+
+        //create and add the win screen as 'WIN'
+        frame.add(createWinPanel(winMessage, winImage), "WIN");
+
+        //create and add the instruction screen as 'INST'
+        frame.add(createInstructionsPanel(), "INST");
 
         //frame setup
-        frame.setIconImage(XOregioBoard.PLAY_IMAGES[2].getImage()); /* set the taskbar icon as the 'O' from
-                                                                       our game images */
-        frame.setSize(500, 580); //set the size to 500 by 580
-        frame.setLocationRelativeTo(null); //Setting location relative to null centers the window
-        frame.setVisible(true); //set it visible
-        frame.setResizable(false); //prevent resizing
+
+        //set the taskbar icon as the 'O' from our game images
+        frame.setIconImage(XOregioBoard.PLAY_IMAGES[2].getImage());
+        //set the size to 500 by 580
+        frame.setSize(500, 580);
+        //Setting location relative to null centers the window
+        frame.setLocationRelativeTo(null);
+        //set it visible
+        frame.setVisible(true);
+        //prevent resizing
+        frame.setResizable(false);
 
     } // XOregio constructor
 
@@ -119,14 +152,17 @@ public class XOregio
      */
     private JButton createReturnToMenuButton()
     {
-        JButton returnButton = createRobotoStyledButton("Return to Main Menu"); //create a button with the label text
+        //create a button with the label text
+        JButton returnButton = createRobotoStyledButton("Return to Main Menu");
         returnButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) //happens when the button is clicked
             {
-                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout()); //get the layout of the window
-                cl.show(frame.getContentPane(), "MENU"); //when the button is clicked, show the 'MENU' frame.
+                //get the layout of the window
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+                //when the button is clicked, show the 'MENU' frame.
+                cl.show(frame.getContentPane(), "MENU");
             }
         });
         return returnButton; //return the assembled button.
@@ -155,13 +191,15 @@ public class XOregio
                                       final XOregioPlayer playerOne,
                                       final XOregioPlayer playerTwo)
     {
-        JButton startButton = createSwitchToGameButton(label); //creates a button that switches to the 'GAME' view
+        //creates a button that switches to the 'GAME' view
+        JButton startButton = createSwitchToGameButton(label);
         startButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent actionEvent) //happens when the button is clicked
             {
-                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout()); //get the layout of the window
+                //get the layout of the window
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
                 gameContainer.setBoardListener(new XOregioBoardListener()
                 {
                     @Override
@@ -175,13 +213,15 @@ public class XOregio
                     @Override
                     public void gameWin(boolean isXWin) //this happens when the game is won.
                     {
-                        winMessage.setText((isXWin ? "X" : "O") + " Wins!"); //set the text to the proper winner
+                        //set the text to the proper winner
+                        winMessage.setText((isXWin ? "X" : "O") + " Wins!");
+
+                        //display the image of the winning player
                         winImage.setIcon(getScaledImage(isXWin ? XOregioBoard.PLAY_IMAGES[1].getImage()
                                         : XOregioBoard.PLAY_IMAGES[2].getImage(),
-                                        new Dimension(150, 150)));  //display the image of the winning player
+                                        new Dimension(150, 150)));
 
-                        /* prepare for a restart by resetting the board in the background with the same
-                           parameters */
+                        // prepare for a restart by resetting the board in the background with the same parameters
                         gameContainer.setupBoard(settingsPanel.getRows(), settingsPanel.getColumns(),
                                 playerOne, playerTwo, settingsPanel.isMusicEnabled(),
                                 settingsPanel.isOStartsFirst());
@@ -190,7 +230,7 @@ public class XOregio
                         cl.show(frame.getContentPane(), "WIN");
                     }
                 });
-                /* Set up the board with the given parameters */
+                // Set up the board with the given parameters
                 gameContainer.setupBoard(settingsPanel.getRows(), settingsPanel.getColumns(),
                         playerOne, playerTwo, settingsPanel.isMusicEnabled(),
                         settingsPanel.isOStartsFirst());
@@ -217,9 +257,15 @@ public class XOregio
                 "            The winner is the player that makes the last move." +
                 "        </div>" +
                 "</html>");
-        instructionsContent.setFont(ROBOTO_FONT.deriveFont(14f)); //sets the font to roboto
-        instructionsContainer.add(instructionsContent); //add the instructions to the panel
-        instructionsContainer.add(createReturnToMenuButton()); //add a button to return to the main menu
+
+        //sets the font to roboto
+        instructionsContent.setFont(ROBOTO_FONT.deriveFont(14f));
+
+        //add the instructions to the panel
+        instructionsContainer.add(instructionsContent);
+
+        //add a button to return to the main menu
+        instructionsContainer.add(createReturnToMenuButton());
         return instructionsContainer; //return the constructed panel
     } //createInstructionsPanel
 
@@ -236,8 +282,11 @@ public class XOregio
             @Override
             public void actionPerformed(ActionEvent actionEvent) //happens when the button is clicked
             {
-                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout()); //get the cardlayout
-                cl.show(frame.getContentPane(), "GAME"); //show the 'GAME' panel
+                //get the cardlayout
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+
+                //show the 'GAME' panel
+                cl.show(frame.getContentPane(), "GAME");
             }
         });
         return switchButton; //return the constructed button
@@ -253,27 +302,40 @@ public class XOregio
     private JPanel createMenuButtonsPanel(JLabel winMessage, JLabel winImage)
     {
         //component initialization
-        XOregioSettingsPanel settings = new XOregioSettingsPanel(); //initialize the settings panel
-        JPanel settingsContainer = new JPanel(); //a container that contains the instructions and the settings
-        JPanel menuContainer = new JPanel(); //a container that contains the menu.
 
-        menuContainer.setLayout(new GridLayout(1, 3)); //set the layout of the menu container to 1 row, 3 columns
+        //initialize the settings panel
+        XOregioSettingsPanel settings = new XOregioSettingsPanel();
 
-        JButton instructionsButton = createRobotoStyledButton("Show Instructions"); /* create a Roboto styled
-                                                                                       button to show instructions */
+        //a container that contains the instructions and the settings
+        JPanel settingsContainer = new JPanel();
+
+        //a container that contains the menu.
+        JPanel menuContainer = new JPanel();
+
+        //set the layout of the menu container to 1 row, 3 columns
+        menuContainer.setLayout(new GridLayout(1, 3));
+
+        // create a Roboto styled button to show instructions
+        JButton instructionsButton = createRobotoStyledButton("Show Instructions");
 
         instructionsButton.addActionListener(new ActionListener() //happens when the button is clicked
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout()); //get the cardlayout
-                cl.show(frame.getContentPane(), "INST"); //show the instruction panel.
+                //get the cardlayout
+                final CardLayout cl = (CardLayout) (frame.getContentPane().getLayout());
+
+                //show the instruction panel.
+                cl.show(frame.getContentPane(), "INST");
             }
         });
 
-        settingsContainer.add(instructionsButton); //add the instructions showing button to the settings container
-        settingsContainer.add(settings); //add the settings panel to the settings container
+        //add the instructions showing button to the settings container
+        settingsContainer.add(instructionsButton);
+
+        //add the settings panel to the settings container
+        settingsContainer.add(settings);
 
         //For single player, the user plays with the CPU.
         menuContainer.add(createStartButton(settings, winMessage, winImage, "Single Player",
@@ -283,7 +345,8 @@ public class XOregio
         menuContainer.add(createStartButton(settings, winMessage, winImage, "Multi-Player",
                                             new XOregioHumanPlayer(), new XOregioHumanPlayer()));
 
-        menuContainer.add(settingsContainer); //add the settings to the menu
+        //add the settings to the menu
+        menuContainer.add(settingsContainer);
 
         return menuContainer; //return the constructed menu
     } // createMenuButtonsPanel
@@ -296,38 +359,56 @@ public class XOregio
      */
     private JPanel createWinPanel(JLabel winMessage, JLabel winImage)
     {
-        JPanel winContainer = new JPanel(); //initialize the panel
-        JPanel endButtonContainer = new JPanel(); /* initialize a container that contains the 2 buttons on what to do
-                                                     after the game is won. */
+        //initialize the panel
+        JPanel winContainer = new JPanel();
 
-        endButtonContainer.setLayout(new GridLayout(1, 2)); //set the layout to 1 row, 2 columns
-        winContainer.setLayout(new GridLayout(0, 1)); //set the layout to single-column
+        // initialize a container that contains the 2 buttons on what to do after the game is won.
+        JPanel endButtonContainer = new JPanel();
 
-        endButtonContainer.add(createSwitchToGameButton("Restart Game")); /* create a button that simply goes back
-                                                                             to the game panel. Because the game state
-                                                                             has already been set up for us before-hand,
-                                                                             we do not need to worry about set up when
-                                                                             returning to the game after it has been
-                                                                             won. */
+        //set the button container layout to 1 row, 2 columns
+        endButtonContainer.setLayout(new GridLayout(1, 2));
 
-        final JButton menuReturnButton = createReturnToMenuButton(); //create a return to menu button
-        menuReturnButton.addActionListener(new ActionListener() //happens when the button is clicked
+        //set the win screen layout to single-column
+        winContainer.setLayout(new GridLayout(0, 1));
+
+        /* create a button that simply goes back to the game panel. Because the game state has already been
+        set up for us before-hand, we do not need to worry about set up when returning to the game
+        after it has been won. */
+        endButtonContainer.add(createSwitchToGameButton("Restart Game"));
+
+        //create a return to menu button
+        JButton menuReturnButton = createReturnToMenuButton();
+
+        menuReturnButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e)
+            public void actionPerformed(ActionEvent e)  //happens when the button is clicked
             {
-                gameContainer.stopMusic(); //stop the music in the main menu.
+                //stop the music in the main menu.
+                gameContainer.stopMusic();
             }
         });
-        endButtonContainer.add(menuReturnButton); //add the menu return button to the container
 
-        winContainer.add(endButtonContainer); //add the button container
-        winContainer.add(winImage); //add the image
-        winContainer.add(winMessage); //add the message
+        //add the menu return button to the container
+        endButtonContainer.add(menuReturnButton);
 
-        winImage.setHorizontalAlignment(JLabel.CENTER); //make the image centered
-        winMessage.setHorizontalAlignment(JLabel.CENTER); //make the message centered
-        winMessage.setFont(ROBOTO_FONT.deriveFont(Font.BOLD, 20f)); //make the win message font bigger and bold
+        //add the button container
+        winContainer.add(endButtonContainer);
+
+        //add the image
+        winContainer.add(winImage);
+
+        //add the message
+        winContainer.add(winMessage);
+
+        //make the image centered
+        winImage.setHorizontalAlignment(JLabel.CENTER);
+
+        //make the message centered
+        winMessage.setHorizontalAlignment(JLabel.CENTER);
+
+        //make the win message font bigger and bold
+        winMessage.setFont(ROBOTO_FONT.deriveFont(Font.BOLD, 20f));
 
         return winContainer; //return the constructed win screen
     } // createWinPanel
@@ -339,8 +420,12 @@ public class XOregio
      */
     private static JButton createRobotoStyledButton(String label)
     {
-        JButton button = new JButton(label); //create a new button with the specified lable
-        button.setFont(ROBOTO_FONT.deriveFont(14f)); //set the font to 14pt Roboto
+        //create a new button with the specified label
+        JButton button = new JButton(label);
+
+        //set the font to 14pt Roboto
+        button.setFont(ROBOTO_FONT.deriveFont(14f));
+
         return button; //return the button
     } // createRobotoStyledButton
 
@@ -356,7 +441,8 @@ public class XOregio
         BufferedImage img = null; //assign a new BufferedImage to read the image data into
         try
         {
-            img = ImageIO.read(new File(image)); //attempt to read the file into the image
+            //attempt to read the file into the image
+            img = ImageIO.read(new File(image));
         }
         catch (IOException e)
         {
@@ -374,8 +460,8 @@ public class XOregio
      */
     public static ImageIcon getScaledImage(Image image, Dimension dimension)
     {
-        Image scaledImage = image.getScaledInstance(dimension.width, dimension.height,
-                Image.SCALE_SMOOTH); //scale the image with smooth scaling mode
+        //scale the image with smooth scaling mode
+        Image scaledImage = image.getScaledInstance(dimension.width, dimension.height, Image.SCALE_SMOOTH);
         return new ImageIcon(scaledImage); //return the image in the form of an ImageIcon
     } // getScaledImage
 
@@ -416,23 +502,32 @@ class XOregioSettingsPanel extends JPanel
 
     public XOregioSettingsPanel()
     {
-        JPanel comboBoxContainer = new JPanel(); //the container that contains the rows and columns dropdown together
-        comboBoxContainer.setLayout(new GridLayout(0, 2)); /* give it a grid layout with 2 columns, one for the label
-                                                              and one for the actual dropdown */
+        //the container that contains the rows and columns dropdown together
+        JPanel comboBoxContainer = new JPanel();
 
-        this.setLayout(new GridLayout(0, 1)); // give the settings panel a single-column layout.
+        // give it a grid layout with 2 columns, one for the label and one for the actual dropdown
+        comboBoxContainer.setLayout(new GridLayout(0, 2));
+
+        // give the settings panel a single-column layout.
+        this.setLayout(new GridLayout(0, 1));
 
         //component initialization
-        this.playMusic = new JCheckBox("Play Music"); //the checkbox that determines if music is played
-        JLabel rowLabel = new JLabel("Rows: "); //label for rows dropdown
-        JLabel columnLabel = new JLabel("Columns: "); //label for columns dropdown
 
-        /* initialize the rows and columns dropdowns using grid sizes using
-           as generic Integer combo boxes */
+        //the checkbox that determines if music is played
+        this.playMusic = new JCheckBox("Play Music");
+
+        //label for rows dropdown
+        JLabel rowLabel = new JLabel("Rows: ");
+
+        //label for columns dropdown
+        JLabel columnLabel = new JLabel("Columns: ");
+
+        // initialize the rows and columns dropdowns using grid sizes using as generic Integer combo boxes
         this.rows = new JComboBox<>(GRID_SIZES);
         this.cols = new JComboBox<>(GRID_SIZES);
 
-        this.startO = new JCheckBox("O goes First"); //the checkbox that determines if O goes first
+        //the checkbox that determines if O goes first
+        this.startO = new JCheckBox("O goes First");
 
         //Setting the fonts of all components to 14pt Roboto
         rowLabel.setFont(XOregio.ROBOTO_FONT.deriveFont(14f));
@@ -447,14 +542,26 @@ class XOregioSettingsPanel extends JPanel
         this.rows.setSelectedIndex(3); //index 3 is 4 rows
         this.playMusic.setSelected(true); //enable music by default
 
-        comboBoxContainer.add(rowLabel); //add the row label to the dropdown container
-        comboBoxContainer.add(rows); //add the row dropdown to the dropdown container
-        comboBoxContainer.add(columnLabel); //add the column label to the dropdown container
-        comboBoxContainer.add(cols); //add the column dropdown to the dropdown container
+        //add the row label to the dropdown container
+        comboBoxContainer.add(rowLabel);
 
-        this.add(playMusic); //add the play music checkbox to the settings panel
-        this.add(startO); //add the 'O' starts first checkbox to the settings panel
-        this.add(comboBoxContainer); //add the dropdown container to the settings panel
+        //add the row dropdown to the dropdown container
+        comboBoxContainer.add(rows);
+
+        //add the column label to the dropdown container
+        comboBoxContainer.add(columnLabel);
+
+        //add the column dropdown to the dropdown container
+        comboBoxContainer.add(cols);
+
+        //add the play music checkbox to the settings panel
+        this.add(playMusic);
+
+        //add the 'O' starts first checkbox to the settings panel
+        this.add(startO);
+
+        //add the dropdown container to the settings panel
+        this.add(comboBoxContainer);
     } // XOregioSettingsPanel constructor
 
     /**
@@ -532,13 +639,24 @@ class XOregioGamePanel extends JPanel
     {
         try
         {
-            File soundFile = new File("resource/Elevator_Music.wav"); //load the music from file
-            this.backgroundMusic = AudioSystem.getClip(); //get an audio clip from the OS
-            AudioInputStream inputStream = AudioSystem //load the file as an audio stream
+            //load the music from file
+            File soundFile = new File("resource/Elevator_Music.wav");
+
+            //get an audio clip from the OS
+            this.backgroundMusic = AudioSystem.getClip();
+
+            //load the file as an audio stream
+            AudioInputStream inputStream = AudioSystem
                     .getAudioInputStream(new BufferedInputStream(new FileInputStream(soundFile)));
-            backgroundMusic.open(inputStream); //load the audio steam into the clip
-            backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY); //loop forever
-            backgroundMusic.start(); //start te clip
+
+            //load the audio steam into the clip
+            backgroundMusic.open(inputStream);
+
+            //loop forever
+            backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
+
+            //start the clip
+            backgroundMusic.start();
         }
         catch(Exception e)
         {
@@ -551,8 +669,7 @@ class XOregioGamePanel extends JPanel
      */
     public void stopMusic()
     {
-        /* if the background music was previously loaded, and is currently running, only then will we
-        attempt to stop it */
+        //if the background music was previously loaded, and is currently running, only then will we attempt to stop it
         if(this.backgroundMusic != null && this.backgroundMusic.isRunning())
             backgroundMusic.stop();
     } // stopMusic
@@ -563,8 +680,8 @@ class XOregioGamePanel extends JPanel
      */
     public void setStatusText(String text)
     {
-        this.message.setText(text); /* instead of exposing the entire JLabel, we will just expose this one method
-                                       that changes the status text */
+        //instead of exposing the entire JLabel, we will just expose this one method that changes the status text
+        this.message.setText(text);
     }
 
     /**
@@ -597,19 +714,24 @@ class XOregioGamePanel extends JPanel
 
         if ((this.backgroundMusic == null || !this.backgroundMusic.isRunning()) && playMusic)
         {
-            this.startMusic(); /* Start the audio if it was previously loaded,
-                                  only if the music is not already running (preventing duplicate audio) and only if
-                                  the user chose to play music. */
+            /* Start the audio if it was previously loaded, only if the music is not already running
+               (preventing duplicate audio) and only if the user chose to play music. */
+            this.startMusic();
         }
         this.board = new XOregioBoard(rows, cols, playerX, playerO, startAsO); //initialize a new board
 
+        // re-attach the board listener to the new instance of the XOregioBoard
         if (this.listener != null)
-            this.board.setBoardListener(this.listener); /* re-attach the board listener to the new instance of the
-                                                           XOregioBoard */
+            this.board.setBoardListener(this.listener);
 
-        message.setText((board.xTurn ? "X" : "O")  + "'s Turn | Turn " + board.turnCount); //set the default message
-        this.add(board); //add the board to the panel
-        this.add(message, BorderLayout.PAGE_END); //add the message to the end of the panel
+        //set the default message
+        message.setText((board.xTurn ? "X" : "O")  + "'s Turn | Turn " + board.turnCount);
+
+        //add the board to the panel
+        this.add(board);
+
+        //add the message to the end of the panel
+        this.add(message, BorderLayout.PAGE_END);
         this.revalidate(); //revalidate must be called if the panel has been shown previously
     }
 } //XOregioGamePanel class
