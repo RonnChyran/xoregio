@@ -305,7 +305,8 @@ public class XOregioBoard extends JComponent
                         (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                 gainControl.setValue(-10.0f); // turn down the volume (gain)
                 return clip;
-            } catch (Exception g)
+            }
+            catch (Exception g)
             {
                 g.printStackTrace();
                 System.out.println("Unable to load sound file " + fileName);
@@ -350,7 +351,7 @@ public class XOregioBoard extends JComponent
             }
             board.choseSquare(coordinates[0], coordinates[1]); //choose the square
 
-             // if the board listener is not null, signal the registered listener that the turn has changed
+            // if the board listener is not null, signal the registered listener that the turn has changed
             if (board.boardListener != null)
                 board.boardListener.turnChanged(board.getCurrentPlayer());
 
